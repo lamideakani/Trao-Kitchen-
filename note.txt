@@ -1,0 +1,116 @@
+
+BrfSubMenu.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'Block';
+    IntDishes.style.display = 'None';
+    SnackSec.style.display = 'None';
+    DrinksSec.style.display = 'None';
+})
+
+BrfSubMenu2.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'None';
+    IntDishes.style.display = 'Block';
+    SnackSec.style.display = 'None';
+    DrinksSec.style.display = 'None';
+})
+
+BrfSubMenu3.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'None';
+    IntDishes.style.display = 'None';
+    SnackSec.style.display = 'Block';
+    DrinksSec.style.display = 'None';
+})
+
+DrinksSubMenu.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'None';
+    IntDishes.style.display = 'None';
+    SnackSec.style.display = 'None';
+    DrinksSec.style.display = 'Block';
+
+})
+IntFodSubMenu.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'None';
+    IntDishes.style.display = 'Block';
+    SnackSec.style.display = 'None';
+    DrinksSec.style.display = 'None';
+
+})
+SnacksSubMenu.addEventListener('click', function(){
+    SecList.style.display = 'None';
+    Testimonial.style.display = 'None';
+    LocDishes.style.display = 'None';
+    IntDishes.style.display = 'None';
+    SnackSec.style.display = 'Block';
+    DrinksSec.style.display = 'None';
+    
+})
+LocFodSubMenu.addEventListener('click', function(){
+ SecList.style.display = 'None';
+ Testimonial.style.display = 'None';
+ LocDishes.style.display = 'Block';
+ IntDishes.style.display = 'None';
+ SnackSec.style.display = 'None';
+ DrinksSec.style.display = 'None'
+})
+
+
+
+
+
+ .testimonial-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-content {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+  }
+
+  .author-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+  }
+
+  .author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-info {
+    font-weight: bold;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #007aff;
+  }
