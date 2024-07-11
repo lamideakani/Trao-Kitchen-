@@ -150,16 +150,15 @@ TOP BAR SECTION
           
           <!-- Floating cart icon -->
 <div class="cart-icon" onclick="toggleCart()">
-  <i class="fas fa-shopping-cart"></i>
-  <span id="cart-count" class="cart-count">0</span>
+  <i class="fas fa-shopping-cart">  Cart <span id="cart-count" class="cart-count"> • 0</span></i>
 </div>
-<!--  Cart panel -->
+ <!-- Cart panel
 <div id="cart-panel" class="cart-panel">
   <h2>Your Cart</h2>
   <ul id="cart-items" class="cart-items">
   </ul>
   <p id="cart-total" class="cart-total">Total: N0.00</p>
-</div>
+</div> -->
 
         </ul>
 
@@ -188,11 +187,29 @@ TOP BAR SECTION
 
       </nav>
 
-      <a href="#" class="find-a-table-btn btn-secondary">
-        <span class="text text-1">SIGNUP/LOGIN</span>
+      <div class="dropdown">
+        <i class="fa-solid fa-user-tie lg-su-avatar"></i>
+        <!-- <div class="dropdown-content"> -->
+<!-- logged in -->
+          <div class="profile-container">
+            <h1 class="pf-ct">Hello, User</h1>
+            <button class="update-profile">Update Profile</button>
+            <button class="transaction-history">Transaction History</button>
+            <button class="logout">Logout</button>
+        </div>
 
-        <span class="text text-2" aria-hidden="true">SIGNUP/LOGIN</span>
-      </a>
+<!-- not logged in -->
+        <div class="profile-container2">
+          <h1 class="pf-ct2">Sign Up/ Sign In</h1>
+          <a href="/Trao-Kitchen-/clientlogin.html"><button class="login">CUSTOMER</button></a>
+          <a href="/Trao-Kitchen-/signup.html"><button class="login">ADMIN</button></a>
+      </div>
+        <!-- </div> -->
+        
+      </div>
+      
+
+
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
         <span class="line line-1"></span>

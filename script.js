@@ -187,14 +187,14 @@ function updateCartUI() {
 
 
 
-function toggleCart() {
-    const cartPanelElement = document.getElementById('cart-panel');
-    if (cartPanelElement.style.display === 'block') {
-        cartPanelElement.style.display = 'none';
-    } else {
-        cartPanelElement.style.display = 'block';
-    }
-}
+// function toggleCart() {
+//     const cartPanelElement = document.getElementById('cart-panel');
+//     if (cartPanelElement.style.display === 'block') {
+//         cartPanelElement.style.display = 'none';
+//     } else {
+//         cartPanelElement.style.display = 'block';
+//     }
+// }
 
 
 
