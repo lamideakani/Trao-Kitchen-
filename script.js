@@ -200,52 +200,52 @@ function updateCartUI() {
 
 
 
-let currentTestimonial = 0;
+// let currentTestimonial = 0;
 // var MinMenu = document.getElementById('Loc-Dishes');
-var BrfSubMenu = document.getElementById('MenuLink1');
-var BrfSubMenu2 = document.getElementById('MenuLink2');
-var BrfSubMenu3 = document.getElementById('MenuLink3');
-var SecList = document.getElementById('Menulist');
-var Testimonial = document.getElementById('testimonial');
-var LocDishes = document.getElementById('Loc-Dishes');
-var IntDishes = document.getElementById('Int-Dishes');
-var SnackSec = document.getElementById('Snacks');
-var DrinksSec = document.getElementById('Drinks');
-var DrinksSubMenu = document.getElementById('Drinks-SubMenu');
-var LocFodSubMenu = document.getElementById('loc-SubMenu');
-var IntFodSubMenu = document.getElementById('Int-SubMenu');
-var SnacksSubMenu =document.getElementById('Snacks-SubMenu')
+// var BrfSubMenu = document.getElementById('MenuLink1');
+// var BrfSubMenu2 = document.getElementById('MenuLink2');
+// var BrfSubMenu3 = document.getElementById('MenuLink3');
+// var SecList = document.getElementById('Menulist');
+// var Testimonial = document.getElementById('testimonial');
+// var LocDishes = document.getElementById('Loc-Dishes');
+// var IntDishes = document.getElementById('Int-Dishes');
+// var SnackSec = document.getElementById('Snacks');
+// var DrinksSec = document.getElementById('Drinks');
+// var DrinksSubMenu = document.getElementById('Drinks-SubMenu');
+// var LocFodSubMenu = document.getElementById('loc-SubMenu');
+// var IntFodSubMenu = document.getElementById('Int-SubMenu');
+// var SnacksSubMenu =document.getElementById('Snacks-SubMenu')
 
 
-LocFodSubMenu.addEventListener('click', function(){
-    LocDishes.style.display = 'Block';
-    IntDishes.style.display = 'None';
-    SnackSec.style.display = 'None';
-    DrinksSec.style.display = 'None';
-    SecList.style.display = 'None'
-})
-IntFodSubMenu.addEventListener('click', function(){
-    LocDishes.style.display = 'None';
-    IntDishes.style.display = 'Block';
-    SnackSec.style.display = 'None';
-    DrinksSec.style.display = 'None';
-    SecList.style.display = 'None'
-})
+// LocFodSubMenu.addEventListener('click', function(){
+//     LocDishes.style.display = 'Block';
+//     IntDishes.style.display = 'None';
+//     SnackSec.style.display = 'None';
+//     DrinksSec.style.display = 'None';
+//     SecList.style.display = 'None'
+// })
+// IntFodSubMenu.addEventListener('click', function(){
+//     LocDishes.style.display = 'None';
+//     IntDishes.style.display = 'Block';
+//     SnackSec.style.display = 'None';
+//     DrinksSec.style.display = 'None';
+//     SecList.style.display = 'None'
+// })
 
-SnacksSubMenu.addEventListener('click', function(){
-    LocDishes.style.display = 'None';
-    IntDishes.style.display = 'None';
-    SnackSec.style.display = 'Block';
-    DrinksSec.style.display = 'None';
-    SecList.style.display = 'None'
-})
-DrinksSubMenu.addEventListener('click', function(){
-    LocDishes.style.display = 'None';
-    IntDishes.style.display = 'None';
-    SnackSec.style.display = 'None';
-    DrinksSec.style.display = 'Block';
-    SecList.style.display = 'None'
-})
+// SnacksSubMenu.addEventListener('click', function(){
+//     LocDishes.style.display = 'None';
+//     IntDishes.style.display = 'None';
+//     SnackSec.style.display = 'Block';
+//     DrinksSec.style.display = 'None';
+//     SecList.style.display = 'None'
+// })
+// DrinksSubMenu.addEventListener('click', function(){
+//     LocDishes.style.display = 'None';
+//     IntDishes.style.display = 'None';
+//     SnackSec.style.display = 'None';
+//     DrinksSec.style.display = 'Block';
+//     SecList.style.display = 'None'
+// })
 
 
 var swiper = new Swiper('.swiper-container', {
@@ -261,7 +261,7 @@ var swiper = new Swiper('.swiper-container', {
   const prevButton = document.querySelector('.prev-btn');
   const nextButton = document.querySelector('.next-btn');
   let currentIndex = 0;
-  const slideInterval = 3500; // Time in milliseconds (5000ms = 5 seconds)
+  const slideInterval = 5000; // Time in milliseconds (5000ms = 5 seconds)
   
   function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -292,6 +292,61 @@ var swiper = new Swiper('.swiper-container', {
   const autoSlides = setInterval(nextSlide, slideInterval);
   
   showSlide(currentIndex);
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const headings = document.querySelectorAll('.headings');
+    const trainingContainers = document.querySelectorAll('.trainingContainer');
+  
+    headings.forEach((heading, index) => {
+      heading.addEventListener('click', function() {
+        trainingContainers.forEach(container => container.style.display = 'none');
+        trainingContainers[index].style.display = 'block';
+  
+        headings.forEach(h => h.style.color = '#232d39');
+        heading.style.color = '#ff7200';
+      });
+    });
+  });
+  
+  // Sub-Menu List ()
+  const Header1 = document.getElementById('head1');
+  const Header2 = document.getElementById('head2');
+  const Header3 = document.getElementById('head3');
+  const Header4 = document.getElementById('head4');
+  
+  const LocDish = document.getElementById('Loc-Dishes');
+  const IntDIsh = document.getElementById('Int-Dishes');
+  const Snacks = document.getElementById('Snacks');
+  const Drinks = document.getElementById('Drinks')
+  
+  
+  Header1.addEventListener('click', function(){
+    LocDish.style.display = 'block';
+    IntDIsh.style.display = 'none';
+    Snacks.style.display = 'none';
+    Drinks.style.display = 'none'
+  });
+  
+  Header2.addEventListener('click', function(){
+    LocDish.style.display = 'none';
+    IntDIsh.style.display = 'block';
+    Snacks.style.display = 'none';
+    Drinks.style.display = 'none'
+  });
+  Header3.addEventListener('click', function(){
+    LocDish.style.display = 'none';
+    IntDIsh.style.display = 'none';
+    Snacks.style.display = 'block';
+    Drinks.style.display = 'none'
+  });
+  Header4.addEventListener('click', function(){
+    LocDish.style.display = 'none';
+    IntDIsh.style.display = 'none';
+    Snacks.style.display = 'none';
+    Drinks.style.display = 'block'
+  })
   
 // let slideIndex = 0;
 

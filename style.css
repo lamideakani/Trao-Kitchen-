@@ -1029,7 +1029,7 @@ CART
 
 
   #Loc-Dishes{
-    display: none;
+    display: block;
     /* background-image: url(./assets/img-pattern.svg); */
     background-repeat: no-repeat;
     background-position: center;
@@ -1038,7 +1038,7 @@ CART
     overflow: hidden;
     /* display: flex; */
     justify-content: space-between;
-    transition: transform 1s infinite;
+    transition: transform 3s infinite;
 }
 #Loc-Dishes:hover{
     transform: scale(1.05);
@@ -1047,7 +1047,7 @@ CART
     width: 100%;
     height: 80%;
     display: flex;
-    transition: transform 0.5s infinite;
+    transition: transform 2.5s infinite;
 }
 #Loc-Dishes:hover img{
 transform: translateX(180deg);
@@ -1094,7 +1094,7 @@ transform: translateX(180deg);
       justify-content: space-between;
       transition: transform 1s infinite;
   } 
-  #Int-Dishes{
+  /* #Int-Dishes{
     display: none;
     background-repeat: no-repeat;
     background-position: center;
@@ -1103,7 +1103,7 @@ transform: translateX(180deg);
     overflow: hidden;
     justify-content: space-between;
     transition: transform 1s infinite;
-  }
+  } */
 
 
 /* Special Offer */
@@ -2288,9 +2288,7 @@ animation: pulse2 2s infinite;
 #Loc-Dishes:hover{
     transform: scale(1.05);
 } 
-#Loc-Dishes::after{
-    content: "";
-}
+
 #Loc-Dishes img {
     width: 100%;
     height: 80%;
@@ -2337,11 +2335,11 @@ background-size: cover;
      justify-content: space-between;
      transition: transform 1s infinite;
  } */
-  #Drinks{
+  /* #Drinks{
     display: none;
-     background-repeat: no-repeat;
+     background-repeat: no-repeat; */
     /* background-image: url(./assets/drink-bg.jpeg); */
-    background-size:cover;
+    /* background-size:cover;
      transition: transform 0.5s, background-size 0.5s;
      position: relative;
      overflow: hidden;  
@@ -2350,15 +2348,15 @@ background-size: cover;
  } 
  #Int-Dishes{
     display: none;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     /* background-image: url(./assets/int-dishes.jpeg); */
-    background-size: cover;
+    /* background-size: cover;
     transition: transform 0.5s, background-size 0.5s;
     position: relative;
     overflow: hidden;
     justify-content: space-between;
     transition: transform 1s infinite;
- }
+ } */
 
  .slider-body {
   font-family: Arial, sans-serif;
@@ -2401,9 +2399,11 @@ background-size: cover;
 .slides p {
  
   font-weight: 900;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 1.5;
   margin: 0 0 10px;
+  break-after: auto;
+  text-align: center;
 }
 
 .slides h1{
@@ -2438,7 +2438,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 .img-Testy{
-  width: 400px;
+  width: 200px;
   margin-top: 1.5rem;
   border-radius: 3.5rem;
 }
@@ -2448,6 +2448,160 @@ button:hover {
   color: var(--tertiary-color);
   margin-top: 20px;
   text-align: center;
+}
+
+
+
+.headingBar {
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+
+}
+
+#v-pills-tabContent{
+color: #ff7200;
+}
+
+.headings {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 15px 20px;  /* Adjusted padding */
+  border: none;
+  width: 100%;  /* Changed max-width to width */
+  margin-bottom: 15px;  /* Adjusted margin */
+  /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
+  font-size: 19px;
+  color: #232d39;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-align: left;  /* Changed to left align */
+  cursor: pointer;
+  box-shadow: 1px 0px 20px goldenrod;
+  display: flex;  /* Added flex properties */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headings img {
+  vertical-align: middle;
+  margin-right: 10px;  /* Adjusted margin */
+}
+
+
+.headings:hover {
+  background-color: burlywood;
+  color: #ff7200;
+}
+
+/* .headings img {
+  vertical-align: middle;
+  padding-right: 11px;
+} */
+
+.signupBtn1 {
+  padding: 20px 90px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 19px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background-color: #ff7200;
+  color: white;
+}
+
+.signupBtn1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.signupBtn1:hover {
+  opacity: 0.7;
+  background-color: burlywood;
+}
+
+.trainingContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px greenyellow(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 1000;
+  transition: 1s ease-in-out;
+}
+
+
+.trainingContainer img {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.trainingContainer img:hover {
+  transform: scale(1.05);
+}
+
+.training {
+  margin-bottom: 18px;
+  font-size: 19px;
+}
+
+.text3 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  line-height: 26px;
+}
+
+.discover1 {
+  color: var(--white-color);
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.discover1 a {
+  color: white;
+}
+
+.discover1:hover {
+  opacity: 0.7;
+}
+
+Asection {
+  display: block;
+  justify-content: space-around;
+  margin-left: 30px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px greenyellow;
+}
+
+.Sub-menu img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.Sub-menu img:hover {
+  transform: scale(1.1);
+}
+.tab-pane{
+  color: #ff7200;
+}
+.tab-pane img{
+  border-radius: 2rem;
 }
 
  /* .testimonial-container {

@@ -141,7 +141,7 @@ TOP BAR SECTION
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
+            <a href="#contact" class="navbar-link hover-underline">
               <div class="divider"></div>
 
               <span class="span">Contact</span>
@@ -201,8 +201,8 @@ TOP BAR SECTION
 <!-- not logged in -->
         <div class="profile-container2">
           <h1 class="pf-ct2">Sign Up/ Sign In</h1>
-          <a href="/Trao-Kitchen-/clientlogin.html"><button class="login">CUSTOMER</button></a>
-          <a href="/Trao-Kitchen-/signup.html"><button class="login">ADMIN</button></a>
+          <a href="/clientlogin.html"><button class="login">CUSTOMER</button></a>
+          <a href="/signup.html"><button class="login">ADMIN</button></a>
       </div>
         <!-- </div> -->
         
@@ -320,271 +320,176 @@ TOP BAR SECTION
 </section>
 
 
+<!-- Sub_menu -->
 
-<!-- SubMenu Landing Page -->
-<div class="Royalty text-center">
-<p class="fs-4 mx-4 label-2">
-  <span>Flavours for Royalty</span>
-</p>
-<p class="arrowImg">
-<img src="./assets/arrow design.png" alt="">
-</p>
-<h1 class="OfferText">We offer Top notch</h1>
-<p class="SubText fs-2"> Lorem ipsum dolor sit amet consectetur adipisicing <br>elit. Delectus recusandae non asperiores esse,
-laboriosam accusantium <br>Sint fuga, quisquam iure nihil modi vero nesciunt <br>laborum est repudiandae!
-Repellat blanditiis quam incidunt!</p>
-</div>
+<div class="Sub-containers mt-4">
+  <div class="row">
+    <div class="col-md-3 headingBar">
+      <ul class="nav nav-tabs flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <li class="nav-item headings fs-5" role="presentation" id="head1">
+          <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab"
+            aria-controls="v-pills-home" aria-selected="true">
+            <i class="fa-solid fa-bowl-food fa-spin" style="color: #cdaa2d;"></i>
+            Local Dishes
+          </a>
+        </li>
+        <li class="nav-item headings fs-5" role="presentation" id="head2">
+          <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab"
+            aria-controls="v-pills-profile" aria-selected="false">
+            <i class="fa-solid fa-bowl-rice fa-bounce" style="color: #cec01c;"></i>
+            International Dish
+          </a>
+        </li>
+        <li class="nav-item headings fs-5" role="presentation" id="head3">
+          <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
+            aria-controls="v-pills-messages" aria-selected="false">
+            <i class="fa-solid fa-burger fa-beat-fade" style="color: #dbc11a;"></i>
+            Snacks
+          </a>
+        </li>
+        <li class="nav-item headings fs-5" role="presentation" id="head4">
+          <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
+            aria-controls="v-pills-settings" aria-selected="false">
+            <i class="fa-solid fa-martini-glass-citrus fa-beat" style="color: #d4ab16;"></i>
+            Drinks
+          </a>
+        </li>
+        <button class="signupBtn1"><a href="#classesSchedules">VIEW ALL SCHEDULES</a></button>
+      </ul>
+    </div>
 
-<div >
-<div class="text-capitalize text-center text-white fs-2" id="Item-List">
-  <p id="loc-SubMenu">Local DIshes</p>
-  <p id="Int-SubMenu">International Dishes</p>
-  <p id="Snacks-SubMenu">Snacks</p>
-  <p id="Drinks-SubMenu">Drinks</p>
-  </div>
-
- <!-- SubMenu List -->
- <div class="SubMenu-list">
-  <section class="section bg-black text-center" id="Loc-Dishes">
-    <!-- <div class="text-capitalize text-center text-white fs-2" id="Item-List">
-        <p id="loc-SubMenu">Local DIshes</p>
-        <p id="Int-SubMenu">International Dishes</p>
-        <p id="Snacks-SubMenu">Snacks</p>
-        <p id="Drinks-SubMenu">Drinks</p>
-  
-    </div> -->
-    <div class="containers">
-        <p class="fs-4 mx-4 label-2">
-            <span class="fs-1">Local DIshes</span>
-        </p>
-        <!-- <p>
-            <span><img src="./assets/arrow design.png" alt=""></span>
-        </p>
-        -->
-        <div class="row">
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-1.jpg" alt="Royal Chocolate">
-               <div class="Menu-Div">
-                <h2 class="fs-4">Amala</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                -->
-               </div>
-            </div>
-            <div class="col-md-4 col-sm-6  text-white Sub-menu" id="MiddleDiv">                  
-                <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
-                <div class="Menu-Div">
+    <!-- Sub-Menu List -->
+    <div class="col-md-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fs-4 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <section class="Asection bg-black text-center" id="Loc-Dishes">
+            <div class="containers">
+              <p class="fs-4 mx-4 label-2">
+                <span class="fs-1 ">Local Dishes</span>
+              </p>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <marquee behavior="slide" direction="right" >
+                    <img src="assets/service-1.jpg" alt="spinning img">
+                  </marquee>
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Amala</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                 <marquee behavior="slide" direction="up" >
+                  <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
+                </marquee>
+                  <div class="Menu-Div">
                     <h2 class="fs-4">Pounded Yam</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-              -->
+                  </div>
                 </div>
-            </div>
-  
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-3.jpg" alt="royal chocolate">
-                <div class="Menu-Div">
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                 <marquee behavior="slide" direction="left">
+                  <img src="assets/service-3.jpg" alt="royal chocolate">
+                </marquee>
+                  <div class="Menu-Div">
                     <h2 class="fs-4">Semolina</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                 -->
+                  </div>
                 </div>
-            </div>
-            
-        </div>
-    </div>
-  </section>
-  
-  <section class="section bg-black text-center" id="Int-Dishes">
-    <!-- <div class="text-capitalize text-center text-white fs-2" id="Item-List">
-        <p id="loc-SubMenu">Local DIshes</p>
-        <p id="Int-SubMenu">International Dishes</p>
-        <p id="Snacks-SubMenu">Snacks</p>
-        <p id="Drinks-SubMenu">Drinks</p>
-  
-    </div> -->
-    <div class="containers">
-        <p class="fs-4 mx-4 label-2">
-            <span class="fs-1">International Dishes</span>
-        </p>
-        <!-- <p>
-            <span><img src="./assets/arrow design.png" alt=""></span>
-        </p> -->
-       
-        <div class="row">
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="./assets/Tacos.jpeg" alt="Royal Chocolate">
-               <div class="Menu-Div">
-                <h2 class="fs-4">Tacos</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                -->
-               </div>
-            </div>
-            <div class="col-md-4 col-sm-6  text-white Sub-menu" id="MiddleDiv">                  
-                <img src="assets/Tacos.jpeg" alt="Royal Chocolate" id="Middle-image">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Tacos</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-              -->
-                </div>
-            </div>
-  
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/Tacos.jpeg" alt="royal chocolate">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Tacos</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                 -->
-                </div>
-            </div>
-            
-        </div>
-    </div>
-  </section>
-  
-  <section class="section bg-black text-center " id="Snacks">
-    <!-- <div class="text-capitalize text-center text-white fs-2" id="Item-List">
-        <p id="loc-SubMenu">Local DIshes</p>
-        <p id="Int-SubMenu">International Dishes</p>
-        <p id="Snacks-SubMenu">Snacks</p>
-        <p id="Drinks-SubMenu">Drinks</p>
-  
-    </div> -->
-    <div class="containers">
-        <p class="fs-4 mx-4 label-2">
-            <span class="fs-1">Snacks</span>
-        </p>
-        <!-- <p>
-            <span><img src="./assets/arrow design.png" alt=""></span>
-        </p> -->
-       
-        <div class="row">
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-1.jpg" alt="Royal Chocolate">
-               <div class="Menu-Div">
-                <h2 class="fs-4">Amala</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                -->
-               </div>
-            </div>
-            <div class="col-md-4 col-sm-6  text-white Sub-menu" id="MiddleDiv">                  
-                <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Pounded Yam</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-              -->
-                </div>
-            </div>
-  
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-3.jpg" alt="royal chocolate">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Semolina</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                 -->
-                </div>
-            </div>
-            
-        </div>
-    </div>
-  </section>
-  
-  <section class="section bg-black text-center" id="Drinks">
-    <!-- <div class="text-capitalize text-center text-white fs-2" id="Item-List">
-        <p id="loc-SubMenu">Local DIshes</p>
-        <p id="Int-SubMenu">International Dishes</p>
-        <p id="Snacks-SubMenu">Snacks</p>
-        <p id="Drinks-SubMenu">Drinks</p>
-  
-    </div> -->
-    <div class="containers">
-        <p class="fs-4 mx-4 label-2">
-            <span class="fs-1">Drinks</span>
-        </p>
-        <!-- <p>
-            <span><img src="./assets/arrow design.png" alt=""></span>
-        </p> -->
-       
-        <div class="row">
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-1.jpg" alt="Royal Chocolate">
-               <div class="Menu-Div">
-                <h2 class="fs-4">Amala</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                -->
-               </div>
-            </div>
-            <div class="col-md-4 col-sm-6  text-white Sub-menu" id="MiddleDiv">                  
-                <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Pounded Yam</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-              -->
-                </div>
-            </div>
-  
-            <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                <img src="assets/service-3.jpg" alt="royal chocolate">
-                <div class="Menu-Div">
-                    <h2 class="fs-4">Semolina</h2>
-                <!-- <p class="text-capitalize MenuLink">View menu</p>
-                 -->
-                </div>
-            </div>
-            
-        </div>
-    </div>
-  </section>
- </div>
-</div>
-<!-- Landing SubMenu -->
-<section class="section bg-black text-center" id="Menulist" >
-
-  <div class="containers">
-    
-      
-      <div class="row">
-    
-          <div class="col-md-4 col-sm-6 text-white home-menu" id="DelMo">
-              <img src="assets/service-1.jpg" alt="Royal Chocolate">
-             <div class="Menu-Div">
-              <h2 class="fs-4">Breakfast</h2>
-              <p class="text-capitalize" id="MenuLink1">View menu</p>
-              <!-- <div class="submenu1">
-                  <p>Pancakes</p>
-                  <p>Omelette</p>
-                  <p>Fruit Salad</p>
-              </div> -->
-             </div>
-          </div>
-          <div class="col-md-4 col-sm-6  text-white home-menu" id="MiddleDiv">                  
-              <img src="assets/service-2.jpg" alt="Royal Chocolate" id="middle-image">
-              <div class="Menu-Div">
-                  <h2 class="fs-4">International Dishes</h2>
-              <p class="text-capitalize MenuLink2" id="MenuLink2">View menu</p>
-              <!-- <div class="submenu2">
-                  <p>Pancakes</p>
-                  <p>Omelette</p>
-                  <p>Fruit Salad</p>
-              </div> -->
               </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 text-white home-menu" id="DelMo">
-              <img src="assets/service-3.jpg" alt="royal chocolate">
-              <div class="Menu-Div">
-                  <h2 class="fs-4">Snacks</h2>
-              <p class="text-capitalize" id="MenuLink3">View menu</p>
-              <!-- <div class="submenu3">
-                  <p>Pancakes</p>
-                  <p>Omelette</p>
-                  <p>Fruit Salad</p>
-              </div> -->
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <section class="Asection bg-black text-center" id="Int-Dishes">
+            <div class="containers">
+              <p class="fs-4 mx-4 label-2">
+                <span class="fs-1">International Dishes</span>
+              </p>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/Tacos.jpeg" alt="Royal Chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Tacos</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                  <img src="assets/Tacos.jpeg" alt="Royal Chocolate" id="Middle-image">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Tacos</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/Tacos.jpeg" alt="royal chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Tacos</h2>
+                  </div>
+                </div>
               </div>
-          </div>
-
-          
-          
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane " id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <section class="Asection bg-black text-center" id="Snacks">
+            <div class="containers">
+              <p class="fs-4 mx-4 label-2">
+                <span class="fs-1">Snacks</span>
+              </p>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/service-1.jpg" alt="Royal Chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Amala</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                  <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Pounded Yam</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/service-3.jpg" alt="royal chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Semolina</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane " id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+          <section class="Asection bg-black text-center" id="Drinks">
+            <div class="containers">
+              <p class="fs-4 mx-4 label-2">
+                <span class="fs-1">Drinks</span>
+              </p>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/cocktails2.jpeg" alt="Royal Chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Amala</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                  <img src="assets/cocktails2.jpeg" alt="Royal Chocolate" id="Middle-image">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Pounded Yam</h2>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                  <img src="assets/cocktails2.jpeg" alt="royal chocolate">
+                  <div class="Menu-Div">
+                    <h2 class="fs-4">Semolina</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
+    </div>
   </div>
-</section>
+</div>
+
+
+
 
 
 <!-- special offer -->
@@ -689,7 +594,7 @@ Repellat blanditiis quam incidunt!</p>
 
 <!-- about us -->
 
-<section class="about-section">
+<section class="about-section" id="about">
   <div class="about-container">
       <div class="about-content">
           <div class="about-text">
@@ -749,28 +654,28 @@ Repellat blanditiis quam incidunt!</p>
     <p class="Testimon">Testimonial</p>
       <div class="Aslider">
           <div class="slides active">
-              <p>"This is the best service I have ever used. Highly recommended! This 
+              <p class="text-center fs-4">"This is the best service I have ever used. Highly recommended! <br> This 
                 is the best service I have ever used. Highly recommended!"</p>
               <h1>- John Doe</h1>
-              <img class="img-Testy" src="./assets/johndoe.jpeg" alt="" >
+              <img class="img-Testy" src="./assets/White-Beard.jpeg" alt="" >
           </div>
           <div class="slides">
               <p>"Exceptional quality and fantastic customer support. Five stars!
                  This is the best service I have ever used. Highly recommended!"</p>
               <h1>- Jane Smith</h1>
-              <img class="img-Testy" src="./assets/johndoe.jpeg" alt="" >
+              <img class="img-Testy" src="./assets/Smiley-blk.jpeg" alt="" >
           </div>
           <div class="slides">
               <p>"A game-changer for our business. We saw immediate results. 
                 This is the best service I have ever used. Highly recommended!"</p>
               <h1>- Mary Johnson</h1>
-              <img class="img-Testy" src="./assets/johndoe.jpeg" alt="" >
+              <img class="img-Testy" src="./assets/viewd.jpeg" alt="" >
           </div>
           <div class="slides">
               <p>"Exceptional quality and fantastic customer support. Five stars! 
                 This is the best service I have ever used. Highly recommended!"</p>
               <h1>- Jane Smith</h1>
-              <img class="img-Testy" src="./assets/johndoe.jpeg" alt="" >
+              <img class="img-Testy" src="./assets/smiling Woman.jpeg" alt="" >
           </div>
           <div class="slides">
               <p>"A game-changer for our business. We saw immediate results. This is the
@@ -814,7 +719,7 @@ Repellat blanditiis quam incidunt!</p>
 
 
 <!-- Reservation -->
-<section class="reservation-section">
+<section class="reservation-section" id="contact">
   <div class="reservation-container">
     <div class="heading">
   <h2> <Span>O</Span>nline <span>R</span>eservation</h2>
@@ -1012,6 +917,12 @@ Repellat blanditiis quam incidunt!</p>
 
 
 <!-- javascript -->
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7xSf5Jl/VHe++I=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+integrity="sha384-qQ2+7W7PSKBNi+64t3/yjy0AIjzEEkB66/A6FpcC/O7xGoBfEJN3xEW8ccOG4/F4" crossorigin="anonymous">
+</script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="./script.js"></script>
 
