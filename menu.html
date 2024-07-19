@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 
+TOP BAR SECTION  
+-->
+
+<div class="topbarsec">
+    <div class="container">
+
+      <div class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+          Soun Ajagugbade Street, Bodija Estate, Oyo, NG
+        </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">Daily: 8:00am to 10:00pm</span>
+      </div>
+
+      <a href="tel:+2341234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">+234 123 456 7890</span>
+      </a>
+
+      <div class="divider"></div>
+
+      <a href="mailto:trao@kitchens.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">trao@kitchens.com</span>
+      </a>
+
+    </div>
+  </div>
+
+
+<!-- 
+  NAVBAR SECTION 
+ -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="/Logo1new.png" height="90" alt="TRAO - Home">
+      </a>
+
+      <nav class="navbar active" data-navbar>
+
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="#" class="logo">
+          <img src="./images/Logo 6.png" height="50" alt="TRAO - Home">
+        </a>
+
+        <ul class="navbar-list">
+
+          <div class="search-container">
+
+            <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
+            <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <ul id="resultsContainer" class="results-container"></ul>
+            
+          </div>
+
+          <li class="navbar-item">
+            <a href="/index.html" class="navbar-link hover-underline active">
+              <div class="divider"></div>
+
+              <span class="span">Home</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/menu.html" class="navbar-link hover-underline">
+              <div class="divider"></div>
+
+              <span class="span">Menu</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link hover-underline">
+              <div class="divider"></div>
+
+              <span class="span">About</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link hover-underline">
+              <div class="divider"></div>
+
+              <span class="span">Contact</span>
+            </a>
+          </li>
+          
+          <!-- Floating cart icon -->
+<div class="cart-icon" onclick="toggleCart()">
+  <i class="fas fa-shopping-cart">  Cart <span id="cart-count" class="cart-count"> • 0</span></i>
+</div>
+ <!-- Cart panel
+<div id="cart-panel" class="cart-panel">
+  <h2>Your Cart</h2>
+  <ul id="cart-items" class="cart-items">
+  </ul>
+  <p id="cart-total" class="cart-total">Total: N0.00</p>
+</div> -->
+
+        </ul>
+
+
+
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+
+          <address class="body-4">
+            Soun Ajagugbade St, Bodija Estate, <br>
+            Oyo state, NG
+          </address>
+
+          <p class="body-4 navbar-text">Opens: 8:00am - 10:00pm</p>
+
+          <a href="mailto:trao@kitchens.com" class="body-4 sidebar-link">trao@kitchens.com</a>
+
+          <div class="divider"></div>
+
+          <p class="contact-label">Booking Request</p>
+
+          <a href="tel:+2341234567890" class="body-1 contact-number hover-underline">
+            +234-123-456-7890
+          </a>
+        </div>
+
+      </nav>
+
+      <div class="dropdown">
+        <i class="fa-solid fa-user-tie lg-su-avatar"></i>
+        <!-- <div class="dropdown-content"> -->
+<!-- logged in -->
+          <div class="profile-container">
+            <h1 class="pf-ct">Hello, User</h1>
+            <button class="update-profile">Update Profile</button>
+            <button class="transaction-history">Transaction History</button>
+            <button class="logout">Logout</button>
+        </div>
+
+<!-- not logged in -->
+        <div class="profile-container2">
+          <h1 class="pf-ct2">Sign Up/ Sign In</h1>
+          <a href="/Trao-Kitchen-/clientlogin.html"><button class="login">CUSTOMER</button></a>
+          <a href="/Trao-Kitchen-/signup.html"><button class="login">ADMIN</button></a>
+      </div>
+        <!-- </div> -->
+        
+      </div>
+      
+
+
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+    <!-- menu section -->
+  <section class="menu-section">
+
+    <div class="sub-nav">
+      <button class="btn">Home</button>
+      <button class="btn">Products</button>
+      <button class="btn">About</button>
+      <button class="btn">Contact</button>
+  </div>   
+    <div id="menu-container">
+    </div>  
+  </section>
+    
+    
+    
+    <script src="menu.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
