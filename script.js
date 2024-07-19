@@ -315,37 +315,66 @@ var swiper = new Swiper('.swiper-container', {
   const Header2 = document.getElementById('head2');
   const Header3 = document.getElementById('head3');
   const Header4 = document.getElementById('head4');
+  const Header5 = document.getElementById('head5');
+  const Header6 = document.getElementById('head6')
   
   const LocDish = document.getElementById('Loc-Dishes');
   const IntDIsh = document.getElementById('Int-Dishes');
   const Snacks = document.getElementById('Snacks');
-  const Drinks = document.getElementById('Drinks')
+  const Drinks = document.getElementById('Drinks');
+  const Proteins = document.getElementById('Protein');
+  const Soup =document.getElementById('Soup')
   
   
   Header1.addEventListener('click', function(){
     LocDish.style.display = 'block';
     IntDIsh.style.display = 'none';
     Snacks.style.display = 'none';
-    Drinks.style.display = 'none'
+    Drinks.style.display = 'none';
+    Proteins.style.display = 'none';
+    Soup.style.display = 'none';
   });
   
   Header2.addEventListener('click', function(){
     LocDish.style.display = 'none';
     IntDIsh.style.display = 'block';
     Snacks.style.display = 'none';
-    Drinks.style.display = 'none'
+    Drinks.style.display = 'none';
+    Proteins.style.display = 'none';
+    Soup.style.display = 'none';
   });
   Header3.addEventListener('click', function(){
     LocDish.style.display = 'none';
     IntDIsh.style.display = 'none';
     Snacks.style.display = 'block';
-    Drinks.style.display = 'none'
+    Drinks.style.display = 'none';
+    Proteins.style.display = 'none';
+    Soup.style.display = 'none';
   });
   Header4.addEventListener('click', function(){
     LocDish.style.display = 'none';
     IntDIsh.style.display = 'none';
     Snacks.style.display = 'none';
-    Drinks.style.display = 'block'
+    Drinks.style.display = 'block';
+    Proteins.style.display = 'none';
+    Soup.style.display = 'none';
+
+  });
+  Header5.addEventListener('click', function(){
+    LocDish.style.display = 'none';
+    IntDIsh.style.display = 'none';
+    Snacks.style.display = 'none';
+    Drinks.style.display = 'none';
+    Soup.style.display = 'none';
+    Proteins.style.display = 'block'
+  });
+  Header6.addEventListener('click', function(){
+    LocDish.style.display = 'none';
+    IntDIsh.style.display = 'none';
+    Snacks.style.display = 'none';
+    Drinks.style.display = 'none';
+    Soup.style.display = 'block';
+    Proteins.style.display = 'none'
   })
   
 // let slideIndex = 0;

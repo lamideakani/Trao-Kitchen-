@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TRAO Kitchen - Amazing and Delicious Foods</title>
-    <meta name="description" content="Welcome to TRAO Kitchens where we suit your taste buds">
+  <title>TRAO Kitchen - Amazing and Delicious Foods</title>
+  <meta name="description" content="Welcome to TRAO Kitchens where we suit your taste buds">
 
-    <!-- css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
 
-    <!-- Swiper link -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Box-icons -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+
+  <!-- Swiper link -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
 </head>
+
 <body>
 
-<!-- 
+  <!-- 
 TOP BAR SECTION  
 -->
 
-<div class="topbarsec">
+  <div class="topbarsec">
     <div class="container">
 
       <div class="topbar-item">
@@ -82,7 +89,7 @@ TOP BAR SECTION
   </div>
 
 
-<!-- 
+  <!-- 
   NAVBAR SECTION 
  -->
 
@@ -108,12 +115,12 @@ TOP BAR SECTION
           <div class="search-container">
 
             <div class="search-wrapper">
-            <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
-            <i class="fas fa-search search-icon"></i>
+              <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
+              <i class="fas fa-search search-icon"></i>
             </div>
 
             <ul id="resultsContainer" class="results-container"></ul>
-            
+
           </div>
 
           <li class="navbar-item">
@@ -147,12 +154,12 @@ TOP BAR SECTION
               <span class="span">Contact</span>
             </a>
           </li>
-          
+
           <!-- Floating cart icon -->
-<div class="cart-icon" onclick="toggleCart()">
-  <i class="fas fa-shopping-cart">  Cart <span id="cart-count" class="cart-count"> • 0</span></i>
-</div>
- <!-- Cart panel
+          <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"> Cart <span id="cart-count" class="cart-count"> • 0</span></i>
+          </div>
+          <!-- Cart panel
 <div id="cart-panel" class="cart-panel">
   <h2>Your Cart</h2>
   <ul id="cart-items" class="cart-items">
@@ -190,24 +197,24 @@ TOP BAR SECTION
       <div class="dropdown">
         <i class="fa-solid fa-user-tie lg-su-avatar"></i>
         <!-- <div class="dropdown-content"> -->
-<!-- logged in -->
-          <div class="profile-container">
-            <h1 class="pf-ct">Hello, User</h1>
-            <button class="update-profile">Update Profile</button>
-            <button class="transaction-history">Transaction History</button>
-            <button class="logout">Logout</button>
+        <!-- logged in -->
+        <div class="profile-container">
+          <h1 class="pf-ct">Hello, User</h1>
+          <button class="update-profile">Update Profile</button>
+          <button class="transaction-history">Transaction History</button>
+          <button class="logout">Logout</button>
         </div>
 
-<!-- not logged in -->
+        <!-- not logged in -->
         <div class="profile-container2">
           <h1 class="pf-ct2">Sign Up/ Sign In</h1>
           <a href="/clientlogin.html"><button class="login">CUSTOMER</button></a>
           <a href="/signup.html"><button class="login">ADMIN</button></a>
-      </div>
+        </div>
         <!-- </div> -->
-        
+
       </div>
-      
+
 
 
 
@@ -224,284 +231,331 @@ TOP BAR SECTION
 
 
 
-<!-- slider -->
-    <section class="slider-container dslide">
+  <!-- slider -->
+  <section class="slider-container dslide">
 
-        <ul class="dslide-slider" data-dslide-slider>
+    <ul class="dslide-slider" data-dslide-slider>
 
-        <li class="slider-item active">
+      <li class="slider-item active">
 
-            <div class="slider-bg">
-            <img class="slider-image" src="./images/hero-slider-1.jpg" alt="Image 1" width="1880" height="950">
-            </div>
-            
-            <p class="slider-first-txt subtitle slider-reveal">Traditional & Hygiene</p>
-            <hr class="slider-first-txt subtitle slider-reveal">
-            <h1 class="slider-main-text slider-reveal">For the love of <br> 
-                delicious food
-            </h1>
-            
-            <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-            
-            <div class="center-button">
-                <a href="#"><button class="menu-btn check-our-menu-btn">
-                    <span class="text text-1">Check our Menu</span>
-    
-                    <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
-                </a>
-            </div>
-        </li>
-        
-        <li class="slider-item">
+        <div class="slider-bg">
+          <img class="slider-image" src="./images/hero-slider-1.jpg" alt="Image 1" width="1880" height="950">
+        </div>
 
-            <div class="slider-bg">
-            <img class="slider-image" src="./images/hero-slider-2.jpg" alt="Image 1" width="1880" height="950">
-            </div>
-            
-            <p class="slider-first-txt subtitle slider-reveal">delightful experience</p>
-            <hr class="slider-first-txt subtitle slider-reveal">
+        <p class="slider-first-txt subtitle slider-reveal">Traditional & Hygiene</p>
+        <hr class="slider-first-txt subtitle slider-reveal">
+        <h1 class="slider-main-text slider-reveal">For the love of <br>
+          delicious food
+        </h1>
 
-            <h1 class="slider-main-text slider-reveal">Flavors Inspired by <br> 
-                the Seasons
-            </h1>
-            
-            <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-            
-            <div class="center-button">
-                <a href="#"><button class="menu-btn check-our-menu-btn">
-                    <span class="text text-1">Check our Menu</span>
-    
-                    <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
-                </a>
-            </div>
-        </li>
+        <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
+
+        <div class="center-button">
+          <a href="#"><button class="menu-btn check-our-menu-btn">
+              <span class="text text-1">Check our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
+          </a>
+        </div>
+      </li>
+
+      <li class="slider-item">
+
+        <div class="slider-bg">
+          <img class="slider-image" src="./images/hero-slider-2.jpg" alt="Image 1" width="1880" height="950">
+        </div>
+
+        <p class="slider-first-txt subtitle slider-reveal">delightful experience</p>
+        <hr class="slider-first-txt subtitle slider-reveal">
+
+        <h1 class="slider-main-text slider-reveal">Flavors Inspired by <br>
+          the Seasons
+        </h1>
+
+        <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
+
+        <div class="center-button">
+          <a href="#"><button class="menu-btn check-our-menu-btn">
+              <span class="text text-1">Check our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
+          </a>
+        </div>
+      </li>
 
 
-        <li class="slider-item">
+      <li class="slider-item">
 
-            <div class="slider-bg">
-            <img class="slider-image" src="./images/hero-slider-3.jpg" alt="Image 1" width="1880" height="950">
-            </div>
-            
-            <p class="slider-first-txt subtitle slider-reveal">amazing & delicious</p>
-            <hr class="slider-first-txt subtitle slider-reveal">
+        <div class="slider-bg">
+          <img class="slider-image" src="./images/hero-slider-3.jpg" alt="Image 1" width="1880" height="950">
+        </div>
 
-            <h1 class="slider-main-text slider-reveal">
-                Where every flavor <br> 
-                tells a story
-            </h1>
-            
-            <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-            
-            <div class="center-button">
-                <a href="#"><button class="menu-btn check-our-menu-btn">
-                    <span class="text text-1">Check our Menu</span>
-    
-                    <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
-                </a>
-            </div>
-            
-        </li>
+        <p class="slider-first-txt subtitle slider-reveal">amazing & delicious</p>
+        <hr class="slider-first-txt subtitle slider-reveal">
+
+        <h1 class="slider-main-text slider-reveal">
+          Where every flavor <br>
+          tells a story
+        </h1>
+
+        <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
+
+        <div class="center-button">
+          <a href="#"><button class="menu-btn check-our-menu-btn">
+              <span class="text text-1">Check our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
+          </a>
+        </div>
+
+      </li>
     </ul>
     <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
-        <ion-icon name="chevron-back"></ion-icon>
-      </button>
+      <ion-icon name="chevron-back"></ion-icon>
+    </button>
 
-      <button class="slider-btn next" aria-label="slide to next" data-next-btn>
-        <ion-icon name="chevron-forward"></ion-icon>
-      </button>
-    
+    <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </button>
+
     <a href="#" class="dslide-btn has-after">
-        <img src="./images/hero-icon.png" width="48" height="48" alt="booking icon"><br>
+      <img src="./images/hero-icon.png" width="48" height="48" alt="booking icon"><br>
 
-        <span class="slider-last-text text-center span">Book A Table</span>
-      </a>
-      <div class="dslide-rotate"></div>
-</section>
+      <span class="slider-last-text text-center span">Book A Table</span>
+    </a>
+    <div class="dslide-rotate"></div>
+  </section>
 
 
-<!-- Sub_menu -->
+  <!-- Sub_menu click -->
 
-<div class="Sub-containers mt-4">
-  <div class="row">
-    <div class="col-md-3 headingBar">
-      <ul class="nav nav-tabs flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <li class="nav-item headings fs-5" role="presentation" id="head1">
-          <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab"
-            aria-controls="v-pills-home" aria-selected="true">
-            <i class="fa-solid fa-bowl-food fa-spin" style="color: #cdaa2d;"></i>
-            Local Dishes
-          </a>
-        </li>
-        <li class="nav-item headings fs-5" role="presentation" id="head2">
-          <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab"
-            aria-controls="v-pills-profile" aria-selected="false">
-            <i class="fa-solid fa-bowl-rice fa-bounce" style="color: #cec01c;"></i>
-            International Dish
-          </a>
-        </li>
-        <li class="nav-item headings fs-5" role="presentation" id="head3">
-          <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
-            aria-controls="v-pills-messages" aria-selected="false">
-            <i class="fa-solid fa-burger fa-beat-fade" style="color: #dbc11a;"></i>
-            Snacks
-          </a>
-        </li>
-        <li class="nav-item headings fs-5" role="presentation" id="head4">
-          <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
-            aria-controls="v-pills-settings" aria-selected="false">
-            <i class="fa-solid fa-martini-glass-citrus fa-beat" style="color: #d4ab16;"></i>
-            Drinks
-          </a>
-        </li>
-        <button class="signupBtn1"><a href="#classesSchedules">VIEW ALL SCHEDULES</a></button>
-      </ul>
-    </div>
+  <div class="Sub-containers mt-4">
+    <div class="row">
+      <div class="col-md-3 headingBar">
+        <ul class="nav nav-tabs flex-column text-center text-color-light" id="v-pills-tab" role="tablist"
+          aria-orientation="vertical">
+          <li class="nav-item headings fs-5" role="presentation" id="head2">
+            <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab"
+              aria-controls="v-pills-profile" aria-selected="false">
+              <box-icon name='dish' type='solid' animation='burst'></box-icon>
+              MAIN DISHES
+            </a>
+          </li>
+          <li class="nav-item headings fs-5" role="presentation" id="head1">
+            <a class="nav-link default" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab"
+              aria-controls="v-pills-home" aria-selected="false">
+              <i class="fa-solid fa-bowl-food fa-spin" style="color: black;"></i>
+              LOCAL DISHES
+            </a>
+          </li>
+          <li class="nav-item headings fs-5" role="presentation" id="head3">
+            <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
+              aria-controls="v-pills-messages" aria-selected="false">
+              <box-icon name='cookie' type='solid' animation='spin'></box-icon>
+              SNACKS
+            </a>
+          </li>
+          <li class="nav-item headings fs-5" role="presentation" id="head4">
+            <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
+              aria-controls="v-pills-settings" aria-selected="false">
+              <box-icon name='drink' type='solid' animation='burst'></box-icon>
+              DRINKS
+            </a>
+          </li>
+          <li class="nav-item headings fs-5" role="presentation" id="head5">
+            <a class="nav-link" id="v-pills-home-tabs" data-bs-toggle="pill" href="#v-pills-home" role="tab"
+              aria-controls="v-pills-profile" aria-selected="false">
+              <i class="fa-solid fa-drumstick-bite fa-spin" style="color: black;"></i>
+              PROTEINS
+            </a>
+          </li>
+          <li class="nav-item headings fs-5" role="presentation" id="head6">
+            <a class="nav-link" id="v-pills-home-tabs" data-bs-toggle="pill" href="#v-pills-home" role="tab"
+              aria-controls="v-pills-home" aria-selected="true">
+              <box-icon name='bowl-hot' type='solid' animation='burst'></box-icon>
+              SOUP
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <!-- Sub-Menu List -->
-    <div class="col-md-9">
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fs-4 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-          <section class="Asection bg-black text-center" id="Loc-Dishes">
-            <div class="containers">
-              <p class="fs-4 mx-4 label-2">
-                <span class="fs-1 ">Local Dishes</span>
-              </p>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <marquee behavior="slide" direction="right" >
-                    <img src="assets/service-1.jpg" alt="spinning img">
-                  </marquee>
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Amala</h2>
+      <!-- Sub-Menu List -->
+      <div class="col-md-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fs-4 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <section class="Asection bg-black text-center" id="Loc-Dishes">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <marquee behavior="slide" direction="right">
+                        <img src="assets/service-1.jpg" class="flip-image" alt="spinning img">
+                      </marquee>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container">
+                      <marquee behavior="slide" direction="up">
+                        <img src="assets/service-2.jpg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
+                      </marquee>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <marquee behavior="slide" direction="left">
+                        <img src="assets/service-3.jpg" class="flip-image" alt="royal chocolate">
+                      </marquee>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
-                 <marquee behavior="slide" direction="up" >
-                  <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
-                </marquee>
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Pounded Yam</h2>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                 <marquee behavior="slide" direction="left">
-                  <img src="assets/service-3.jpg" alt="royal chocolate">
-                </marquee>
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Semolina</h2>
-                  </div>
-                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE AFRICAN DISHES</a></button>
               </div>
-            </div>
-          </section>
-        </div>
-        <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-          <section class="Asection bg-black text-center" id="Int-Dishes">
-            <div class="containers">
-              <p class="fs-4 mx-4 label-2">
-                <span class="fs-1">International Dishes</span>
-              </p>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/Tacos.jpeg" alt="Royal Chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Tacos</h2>
+            </section>
+          </div>
+          <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <section class="Asection bg-black text-center" id="Int-Dishes">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container" id="Int-img">
+                      <img src="assets/Tacos.jpeg" class="flip-image" alt="Royal Chocolate">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container" id="Int-img">
+                      <img src="assets/Tacos.jpeg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container" id="Int-img">
+                      <img src="assets/Tacos.jpeg" alt="royal chocolate" class="flip-image">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
-                  <img src="assets/Tacos.jpeg" alt="Royal Chocolate" id="Middle-image">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Tacos</h2>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/Tacos.jpeg" alt="royal chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Tacos</h2>
-                  </div>
-                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE MAIN DISHES</a></button>
               </div>
-            </div>
-          </section>
-        </div>
-        <div class="tab-pane " id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <section class="Asection bg-black text-center" id="Snacks">
-            <div class="containers">
-              <p class="fs-4 mx-4 label-2">
-                <span class="fs-1">Snacks</span>
-              </p>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/service-1.jpg" alt="Royal Chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Amala</h2>
+            </section>
+          </div>
+          <div class="tab-pane " id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <section class="Asection bg-black text-center" id="Snacks">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-1.jpg" alt="Royal Chocolate" class="flip-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container">
+                      <img src="assets/service-2.jpg" alt="Royal Chocolate" class="flip-image" id="Middle-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-3.jpg" alt="royal chocolate" class="flip-image">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
-                  <img src="assets/service-2.jpg" alt="Royal Chocolate" id="Middle-image">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Pounded Yam</h2>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/service-3.jpg" alt="royal chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Semolina</h2>
-                  </div>
-                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE SNACKS</a></button>
               </div>
-            </div>
-          </section>
-        </div>
-        <div class="tab-pane " id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-          <section class="Asection bg-black text-center" id="Drinks">
-            <div class="containers">
-              <p class="fs-4 mx-4 label-2">
-                <span class="fs-1">Drinks</span>
-              </p>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/cocktails2.jpeg" alt="Royal Chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Amala</h2>
+            </section>
+          </div>
+          <div class="tab-pane " id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <section class="Asection bg-black text-center" id="Drinks">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/cocktails2.jpeg" alt="royal chocolate" class="flip-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container">
+                      <img src="assets/cocktails2.jpeg" alt="royal chocolate" class="flip-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/cocktails2.jpeg" alt="royal chocolate" class="flip-image">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
-                  <img src="assets/cocktails2.jpeg" alt="Royal Chocolate" id="Middle-image">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Pounded Yam</h2>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
-                  <img src="assets/cocktails2.jpeg" alt="royal chocolate">
-                  <div class="Menu-Div">
-                    <h2 class="fs-4">Semolina</h2>
-                  </div>
-                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE DRINKS</a></button>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+          <div class="tab-pane fs-4 show active" id="v-pills-protein" role="tabpanel"
+            aria-labelledby="v-pills-home-tab">
+            <section class="Asection bg-black text-center" id="Protein">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-1.jpg" class="flip-image" alt="spinning img">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container">
+                      <img src="assets/service-2.jpg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-3.jpg" class="flip-image" alt="royal chocolate">
+                    </div>
+                  </div>
+                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE PROTEINS</a></button>
+              </div>
+            </section>
+          </div>
+          <div class="tab-pane fs-4 show active" id="v-pills-Soup" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <section class="Asection bg-black text-center" id="Soup">
+              <div class="containers">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-1.jpg" class="flip-image" alt="spinning img">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
+                    <div class="flip-image-container">
+                      <img src="assets/service-2.jpg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
+                    <div class="flip-image-container">
+                      <img src="assets/service-3.jpg" class="flip-image" alt="royal chocolate">
+                    </div>
+                  </div>
+                </div>
+                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE SOUP</a></button>
+              </div>
+            </section>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-
-<!-- special offer -->
-<div class="specialOffer">
-        
-  <div class="specialOfferText">
-      <h1>OUR SPECIAL OFFER</h1>
   </div>
 
-  <div class="discountList discount">
+
+
+
+
+  <!-- special offer -->
+  <div class="specialOffer">
+
+    <div class="specialOfferText">
+      <h1>OUR SPECIAL OFFER</h1>
+    </div>
+
+    <div class="discountList discount">
       <div class="discountPercent">
-          <img src="Assets/discountIcon.png"><h3>10% off</h3>
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
       </div>
       <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
       <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
@@ -511,337 +565,354 @@ TOP BAR SECTION
       </button>
       <div class="specialOfferImg">
         <img src="/assets/rice.jpg" alt="specialoffer1">
-      </div>  
-  </div>
-
-  <div class="discountList discount">
-    <div class="discountPercent">
-        <img src="Assets/discountIcon.png"><h3>10% off</h3>
-    </div>
-    <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-    <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-    <h5>#5,500</h5>
-    <h6>#4,500</h6>
-    <button class="special-offer-btn">View More</button>
-    </button>
-    <div class="specialOfferImg">
-      <img src="/assets/rice2.jpg" alt="specialoffer2">
-    </div>  
-</div>
-
-<div class="discountList discount">
-  <div class="discountPercent">
-      <img src="Assets/discountIcon.png"><h3>10% off</h3>
-  </div>
-  <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-  <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-  <h5>#5,500</h5>
-  <h6>#4,500</h6>
-  <button class="special-offer-btn">View More</button>
-  </button>
-  <div class="specialOfferImg">
-    <img src="/assets/rice3.jpg" alt="specialoffer3">
-  </div>  
-</div>
-
-<div class="discountList discount">
-  <div class="discountPercent">
-      <img src="Assets/discountIcon.png"><h3>10% off</h3>
-  </div>
-  <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-  <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-  <h5>#5,500</h5>
-  <h6>#4,500</h6>
-  <button class="special-offer-btn">View More</button>
-  </button>
-  <div class="specialOfferImg">
-    <img src="/assets/fried rice 2.jpg" alt="specialoffer4">
-  </div>  
-</div>
-
-<div class="discountList discount">
-  <div class="discountPercent">
-      <img src="Assets/discountIcon.png"><h3>10% off</h3>
-  </div>
-  <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-  <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-  <h5>#5,500</h5>
-  <h6>#4,500</h6>
-  <button class="special-offer-btn">View More</button>
-  </button>
-  <div class="specialOfferImg">
-    <img src="/assets/fried rice.jpg" alt="specialoffer5">
-  </div>  
-</div>
-
-<div class="discountList discount">
-  <div class="discountPercent">
-      <img src="Assets/discountIcon.png"><h3>10% off</h3>
-  </div>
-  <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-  <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-  <h5>#5,500</h5>
-  <h6>#4,500</h6>
-  <button class="special-offer-btn">View More</button>
-  </button>
-  <div class="specialOfferImg">
-    <img src="/assets/chinese rice.jpg" alt="specialoffer6">
-  </div>  
-</div>
-
-</div>
-
-
-<!-- about us -->
-
-<section class="about-section" id="about">
-  <div class="about-container">
-      <div class="about-content">
-          <div class="about-text">
-              <h2>About Us</h2>
-              <p>Welcome to TRAO Kitchens, where our suiting your taste buds is out priority. Our mission is Delight Every Palate.</p>
-              <p>Founded in 2024, we have been known for our efforts to leave our customers satisfied and wishing for more. Our team consists of dedicated professionals who strives to make everything nice.</p>
-              <p>At our establishment, we uphold a steadfast commitment to excellence by meticulously sourcing all ingredients from local producers. This unwavering dedication guarantees that each component of our dishes boasts exceptional quality and unmatched freshness. By supporting our local community, we not only prioritize sustainability but also ensure that every ingredient meets our stringent standards, resulting in a dining experience that is both exceptional and memorable.</p>
-              <p>Feel free to Book us today. We look forward to giving you the satisfaction you desire.</p>
-          </div>
-          <div class="about-image">
-              <img src="/assets/about-banner.jpg" alt="about-us-page">
-          </div>
       </div>
+    </div>
+
+    <div class="discountList discount">
+      <div class="discountPercent">
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
+      </div>
+      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
+      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
+      <h5>#5,500</h5>
+      <h6>#4,500</h6>
+      <button class="special-offer-btn">View More</button>
+      </button>
+      <div class="specialOfferImg">
+        <img src="/assets/rice2.jpg" alt="specialoffer2">
+      </div>
+    </div>
+
+    <div class="discountList discount">
+      <div class="discountPercent">
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
+      </div>
+      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
+      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
+      <h5>#5,500</h5>
+      <h6>#4,500</h6>
+      <button class="special-offer-btn">View More</button>
+      </button>
+      <div class="specialOfferImg">
+        <img src="/assets/rice3.jpg" alt="specialoffer3">
+      </div>
+    </div>
+
+    <div class="discountList discount">
+      <div class="discountPercent">
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
+      </div>
+      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
+      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
+      <h5>#5,500</h5>
+      <h6>#4,500</h6>
+      <button class="special-offer-btn">View More</button>
+      </button>
+      <div class="specialOfferImg">
+        <img src="/assets/fried rice 2.jpg" alt="specialoffer4">
+      </div>
+    </div>
+
+    <div class="discountList discount">
+      <div class="discountPercent">
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
+      </div>
+      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
+      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
+      <h5>#5,500</h5>
+      <h6>#4,500</h6>
+      <button class="special-offer-btn">View More</button>
+      </button>
+      <div class="specialOfferImg">
+        <img src="/assets/fried rice.jpg" alt="specialoffer5">
+      </div>
+    </div>
+
+    <div class="discountList discount">
+      <div class="discountPercent">
+        <img src="Assets/discountIcon.png">
+        <h3>10% off</h3>
+      </div>
+      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
+      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
+      <h5>#5,500</h5>
+      <h6>#4,500</h6>
+      <button class="special-offer-btn">View More</button>
+      </button>
+      <div class="specialOfferImg">
+        <img src="/assets/chinese rice.jpg" alt="specialoffer6">
+      </div>
+    </div>
+
   </div>
-</section>
 
-<hr>
 
-<!-- OUR STRENGTH -->
-<div class="ourStrength">
-  <h1>Our Strength</h1>
-  
-  <div class="our-strength-grid">
-  
-    <div class="os-grid os-grid-1">
+  <!-- about us -->
+
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>Welcome to TRAO Kitchens, where our suiting your taste buds is out priority. Our mission is Delight Every
+            Palate.</p>
+          <p>Founded in 2024, we have been known for our efforts to leave our customers satisfied and wishing for more.
+            Our team consists of dedicated professionals who strives to make everything nice.</p>
+          <p>At our establishment, we uphold a steadfast commitment to excellence by meticulously sourcing all
+            ingredients from local producers. This unwavering dedication guarantees that each component of our dishes
+            boasts exceptional quality and unmatched freshness. By supporting our local community, we not only
+            prioritize sustainability but also ensure that every ingredient meets our stringent standards, resulting in
+            a dining experience that is both exceptional and memorable.</p>
+          <p>Feel free to Book us today. We look forward to giving you the satisfaction you desire.</p>
+        </div>
+        <div class="about-image">
+          <img src="/assets/about-banner.jpg" alt="about-us-page">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- OUR STRENGTH -->
+  <div class="ourStrength">
+    <h1>Our Strength</h1>
+
+    <div class="our-strength-grid">
+
+      <div class="os-grid os-grid-1">
         <img src="assets/Logo8.png">
         <h2>Hygienic Food</h2>
         <h3>We nourish your body and fuel your life with every bite.</h3>
-    </div>
-  
-    <div class="os-grid os-grid-2">
+      </div>
+
+      <div class="os-grid os-grid-2">
         <img src="assets/Logo9.png">
         <h2>Fresh Environment</h2>
         <h3>Top notch food taste, clean and friendly environment.</h3>
-    </div>
-  
-    <div class="os-grid os-grid-3">
+      </div>
+
+      <div class="os-grid os-grid-3">
         <img src="assets/Logo11.png">
         <h2>Skilled Chefs</h2>
         <h3>We leave smile and happy with our experience Chefs.</h3>
-    </div>
-  
-    <div class="os-grid os-grid-4">
+      </div>
+
+      <div class="os-grid os-grid-4">
         <img src="assets/Logo12.png">
         <h2>Event & Party</h2>
         <h3>We comunicate the language of food at every event and party.</h3>
+      </div>
     </div>
   </div>
-  </div>
-  
-<hr>
+
+  <hr>
 
 
-<!-- //Testimonia//* -->
-<div class="slider-body">
-  <div class="slider-containers">
-    <p class="Testimon">Testimonial</p>
+  <!-- //Testimonia//* -->
+  <div class="slider-body">
+    <div class="slider-containers">
+      <p class="Testimon">Testimonial</p>
       <div class="Aslider">
-          <div class="slides active">
-              <p class="text-center fs-4">"This is the best service I have ever used. Highly recommended! <br> This 
-                is the best service I have ever used. Highly recommended!"</p>
-              <h1>- John Doe</h1>
-              <img class="img-Testy" src="./assets/White-Beard.jpeg" alt="" >
-          </div>
-          <div class="slides">
-              <p>"Exceptional quality and fantastic customer support. Five stars!
-                 This is the best service I have ever used. Highly recommended!"</p>
-              <h1>- Jane Smith</h1>
-              <img class="img-Testy" src="./assets/Smiley-blk.jpeg" alt="" >
-          </div>
-          <div class="slides">
-              <p>"A game-changer for our business. We saw immediate results. 
-                This is the best service I have ever used. Highly recommended!"</p>
-              <h1>- Mary Johnson</h1>
-              <img class="img-Testy" src="./assets/viewd.jpeg" alt="" >
-          </div>
-          <div class="slides">
-              <p>"Exceptional quality and fantastic customer support. Five stars! 
-                This is the best service I have ever used. Highly recommended!"</p>
-              <h1>- Jane Smith</h1>
-              <img class="img-Testy" src="./assets/smiling Woman.jpeg" alt="" >
-          </div>
-          <div class="slides">
-              <p>"A game-changer for our business. We saw immediate results. This is the
-                 best service I have ever used. Highly recommended!"</p>
-              <h1>- Mary Johnson</h1>
-              <img class="img-Testy" src="./assets/johndoe.jpeg" alt="" >
-          </div>
+        <div class="slides active">
+          <p class="text-center fs-4">"This is the best service I have ever used. Highly recommended! <br> This
+            is the best service I have ever used. Highly recommended!"</p>
+          <h1>- Sam Jameson</h1>
+          <img class="img-Testy" src="./assets/White-Beard.jpeg" alt="">
+        </div>
+        <div class="slides">
+          <p>"Exceptional quality and fantastic customer support. Five stars!
+            This is the best service I have ever used. Highly recommended!"</p>
+          <h1>- Jane Smith</h1>
+          <img class="img-Testy" src="./assets/Smiley-blk.jpeg" alt="">
+        </div>
+        <div class="slides">
+          <p>"A game-changer for our business. We saw immediate results.
+            This is the best service I have ever used. Highly recommended!"</p>
+          <h1>- Mary Johnson</h1>
+          <img class="img-Testy" src="./assets/viewd.jpeg" alt="">
+        </div>
+        <div class="slides">
+          <p>"Exceptional quality and fantastic customer support. Five stars!
+            This is the best service I have ever used. Highly recommended!"</p>
+          <h1>- Lara Roy</h1>
+          <img class="img-Testy" src="./assets/smiling Woman.jpeg" alt="">
+        </div>
+        <div class="slides">
+          <p>"A game-changer for our business. We saw immediate results. This is the
+            best service I have ever used. Highly recommended!"</p>
+          <h1>- LAncelot Johnson</h1>
+          <img class="img-Testy" src="./assets/johndoe.jpeg" alt="">
+        </div>
       </div>
       <button class="prev-btn">&#10094;</button>
       <button class="next-btn">&#10095;</button>
-  </div>
-  </div>
-
-
-
-<!-- How it works -->
-<section class="work-wrapper">
-<div class="header-wrapper">
-  <h2>How it <span style="text-decoration:underline; color:#C57C15;">Works</span></h2>
-  <p>We understand the importance of good service, Our friendly team is to ensure you have a pleasant dinning experience from start to finish.</p>
-</div>
-<div class="card-wrapper">
-  <div class="card-one">
-    <img src="assets/pick-meals-image.png" alt="">
-    <h3>Quality Assurance</h3>
-    <p>We uphold the highest standards of quality in every dish we serve, meticulously sourcing ingredients and maintaining strict hygiene protocols to guarantee a safe and enjoyable dining experience.</p>
-  </div>
-  <div class="card-one">
-    <img src="assets/choose-image.png" alt="">
-    <h3>Customizable Orders</h3>
-    <p>Tailor your meal to your liking with our customizable options, allowing you to create a dining experience that suits your preferences perfectly resulting in a dining experience that is both exceptional and memorable.</p>
-  </div>
-  <div class="card-one">
-    <img src="assets/delivery-image.png" alt="">
-    <h3>Good & Fast Deliveries</h3>
-    <p>We prioritize speedy deliveries,From kitchen to your table in record time, our commitment to swift service means you'll never have to wait long for your delicious meal to arrive.</p>
-  </div>
-</div>
-
-</section>
-
-
-<!-- Reservation -->
-<section class="reservation-section" id="contact">
-  <div class="reservation-container">
-    <div class="heading">
-  <h2> <Span>O</Span>nline <span>R</span>eservation</h2>
-  <p>Booking request <span> <i class="fa-solid fa-phone"></i>  +234 8101234657 </span> or fill out the order form</p>
     </div>
-    <form action="https://formspree.io/f/mzzppopq" method="post" class="form-section">
-      <div class="form-main">
-  
-        <div class="rowe">
-          <div class="form-group">
-            <input type="text" name="name" id="name" required>
-            <label for="name"><i class="fa-regular fa-user"></i> Your Name</label>
+  </div>
+
+
+
+  <!-- How it works -->
+  <section class="work-wrapper">
+    <div class="header-wrapper">
+      <h2>How it <span style="text-decoration:underline; color:#C57C15;">Works</span></h2>
+      <p>We understand the importance of good service, Our friendly team is to ensure you have a pleasant dinning
+        experience from start to finish.</p>
+    </div>
+    <div class="card-wrapper">
+      <div class="card-one">
+        <img src="assets/pick-meals-image.png" alt="">
+        <h3>Quality Assurance</h3>
+        <p>We uphold the highest standards of quality in every dish we serve, meticulously sourcing ingredients and
+          maintaining strict hygiene protocols to guarantee a safe and enjoyable dining experience.</p>
+      </div>
+      <div class="card-one">
+        <img src="assets/choose-image.png" alt="">
+        <h3>Customizable Orders</h3>
+        <p>Tailor your meal to your liking with our customizable options, allowing you to create a dining experience
+          that suits your preferences perfectly resulting in a dining experience that is both exceptional and memorable.
+        </p>
+      </div>
+      <div class="card-one">
+        <img src="assets/delivery-image.png" alt="">
+        <h3>Good & Fast Deliveries</h3>
+        <p>We prioritize speedy deliveries,From kitchen to your table in record time, our commitment to swift service
+          means you'll never have to wait long for your delicious meal to arrive.</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Reservation -->
+  <section class="reservation-section" id="contact">
+    <div class="reservation-container">
+      <div class="heading">
+        <h2> <Span>O</Span>nline <span>R</span>eservation</h2>
+        <p>Booking request <span> <i class="fa-solid fa-phone"></i> +234 8101234657 </span> or fill out the order form
+        </p>
+      </div>
+      <form action="https://formspree.io/f/mzzppopq" method="post" class="form-section">
+        <div class="form-main">
+
+          <div class="rowe">
+            <div class="form-group">
+              <input type="text" name="name" id="name" required>
+              <label for="name"><i class="fa-regular fa-user"></i> Your Name</label>
             </div>
             <div class="form-group">
-            <input type="mail" id="Email" name="email" required>
-            <label for="Email"><i class="fa-regular fa-envelope"></i> Your Email</label>
+              <input type="mail" id="Email" name="email" required>
+              <label for="Email"><i class="fa-regular fa-envelope"></i> Your Email</label>
             </div>
+          </div>
+          <div class="row2">
+            <div class="form-group">
+              <input type="tel" id="tel" name="tel" required>
+              <label for="Tel"><i class="fa-solid fa-phone"></i> Phone Number</label>
+            </div>
+            <select name="time" id="" class="time form-group">
+              <option>08:00AM</option>
+              <option>09:00AM</option>
+              <option>10:00AM</option>
+              <option>11:00AM</option>
+              <option>12:00PM</option>
+              <option>01:00PM</option>
+              <option>02:00PM</option>
+              <option>03:00PM</option>
+              <option>04:00PM</option>
+              <option>05:00PM</option>
+              <option>06:00PM</option>
+              <option>07:00PM</option>
+              <option>08:00PM</option>
+              <option>09:00PM</option>
+              <option>10:00PM</option>
+
+
+
+            </select>
+
+          </div>
+
         </div>
-    <div class="row2">
-      <div class="form-group">
-        <input type="tel" id="tel" name="tel" required>
-        <label for="Tel"><i class="fa-solid fa-phone"></i> Phone Number</label>
+
+        <div class="row3">
+          <div class=" date form-group">
+            <input type="date" name="date">
+            <i class="fa-regular fa-calendar-days"></i>
+          </div>
+          <div class="form-option form-group">
+            <select name="people">
+              <option><i class="fa-regular fa-user"></i> 1 Person</option>
+              <option>2 Person</option>
+              <option>3 Person</option>
+              <option>4 Person</option>
+              <option>5 Person</option>
+              <option>6 Person</option>
+              <option>7 Person</option>
+            </select>
+
+
+
+          </div>
         </div>
-        <select name="time" id="" class="time form-group">
-          <option>08:00AM</option>
-          <option>09:00AM</option>
-          <option>10:00AM</option>
-          <option>11:00AM</option>
-          <option>12:00PM</option>
-          <option>01:00PM</option>
-          <option>02:00PM</option>
-          <option>03:00PM</option>
-          <option>04:00PM</option>
-          <option>05:00PM</option>
-          <option>06:00PM</option>
-          <option>07:00PM</option>
-          <option>08:00PM</option>
-          <option>09:00PM</option>
-          <option>10:00PM</option>
-          
-          
-          
-                </select>
-  
-    </div>    
-  
-      </div>
-  
-      <div class="row3">
-        <div class=" date form-group">
-          <input type="date" name="date">
-          <i class="fa-regular fa-calendar-days"></i>
+
+
+        <div class="textarea-section">
+          <textarea id="message" rows="8" name="message" required></textarea>
+          <label for="Message"><i class="fa-regular fa-comment"></i> Your Message</label>
         </div>
-        <div class="form-option form-group">
-      <select name="people">
-    <option><i class="fa-regular fa-user"></i> 1 Person</option>
-    <option>2 Person</option>
-    <option>3 Person</option>
-    <option>4 Person</option>
-    <option>5 Person</option>
-    <option>6 Person</option>
-    <option>7 Person</option>
-        </select>
-    
-       
-     
-        </div>
-      </div>
-      
-     
-  <div class="textarea-section">
-      <textarea id="message" rows="8" name="message" required></textarea>
-      <label for="Message"><i class="fa-regular fa-comment"></i> Your Message</label>
+        <button class="btn" type="submit"> SUBMIT <i class="fas fa-paper-plane"></i></button>
+      </form>
+
+
+
+
+
     </div>
-    <button class="btn" type="submit"> SUBMIT <i class="fas fa-paper-plane"></i></button>
-  </form>
-  
-  
-   
-  
-    
-  </div>
-  <section class="right">
-    <h2>Contact <span>Us</span></h2>
-    <div class="address info">
-      <div><i class="fa-solid fa-location-dot"></i></div>
-      <div>
-      <span> ADDRESS</span>
-      <p class="add">TRAO Layout <br> New Bodija Ibadan<br>Oyo State, Nigeria.
-  
-    </p>
-  </div>
-    </div>
-    <div class="Email info">
-      <div class="envelope"><i class="fa-regular fa-envelope"></i></div>
-      <div>
-       <span> EMAIL</span>
-        <p>Traokitchen@gmail.com
-    
-      </p>
+    <section class="right">
+      <h2>Contact <span>Us</span></h2>
+      <div class="address info">
+        <div><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <span> ADDRESS</span>
+          <p class="add">TRAO Layout <br> New Bodija Ibadan<br>Oyo State, Nigeria.
+
+          </p>
+        </div>
       </div>
-    
-    </div>
-    <div class="phone info">
-      <div><i class="fa-solid fa-phone"></i></div>
-      <div>
-        <span> CONTACT</span>
-        <p> +234 8101234657 
-    
-      </p>
+      <div class="Email info">
+        <div class="envelope"><i class="fa-regular fa-envelope"></i></div>
+        <div>
+          <span> EMAIL</span>
+          <p>Traokitchen@gmail.com
+
+          </p>
+        </div>
+
       </div>
+      <div class="phone info">
+        <div><i class="fa-solid fa-phone"></i></div>
+        <div>
+          <span> CONTACT</span>
+          <p> +234 8101234657
+
+          </p>
+        </div>
       </div>
-    <hr>
+      <hr>
       <div class="working-hours">
         <h3>WORKING HOURS</h3>
         <p>Monday-Friday</p>
         <h4>8am-9pm</h4>
         <p>Saturday and Sunday</p>
         <h4>8am-11pm</h4>
-  
+
       </div>
-  
+
       <div class="icons">
         <a href="#"><i class="ri-facebook-circle-fill"></i></a>
         <a href="#"><i class="ri-instagram-fill"></i></a>
@@ -849,27 +920,30 @@ TOP BAR SECTION
         <a href="#"><i class="ri-twitter-fill"></i></a>
         <a href="#"><i class="ri-youtube-fill"></i></a>
       </div>
-  </section>
     </section>
-  
-  
-  
-  
-  
-  
-    <!-- footer-section -->
-    <div class="sec">
-      <section class="footer-new">
+  </section>
+
+
+
+
+
+
+  <!-- footer-section -->
+  <div class="sec">
+    <section class="footer-new">
       <footer>
         <div class="block">
           <div class="cole cole1">
-          
+
             <img src="Logo1new.png" alt="" class="logo1">
-            <p>Here, at <span style="cursor: pointer; font-weight: 600;">TRAO KITCHEN</span>, we don't accept compromises. Not about our foods. All our ingredients are sourced from local producers to ensure quality and freshness.Come with family & feel the joy of mouthwatering foods.
+            <p>Here, at <span style="cursor: pointer; font-weight: 600;">TRAO KITCHEN</span>, we don't accept
+              compromises. Not about our foods. All our ingredients are sourced from local producers to ensure quality
+              and freshness.Come with family & feel the joy of mouthwatering foods.
             </p>
           </div>
           <div class="cole">
-            <h3>Useful Links <div class="underline"><span></span></div></h3>
+            <h3>Useful Links <div class="underline"><span></span></div>
+            </h3>
             <li><a href="#">Home</a></li>
             <li><a href="#">Menu</a></li>
             <li><a href="#">About</a></li>
@@ -877,22 +951,24 @@ TOP BAR SECTION
             <li><a href="#">Testimonials</a></li>
           </div>
           <div class="cole">
-            <h3>Get Help<div class="underline"><span></span></div></h3>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Reservation</a></li>
-              <li><a href="#">Returns Policy</a></li>
-              <li><a href="#">Track Order</a></li>
-              <li><a href="#">Payment Options</a></li>
+            <h3>Get Help<div class="underline"><span></span></div>
+            </h3>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Reservation</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Payment Options</a></li>
           </div>
           <div class="cole">
-            <h3>Newsletter<div class="underline"><span></span></div></h3>
+            <h3>Newsletter<div class="underline"><span></span></div>
+            </h3>
             <div class="news-box">
               <i class="fa-regular fa-envelope far"></i>
               <input type="email" placeholder="Enter your email id..." required>
               <button type="button"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
             <div class="social-icons">
-             
+
               <a href="#"><i class="ri-facebook-circle-fill"></i></a>
               <a href="#"><i class="ri-instagram-fill"></i></a>
               <a href=""><i class="fa-brands fa-whatsapp"></i></a>
@@ -904,31 +980,32 @@ TOP BAR SECTION
         <hr>
         <p class="copyright">TRAO KITCHEN <span style="color:#C57C15;">&copy; </span>2024 - All Rights Reserved</p>
       </footer>
-      </section>
-      </div>
+    </section>
+  </div>
 
 
 
 
 
- 
-    
 
 
 
-<!-- javascript -->
- 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7xSf5Jl/VHe++I=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-integrity="sha384-qQ2+7W7PSKBNi+64t3/yjy0AIjzEEkB66/A6FpcC/O7xGoBfEJN3xEW8ccOG4/F4" crossorigin="anonymous">
-</script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="./script.js"></script>
 
-<!-- icon -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- javascript -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7xSf5Jl/VHe++I=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-qQ2+7W7PSKBNi+64t3/yjy0AIjzEEkB66/A6FpcC/O7xGoBfEJN3xEW8ccOG4/F4" crossorigin="anonymous">
+    </script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./script.js"></script>
+
+  <!-- icon -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

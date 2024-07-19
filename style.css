@@ -1029,6 +1029,7 @@ CART
 
 
   #Loc-Dishes{
+   
     display: block;
     /* background-image: url(./assets/img-pattern.svg); */
     background-repeat: no-repeat;
@@ -1052,17 +1053,11 @@ CART
 #Loc-Dishes:hover img{
 transform: translateX(180deg);
 }
-#Item-List{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* position: absolute; */
-    cursor: pointer;
-    font-weight: 800;
-    font-family: 'Gill Sans', 'Gill Sans MT', 
-    Calibri, 'Trebuchet MS', sans-serif;
-}
-
+/* #Int-img{
+  display: flex;
+  width: 300px;
+  height: 500px;
+} */
 
 /* #Loc-Dishes{
     display: none;
@@ -1094,6 +1089,26 @@ transform: translateX(180deg);
       justify-content: space-between;
       transition: transform 1s infinite;
   } 
+  #Protein{
+    display: none;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.5s, background-size 0.5s;
+      position: relative;
+      overflow: hidden;
+      justify-content: space-between;
+      transition: transform 1s infinite;
+  }
+  #Soup{
+    display: none;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.5s, background-size 0.5s;
+      position: relative;
+      overflow: hidden;
+      justify-content: space-between;
+      transition: transform 1s infinite;
+  }
   /* #Int-Dishes{
     display: none;
     background-repeat: no-repeat;
@@ -2364,6 +2379,7 @@ background-size: cover;
   justify-content: center;
   align-items: center;
   width: 100%;
+  box-shadow: 8px 4px 8px greenyellow;
  }
 
 .slider-containers {
@@ -2378,7 +2394,7 @@ background-size: cover;
   border-radius: 10px;
   /* background-color: black; */
   /* background-image: url('./assets/testiBackground.jpg'); */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ 
 }
 
 .Aslider {
@@ -2397,7 +2413,7 @@ background-size: cover;
 }
 
 .slides p {
- 
+ width: 70% 70%;
   font-weight: 900;
   font-size: 20px;
   line-height: 1.5;
@@ -2440,14 +2456,15 @@ button:hover {
 .img-Testy{
   width: 200px;
   margin-top: 1.5rem;
-  border-radius: 3.5rem;
+  border-radius: 4.5rem;
 }
 .Testimon{
-  font-weight: var(--weight-6);
-  font-size: 75px;
-  color: var(--tertiary-color);
+  font-weight: 600;
+  font-size: 65px;
+  color: #C57C15;
   margin-top: 20px;
   text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 
@@ -2461,11 +2478,10 @@ button:hover {
 }
 
 #v-pills-tabContent{
-color: #ff7200;
+color: #C57C15;
 }
-
 .headings {
-  background-color: whitesmoke;
+  background-color: #C57C15;
   border-radius: 5px;
   padding: 15px 20px;  /* Adjusted padding */
   border: none;
@@ -2473,13 +2489,13 @@ color: #ff7200;
   margin-bottom: 15px;  /* Adjusted margin */
   /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
   font-size: 19px;
-  color: #232d39;
+  color: black;
   letter-spacing: 0.5px;
   font-weight: 600;
   transition: all 0.3s;
   text-align: left;  /* Changed to left align */
   cursor: pointer;
-  box-shadow: 1px 0px 20px goldenrod;
+  box-shadow: 1px 0px 20px whitesmoke;
   display: flex;  /* Added flex properties */
   align-items: center;
   justify-content: space-between;
@@ -2492,8 +2508,8 @@ color: #ff7200;
 
 
 .headings:hover {
-  background-color: burlywood;
-  color: #ff7200;
+  background-color: #ff7200;
+  color: black;
 }
 
 /* .headings img {
@@ -2521,7 +2537,8 @@ color: #ff7200;
 
 .signupBtn1:hover {
   opacity: 0.7;
-  background-color: burlywood;
+  color: aliceblue;
+  background-color: black;
 }
 
 .trainingContainer {
@@ -2533,7 +2550,7 @@ color: #ff7200;
   transform: translateX(-50%);
   margin-top: 10px;
   background-color: #fff;
-  box-shadow: 0px 0px 15px greenyellow(0, 0, 0, 0.1);
+  /* box-shadow: 0px 5px 15px greenyellow; */
   border-radius: 5px;
   padding: 20px;
   z-index: 1000;
@@ -2585,7 +2602,7 @@ Asection {
   margin-left: 30px;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px greenyellow;
+  /* box-shadow: 0px 4px 8px greenyellow; */
 }
 
 .Sub-menu img {
@@ -2598,11 +2615,39 @@ Asection {
   transform: scale(1.1);
 }
 .tab-pane{
+  box-shadow: 2px 4px 10px #c57c15;
   color: #ff7200;
 }
 .tab-pane img{
+  box-shadow: 2px 4px 10px #c57c15;
   border-radius: 2rem;
 }
+
+.flip-image {
+  width: 100%; /* Adjust as needed */
+  animation: flip 4s ; /* 3s is the duration, infinite makes it loop */
+  transform-style: preserve-3d;
+  /* animation-direction: alternate; */
+  /* animation-delay: 0s; */
+  /* backface-visibility: hidden; */
+ transition: ease-in-out;
+}
+
+.flip-image-container {
+  perspective: 1000px;
+}
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(170deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
 
  /* .testimonial-container {
     max-width: 600px;
