@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <link rel="stylesheet" href="user-setting.css">
+    <script src="https://kit.fontawesome.com/aa43713701.js" crossorigin="anonymous"></script>
+</head>
+<body onload="loadSettings()">
+<div class="container">
+    <button type="button" class="user-btn" onclick="goBackToMain()"><i class="fa-solid fa-arrow-left fa-xl" style="color: #C57C15;"></i></button>
+    <h4>Account Settings</h4>
+    <div class="row">
+        <div class="left-tabs">
+            <div class="list-group">
+                <a class="list-group-item active" onclick="openTab('account-general')">General</a>
+                <a class="list-group-item" onclick="openTab('account-change-password')">Change Password</a>
+                <a class="list-group-item" onclick="openTab('account-info')">Info</a>
+                <a class="list-group-item" onclick="openTab('account-social-links')">Social Links</a>
+                <a class="list-group-item" onclick="openTab('account-connections')">Connections</a>
+                <a class="list-group-item" onclick="openTab('account-notifications')">Notifications</a>
+            </div>
+        </div>
+        <div class="right-tabs">
+            <div id="account-general" class="tab-pane active">
+                <div class="card-body media">
+                    <img id="profile-pic" src="/assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt class="ui-w-80">
+                    <div class="media-body ml-4">
+                        <label class="btn btn-outline-primary">
+                            Upload new photo
+                            <input type="file" class="account-settings-fileinput" id="upload-photo" onchange="uploadPhoto()">
+                        </label>
+                        <button type="button" class="btn btn-default" onclick="resetPhoto()">Reset</button>
+                        <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control mb-1" id="username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail</label>
+                        <input type="text" class="form-control mb-1" id="email">
+                        <div class="alert alert-warning mt-3" id="email-alert">
+                            Your email is not confirmed. Please check your inbox.<br>
+                            <a href="javascript:void(0)" onclick="resendConfirmation()">Resend confirmation</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Company</label>
+                        <input type="text" class="form-control" id="company">
+                    </div>
+                </div>
+            </div>
+            <div id="account-change-password" class="tab-pane">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="current-password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Repeat New Password</label>
+                        <input type="password" class="form-control" id="repeat-password">
+                    </div>
+                </div>
+            </div>
+            <div id="account-info" class="tab-pane">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Bio</label>
+                        <textarea class="form-control" rows="5" id="bio"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Birthday</label>
+                        <input type="text" class="form-control" id="birthday">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <select class="form-control" id="country">
+                            <option>USA</option>
+                            <option>Canada</option>
+                            <option>UK</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <h6>Contacts</h6>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Website</label>
+                        <input type="text" class="form-control" id="website">
+                    </div>
+                </div>
+            </div>
+            <div id="account-social-links" class="tab-pane">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Twitter</label>
+                        <input type="text" class="form-control" id="twitter">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="facebook">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Google+</label>
+                        <input type="text" class="form-control" id="google-plus">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">LinkedIn</label>
+                        <input type="text" class="form-control" id="linkedin">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Instagram</label>
+                        <input type="text" class="form-control" id="instagram">
+                    </div>
+                </div>
+            </div>
+            <div id="account-connections" class="tab-pane">
+                <div class="card-body">
+                    <button type="button" class="btn btn-facebook">Connect to <strong>Facebook</strong></button>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <h5>
+                        <a href="javascript:void(0)" class="text-muted" style="float: right;">Remove</a>
+                        <i>Google</i> You are connected to Google:
+                    </h5>
+                    <a href="mailto:example@gmail.com" id="google-email">example@gmail.com</a>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <button type="button" class="btn btn-twitter">Connect to <strong>Twitter</strong></button>
+                </div>
+            </div>
+            <div id="account-notifications" class="tab-pane">
+                <div class="card-body pb-2">
+                    <h6>Activity</h6>
+                    <div class="form-group">
+                        <label class="switcher">
+                            <input type="checkbox" class="switcher-input" id="activity-notifications" checked>
+                            <span class="switcher-indicator">
+                                <span class="switcher-yes"></span>
+                                <span class="switcher-no"></span>
+                            </span>
+                            <span class="switcher-label">Email me when someone comments on my article</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="switcher">
+                            <input type="checkbox" class="switcher-input" id="new-follower-notifications">
+                            <span class="switcher-indicator">
+                                <span class="switcher-yes"></span>
+                                <span class="switcher-no"></span>
+                            </span>
+                            <span class="switcher-label">Email me when someone follows me</span>
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body pb-2">
+                    <h6>Application</h6>
+                    <div class="form-group">
+                        <label class="switcher">
+                            <input type="checkbox" class="switcher-input" id="news-updates" checked>
+                            <span class="switcher-indicator">
+                                <span class="switcher-yes"></span>
+                                <span class="switcher-no"></span>
+                            </span>
+                            <span class="switcher-label">News and announcements</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="switcher">
+                            <input type="checkbox" class="switcher-input" id="weekly-digest">
+                            <span class="switcher-indicator">
+                                <span class="switcher-yes"></span>
+                                <span class="switcher-no"></span>
+                            </span>
+                            <span class="switcher-label">Weekly product digest</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="switcher">
+                            <input type="checkbox" class="switcher-input" id="feature-updates" checked>
+                            <span class="switcher-indicator">
+                                <span class="switcher-yes"></span>
+                                <span class="switcher-no"></span>
+                            </span>
+                            <span class="switcher-label">Product feature updates</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn user-btn" onclick="saveSettings()">Save Changes</button>
+</div>
+<script src="user-setting.js"></script>
+</body>
+</html>

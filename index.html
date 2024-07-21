@@ -199,10 +199,44 @@ TOP BAR SECTION
         <!-- <div class="dropdown-content"> -->
         <!-- logged in -->
         <div class="profile-container">
-          <h1 class="pf-ct">Hello, User</h1>
+          <div class="user-sub-menu-wrap" id="usersubMenu">
+            <div class="user-sub-menu">
+                <div class="user-info">
+                    <img src="assets/user.png">
+                    <h3>User</h3>
+                </div>
+                <hr>
+
+                <a href="/user-setting.html" class="user-sub-menu-link">
+                    <img src="assets/profile.png">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="user-sub-menu-link">
+                    <img src="assets/setting.png">
+                    <p>Settings & Privacy</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="user-sub-menu-link">
+                    <img src="assets/help.png">
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="user-sub-menu-link">
+                    <img src="assets/logout.png">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+
+          <!-- <h1 class="pf-ct">Hello, User</h1>
           <button class="update-profile">Update Profile</button>
           <button class="transaction-history">Transaction History</button>
-          <button class="logout">Logout</button>
+          <button class="logout">Logout</button> -->
         </div>
 
         <!-- not logged in -->
@@ -262,7 +296,7 @@ TOP BAR SECTION
       <li class="slider-item">
 
         <div class="slider-bg">
-          <img class="slider-image" src="./images/hero-slider-2.jpg" alt="Image 1" width="1880" height="950">
+          <img class="slider-image" src="./assets/side-view-pilaf-with-stewed-beef-meat-plate.jpg" style="filter: brightness(0.2);" alt="Image 1" width="1880" height="950">
         </div>
 
         <p class="slider-first-txt subtitle slider-reveal">delightful experience</p>
@@ -546,109 +580,60 @@ TOP BAR SECTION
 
 
   <!-- special offer -->
-  <div class="specialOffer">
-
-    <div class="specialOfferText">
-      <h1>OUR SPECIAL OFFER</h1>
+  <section class="specialOffer">
+    <div class="carousel">
+        <div class="list">
+            <div class="item" style="background-image: url(assets/medium-shot-latin-friends-hanging-out.jpg);">
+                <div class="content">
+                    <div class="title">DINNER</div>
+                    <div class="name">FOR TWO</div>
+                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="btn-back">
+                      <a href="#contact"> <button class="btn">Book Reservation</button> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(assets/friends-happy-birthday-cake.jpg);;">
+                <div class="content">
+                    <div class="title">BIRTHDAY</div>
+                    <div class="name">BASH</div>
+                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="btn-back">
+                      <a href="#contact"> <button class="btn">Book Reservation</button> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(assets/happy-friends-working-together-indoors.jpg);">
+                <div class="content">
+                    <div class="title">WORKERS</div>
+                    <div class="name">TREAT</div>
+                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="btn-back">
+                      <a href="#contact"> <button class="btn">Book Reservation</button> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(assets/vishnu-r-nair-m1WZS5ye404-unsplash.jpg);">
+                <div class="content">
+                    <div class="title">ASUN</div>
+                    <div class="name">NIGHT</div>
+                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="btn-back">
+                      <a href="#contact"> <button class="btn">Book Reservation</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="specialOfferPrevBtn"><</button>
+            <button class="specialOfferNextBtn">></button>
+        </div>
+        <!-- time running -->
+        <div class="timeRunning"></div>
     </div>
+</section>
 
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/rice.jpg" alt="specialoffer1">
-      </div>
-    </div>
-
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/rice2.jpg" alt="specialoffer2">
-      </div>
-    </div>
-
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/rice3.jpg" alt="specialoffer3">
-      </div>
-    </div>
-
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/fried rice 2.jpg" alt="specialoffer4">
-      </div>
-    </div>
-
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/fried rice.jpg" alt="specialoffer5">
-      </div>
-    </div>
-
-    <div class="discountList discount">
-      <div class="discountPercent">
-        <img src="Assets/discountIcon.png">
-        <h3>10% off</h3>
-      </div>
-      <h2>Jumbo Special (Rice + Big chicken + Drink)</h2>
-      <p> Smokey jollof or fried rice or a mix of both with a big chicken and a PET drink or water.</p>
-      <h5>#5,500</h5>
-      <h6>#4,500</h6>
-      <button class="special-offer-btn">View More</button>
-      </button>
-      <div class="specialOfferImg">
-        <img src="/assets/chinese rice.jpg" alt="specialoffer6">
-      </div>
-    </div>
-
-  </div>
 
 
   <!-- about us -->
@@ -1001,6 +986,8 @@ TOP BAR SECTION
     </script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="./script.js"></script>
+  <script src="/user-setting.js"></script>
+
 
   <!-- icon -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
