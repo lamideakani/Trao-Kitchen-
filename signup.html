@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website with Login and Registration Form</title>
-    <!-- Google Fonts Link For Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="signup.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="signup.js" defer></script>
 </head>
 <body>
@@ -20,8 +20,7 @@
             <ul class="links">
                 <span class="close-btn material-symbols-rounded">close</span>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Courses</a></li>
+                <li><a href="#">Menu</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Contact us</a></li>
             </ul>
@@ -40,11 +39,11 @@
                 <h2>LOGIN</h2>
                 <form action="#">
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" id="login-email" required>
                         <label>Email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" required>
+                        <input type="password" id="login-password" required>
                         <label>Password</label>
                     </div>
                     <a href="#" class="forgot-pass-link">Forgot password?</a>
@@ -65,17 +64,17 @@
                 <h2>SIGNUP</h2>
                 <form action="#">
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" id="signup-email" required>
                         <label>Enter your email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" required>
+                        <input type="password" id="signup-password" required>
                         <label>Create password</label>
                     </div>
                     <div class="policy-text">
                         <input type="checkbox" id="policy">
                         <label for="policy">
-                            I agree the
+                            I agree to the
                             <a href="#" class="option">Terms & Conditions</a>
                         </label>
                     </div>

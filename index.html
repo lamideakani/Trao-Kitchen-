@@ -38,7 +38,7 @@
 
 </head>
 
-<body>
+<body">
 
   <!-- 
 TOP BAR SECTION  
@@ -53,7 +53,7 @@ TOP BAR SECTION
         </div>
 
         <span class="span">
-          Soun Ajagugbade Street, Bodija Estate, Oyo, NG
+          TRAO Layout, New Bodija, Ibadan, Oyo State, NG
         </span>
       </div>
 
@@ -64,7 +64,7 @@ TOP BAR SECTION
           <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
         </div>
 
-        <span class="span">Daily: 8:00am to 10:00pm</span>
+        <span class="span">Daily: 9:00am to 11:00pm</span>
       </div>
 
       <a href="tel:+2341234567890" class="topbar-item link">
@@ -96,7 +96,7 @@ TOP BAR SECTION
   <header class="header" data-header>
     <div class="container">
 
-      <a href="#" class="logo">
+      <a href="/index.html" class="logo">
         <img src="/Logo1new.png" height="90" alt="TRAO - Home">
       </a>
 
@@ -106,7 +106,7 @@ TOP BAR SECTION
           <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
         </button>
 
-        <a href="#" class="logo">
+        <a href="/index.html" class="logo">
           <img src="./images/Logo 6.png" height="50" alt="TRAO - Home">
         </a>
 
@@ -132,7 +132,7 @@ TOP BAR SECTION
           </li>
 
           <li class="navbar-item">
-            <a href="/menu.html" class="navbar-link hover-underline">
+            <a href="/menucart.html" class="navbar-link hover-underline">
               <div class="divider"></div>
 
               <span class="span">Menu</span>
@@ -155,10 +155,7 @@ TOP BAR SECTION
             </a>
           </li>
 
-          <!-- Floating cart icon -->
-          <div class="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-cart"> Cart <span id="cart-count" class="cart-count"> • 0</span></i>
-          </div>
+          
           <!-- Cart panel
 <div id="cart-panel" class="cart-panel">
   <h2>Your Cart</h2>
@@ -197,14 +194,16 @@ TOP BAR SECTION
       <div class="dropdown">
         <i class="fa-solid fa-user-tie lg-su-avatar"></i>
         <!-- <div class="dropdown-content"> -->
-        <!-- logged in -->
-        <div class="profile-container">
+        
+          <!-- logged in -->
+        <div class="profile-container" id="logged-in" style="display: none;">
           <div class="user-sub-menu-wrap" id="usersubMenu">
             <div class="user-sub-menu">
-                <div class="user-info">
-                    <img src="assets/user.png">
-                    <h3>User</h3>
-                </div>
+                
+              <div class="user-info">
+                <img id="profile-pic" src="/assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt="Profile Picture">
+                <h3>Hello, ‎</h3><h3 id="username" style="text-transform:lowercase;">User</h3>
+            </div>
                 <hr>
 
                 <a href="/user-setting.html" class="user-sub-menu-link">
@@ -214,33 +213,22 @@ TOP BAR SECTION
                 </a>
 
                 <a href="#" class="user-sub-menu-link">
-                    <img src="assets/setting.png">
-                    <p>Settings & Privacy</p>
-                    <span>></span>
-                </a>
-
-                <a href="#" class="user-sub-menu-link">
                     <img src="assets/help.png">
-                    <p>Help & Support</p>
+                    <p>Transaction History</p>
                     <span>></span>
                 </a>
 
-                <a href="#" class="user-sub-menu-link">
+                <a href="#" class="user-sub-menu-link" id="logout" onclick="logout()">
                     <img src="assets/logout.png">
                     <p>Logout</p>
                     <span>></span>
                 </a>
             </div>
         </div>
-
-          <!-- <h1 class="pf-ct">Hello, User</h1>
-          <button class="update-profile">Update Profile</button>
-          <button class="transaction-history">Transaction History</button>
-          <button class="logout">Logout</button> -->
         </div>
 
         <!-- not logged in -->
-        <div class="profile-container2">
+        <div class="profile-container2" id="not-logged-in">
           <h1 class="pf-ct2">Sign Up/ Sign In</h1>
           <a href="/clientlogin.html"><button class="login">CUSTOMER</button></a>
           <a href="/signup.html"><button class="login">ADMIN</button></a>
@@ -274,7 +262,7 @@ TOP BAR SECTION
       <li class="slider-item active">
 
         <div class="slider-bg">
-          <img class="slider-image" src="./assets/delicious-indian-food-tray-high-angle.jpg" style="filter: brightness(0.3);" alt="Image 1" width="1880" height="950">
+          <img class="slider-image" src="assets/delicious-indian-food-tray-high-angle.jpg" style="filter: brightness(0.3);" alt="Image 1" width="1880" height="950">
         </div>
 
         <p class="slider-first-txt subtitle slider-reveal">Traditional & Hygiene</p>
@@ -286,7 +274,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -310,7 +298,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -336,7 +324,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -361,7 +349,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -385,7 +373,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -409,7 +397,7 @@ TOP BAR SECTION
         <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
 
         <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
+          <a href="/menucart.html"><button class="menu-btn check-our-menu-btn">
               <span class="text text-1">Check our Menu</span>
 
               <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
@@ -417,29 +405,6 @@ TOP BAR SECTION
         </div>
       </li>
 
-      <li class="slider-item">
-
-        <div class="slider-bg">
-          <img class="slider-image" src="./assets/side-view-pilaf-with-stewed-beef-meat-plate.jpg" style="filter: brightness(0.2);" alt="Image 1" width="1880" height="950">
-        </div>
-
-        <p class="slider-first-txt subtitle slider-reveal">delightful experience</p>
-        <hr class="slider-first-txt subtitle slider-reveal">
-
-        <h1 class="slider-main-text slider-reveal">Flavors Inspired by <br>
-          the Seasons
-        </h1>
-
-        <p class="slider-last-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-
-        <div class="center-button">
-          <a href="#"><button class="menu-btn check-our-menu-btn">
-              <span class="text text-1">Check our Menu</span>
-
-              <span class="text text-2" aria-hidden="true">Check our Menu</span></button>
-          </a>
-        </div>
-      </li>
       <!-- end -->
     </ul>
     <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
@@ -450,7 +415,7 @@ TOP BAR SECTION
       <ion-icon name="chevron-forward"></ion-icon>
     </button>
 
-    <a href="#" class="dslide-btn has-after">
+    <a href="#contact" class="dslide-btn has-after">
       <img src="./images/hero-icon.png" width="48" height="48" alt="booking icon"><br>
 
       <span class="slider-last-text text-center span">Book A Table</span>
@@ -540,7 +505,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE AFRICAN DISHES</a></button>
+                <a href="menucart.html#Local-items"><button class="signupBtn1">VIEW MORE LOCAL DISHES</button></a>
               </div>
             </section>
           </div>
@@ -550,12 +515,12 @@ TOP BAR SECTION
                 <div class="row">
                   <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
                     <div class="flip-image-container" id="Int-img">
-                      <img src="Menu Pictures/main 12.jpg" class="flip-image" alt="Royal Chocolate">
+                      <img src="Menu Pictures/main 5.jpg" class="flip-image" alt="Royal Chocolate">
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
                     <div class="flip-image-container" id="Int-img">
-                      <img src="Menu Pictures/main 27.jpg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
+                      <img src="Menu Pictures/main 26.jpg" class="flip-image" alt="Royal Chocolate" id="Middle-image">
                     </div>
                   </div>
   
@@ -565,7 +530,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE MAIN DISHES</a></button>
+                <a href="menucart.html#Main-items"><button class="signupBtn1">VIEW MORE MAIN DISHES</button></a>
               </div>
             </section>
           </div>
@@ -589,7 +554,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE SNACKS</a></button>
+                <a href="menucart.html#Snacks-items"><button class="signupBtn1">VIEW MORE SNACKS</button></a>
               </div>
             </section>
           </div>
@@ -613,7 +578,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE DRINKS</a></button>
+                <a href="menucart.html#Drinks-items"><button class="signupBtn1">VIEW MORE DRINKS</button></a>
               </div>
             </section>
           </div>
@@ -624,7 +589,7 @@ TOP BAR SECTION
                 <div class="row">
                   <div class="col-md-4 col-sm-6 text-white Sub-menu" id="DelMo">
                     <div class="flip-image-container">
-                      <img src="Menu Pictures/pepper 3.jpg" class="flip-image" alt="spinning img">
+                      <img src="Menu Pictures/pepper 9.jpg" class="flip-image" alt="spinning img">
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-6 text-white Sub-menu" id="MiddleDiv">
@@ -638,7 +603,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE PROTEINS</a></button>
+                <a href="menucart.html#Grills-items"><button class="signupBtn1">VIEW MORE GRILLS & PEPPER SOUP</button></a>
               </div>
             </section>
           </div>
@@ -662,7 +627,7 @@ TOP BAR SECTION
                     </div>
                   </div>
                 </div>
-                <button class="signupBtn1"><a href="#classesSchedules">VIEW MORE SOUP</a></button>
+                <a href="menucart.html#Soups-items"><button class="signupBtn1">VIEW MORE SOUPS</button></a>
               </div>
             </section>
           </div>
@@ -676,44 +641,56 @@ TOP BAR SECTION
 
 
   <!-- special offer -->
+<hr>
+  <h1 class="spoffer-h1">Special Offers</h1>
+
   <section class="specialOffer">
     <div class="carousel">
         <div class="list">
-            <div class="item" style="background-image: url(assets/medium-shot-latin-friends-hanging-out.jpg);">
+            <div class="item" style="background-image: url(assets/couple-sitting-table-having-meal-talking-laughing-valentine-s-day.jpg);">
                 <div class="content">
+
+                  <div class="offer-container">
+                    <div class="offer-overlay">
+                        <h1 class="offer-title">Date Night Deal</h1>
+                        <p class="offer-description">25% Off Your Meal</p>
+                    </div>
+                </div>
+
                     <div class="title">DINNER</div>
                     <div class="name">FOR TWO</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="des">Indulge in a magical evening of culinary delight, crafted just for you and your loved one. Let the enchanting ambiance and exquisite flavors whisk you away to a world of romance and bliss. Celebrate your love with an unforgettable dinner experience.</div>
                     <div class="btn-back">
                       <a href="#contact"> <button class="btn">Book Reservation</button> </a>
                     </div>
                 </div>
             </div>
-            <div class="item" style="background-image: url(assets/friends-happy-birthday-cake.jpg);;">
+
+            <div class="item" style="background-image: url(assets/friends-taking-selfie-party.jpg);;">
                 <div class="content">
                     <div class="title">BIRTHDAY</div>
                     <div class="name">BASH</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="des">Celebrate your special day with a spectacular birthday bash filled with laughter, joy, and unforgettable moments. Gather your friends and family for an extraordinary party that will leave everyone with cherished memories. Let's make your birthday celebration truly magical!</div>
                     <div class="btn-back">
                       <a href="#contact"> <button class="btn">Book Reservation</button> </a>
                     </div>
                 </div>
             </div>
-            <div class="item" style="background-image: url(assets/happy-friends-working-together-indoors.jpg);">
+            <div class="item" style="background-image: url(assets/youngiduu.jpg);">
                 <div class="content">
                     <div class="title">WORKERS</div>
                     <div class="name">TREAT</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="des">Reward your hardworking team with a well-deserved treat. Enjoy a delightful gathering where camaraderie and relaxation meet. Celebrate achievements, strengthen bonds, and create unforgettable memories with a special outing designed just for your team.</div>
                     <div class="btn-back">
                       <a href="#contact"> <button class="btn">Book Reservation</button> </a>
                     </div>
                 </div>
             </div>
-            <div class="item" style="background-image: url(assets/vishnu-r-nair-m1WZS5ye404-unsplash.jpg);">
+            <div class="item" style="background-image: url(assets/family-enjoys-grilling-meat-outdoors-bonding-together-generated-by-ai.jpg);">
                 <div class="content">
                     <div class="title">ASUN</div>
                     <div class="name">NIGHT</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <div class="des">Join us for an unforgettable Asun Night, where sizzling, spicy goat meat takes center stage. Enjoy a night filled with vibrant flavors, lively music, and great company. Perfect for food lovers and social butterflies alike, this is an evening you won't want to miss!</div>
                     <div class="btn-back">
                       <a href="#contact"> <button class="btn">Book Reservation</button> </a>
                     </div>
@@ -795,7 +772,7 @@ TOP BAR SECTION
 
 
   <!-- //Testimonia//* -->
-  <div class="slider-body">
+  <div class="slider-body" id="testimonial-container">
     <div class="slider-containers">
       <p class="Testimon">Testimonial</p>
       <div class="Aslider">
@@ -830,8 +807,8 @@ TOP BAR SECTION
           <p>"Switching to this Resturant has been a fantastic experience.  <br>
               Plus, their customer service team is always responsive and helpful. <br>
              I'm extremely satisfied and will definitely continue to be a loyal customer! "</p>
-          <h1>- LAncelot Johnson</h1>
-          <img class="img-Testy" src="./assets/johndoe.jpeg" alt="">
+          <h1>- Lancelot Johnson</h1>
+          <img class="img-Testy" src="./assets/viewd.jpeg" alt="">
         </div>
       </div>
       <button class="prev-btn">&#10094;</button>
@@ -878,7 +855,7 @@ TOP BAR SECTION
     <div class="reservation-container">
       <div class="heading">
         <h2> <Span>O</Span>nline <span>R</span>eservation</h2>
-        <p>Booking request <span> <i class="fa-solid fa-phone"></i> +234 8101234657 </span> or fill out the order form
+        <p>Booking request <span> <i class="fa-solid fa-phone"></i> +234 123 456 7890 </span> or fill out the order form
         </p>
       </div>
       <form action="https://formspree.io/f/mzzppopq" method="post" class="form-section">
@@ -973,8 +950,7 @@ TOP BAR SECTION
         <div class="envelope"><i class="fa-regular fa-envelope"></i></div>
         <div>
           <span> EMAIL</span>
-          <p>Traokitchen@gmail.com
-
+          <p>trao@kitchens.com
           </p>
         </div>
 
@@ -983,7 +959,7 @@ TOP BAR SECTION
         <div><i class="fa-solid fa-phone"></i></div>
         <div>
           <span> CONTACT</span>
-          <p> +234 8101234657
+          <p> +234 123 456 7890
 
           </p>
         </div>
@@ -1029,11 +1005,11 @@ TOP BAR SECTION
           <div class="cole">
             <h3>Useful Links <div class="underline"><span></span></div>
             </h3>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Testimonials</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menucart.html">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#testimonial-container">Testimonials</a></li>
           </div>
           <div class="cole">
             <h3>Get Help<div class="underline"><span></span></div>
@@ -1087,7 +1063,20 @@ TOP BAR SECTION
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="./script.js"></script>
   <script src="/user-setting.js"></script>
+  <script>
+    // Check if the user is logged in
+    // const isLoggedIn = localStorage.getItem('isLoggedIn');
+    // if (isLoggedIn === 'true') {
+    //   document.getElementById('not-logged-in').style.display = 'none';
+    //   document.getElementById('logged-in').style.display = 'flex';
+    // }
 
+    // Check if the user is logged in
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn === 'true') {
+    document.body.classList.add('show-profile');
+  }
+  </script>
 
   <!-- icon -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

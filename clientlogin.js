@@ -1,30 +1,19 @@
-// let signup = document.querySelector('#signup');
-// let signin = document.querySelector('#signin');
-// let body = document.querySelector('body');
-
-// signup.onclick = function(){
-//   body.classList.add('signup');
-// }
-// signin.onclick = function(){
-//   body.classList.remove('signup');
-// }
-
 let signup = document.querySelector('#signup');
 let signin = document.querySelector('#signin');
 let body = document.querySelector('body');
 
-signup.onclick = function() {
+signup.onclick = function () {
   body.classList.add('signup');
 }
 
-signin.onclick = function() {
+signin.onclick = function () {
   body.classList.remove('signup');
 }
 
-document.getElementById('signinform').addEventListener('submit', function(event) {
+document.getElementById('signinform').addEventListener('submit', function (event) {
   event.preventDefault();
   let isValid = true;
-  
+
   let loginUsername = document.getElementById('loginUsername');
   let loginPassword = document.getElementById('loginPassword');
 
@@ -43,12 +32,22 @@ document.getElementById('signinform').addEventListener('submit', function(event)
   }
 
   if (isValid) {
-    // Perform login
-    alert('Login successful');
+    const storedUser = JSON.parse(localStorage.getItem(loginUsername.value.trim()));
+    if (storedUser && storedUser.password === loginPassword.value.trim()) {
+      showToast("Login successful", "green");
+      // flag to indicate the user is logged in
+    localStorage.setItem('isLoggedIn', 'true');
+      // Proceed with login
+      setTimeout(() => {
+        window.location.assign('index.html');
+      }, 1500);
+    } else {
+      showToast("Invalid username or password");
+    }
   }
 });
 
-document.getElementById('signupform').addEventListener('submit', function(event) {
+document.getElementById('signupform').addEventListener('submit', function (event) {
   event.preventDefault();
   let isValid = true;
 
@@ -77,6 +76,9 @@ document.getElementById('signupform').addEventListener('submit', function(event)
   if (signupPassword.value.trim() === "") {
     setError(signupPassword, "Password is required");
     isValid = false;
+  } else if (!isValidPassword(signupPassword.value.trim())) {
+    setError(signupPassword, "Password must be at least 6 characters long and contain at least one number");
+    isValid = false;
   } else {
     clearError(signupPassword);
   }
@@ -92,15 +94,24 @@ document.getElementById('signupform').addEventListener('submit', function(event)
   }
 
   if (isValid) {
-    // Perform registration
-    alert('Registration successful');
+    const newUser = {
+      username: signupUsername.value.trim(),
+      email: signupEmail.value.trim(),
+      password: signupPassword.value.trim(),
+    };
+    localStorage.setItem(signupUsername.value.trim(), JSON.stringify(newUser));
+    showToast("Registration successful", "green");
+    localStorage.setItem('loggedInUsername', signupUsername.value.trim());
+    window.location.href = ''; // Redirect to profile settings page
   }
 });
+
 
 function setError(element, message) {
   let errorElement = element.nextElementSibling;
   errorElement.innerText = message;
   errorElement.style.display = 'block';
+  errorElement.style.color = 'red';
 }
 
 function clearError(element) {
@@ -113,3 +124,56 @@ function isValidEmail(email) {
   let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
+function isValidPassword(password) {
+  let regex = /^(?=.*\d).{6,}$/; // Password must be at least 6 characters long and contain at least one number
+  return regex.test(password);
+}
+
+function showToast(message, color = "red") {
+  Toastify({
+    text: message,
+    duration: 3000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: color,
+  }).showToast();
+}
+
+let password = document.getElementById('loginPassword');
+let signuppassword = document.getElementById('signupPassword');
+let signupconfirmpassword = document.getElementById('signupConfirmPassword');
+let openclose = document.getElementById('openclose');
+let openclose1 = document.getElementById('openclose1');
+let openclose2 = document.getElementById('openclose2');
+
+openclose.addEventListener('click', function () {
+  if (password.type == 'password') {
+    password.type = 'text';
+    openclose.src = 'eye-openn.svg';
+  } else {
+    password.type = 'password';
+    openclose.src = 'eye-close.png';
+  }
+});
+
+openclose1.addEventListener('click', function () {
+  if (signuppassword.type == 'password') {
+    signuppassword.type = 'text';
+    openclose1.src = 'eye-openn.svg';
+  } else {
+    signuppassword.type = 'password';
+    openclose1.src = 'eye-close.png';
+  }
+});
+
+openclose2.addEventListener('click', function () {
+  if (signupconfirmpassword.type == 'password') {
+    signupconfirmpassword.type = 'text';
+    openclose2.src = 'eye-openn.svg';
+  } else {
+    signupconfirmpassword.type = 'password';
+    openclose2.src = 'eye-close.png';
+  }
+});

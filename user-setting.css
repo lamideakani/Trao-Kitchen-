@@ -189,6 +189,18 @@ h4 {
     margin-right: 20px;
 }
 
+.group-1{
+    position: relative;
+}
+.group-1 img{
+    width:23px;
+    cursor:pointer;
+    position: absolute;
+    top:33px;
+    right:125px;
+   
+  }
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -200,7 +212,7 @@ h4 {
 }
 
 .form-control {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;

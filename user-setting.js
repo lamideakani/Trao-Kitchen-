@@ -12,16 +12,41 @@ function goBackToMain() {
     window.location.href = 'index.html';
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const loggedInUsername = localStorage.getItem('loggedInUsername'); 
+  
+    if (loggedInUsername) {
+      const userData = JSON.parse(localStorage.getItem(loggedInUsername));
+  
+      if (userData) {
+        document.getElementById('username').value = userData.username || '';
+        document.getElementById('email').value = userData.email || '';
+        document.getElementById('current-password').value = userData.password || '';
+      }
+    }
+  
+    document.getElementById('saveProfile').addEventListener('click', function() {
+      const updatedUser = {
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+      };
+  
+      localStorage.setItem(loggedInUsername, JSON.stringify(updatedUser));
+    });
+  });
+  
+  
+  
+
+
 function loadSettings() {
     const settings = JSON.parse(localStorage.getItem('userSettings')) || {};
     document.getElementById('profile-pic').src = settings.profilePic || '';
-    document.getElementById('username').value = settings.username || '';
     document.getElementById('name').value = settings.name || '';
-    document.getElementById('email').value = settings.email || '';
     document.getElementById('company').value = settings.company || '';
-    document.getElementById('current-password').value = settings.currentPassword || '';
-    document.getElementById('new-password').value = settings.newPassword || '';
-    document.getElementById('repeat-password').value = settings.repeatPassword || '';
+    // document.getElementById('current-password').value = settings.currentPassword || '';
+    // document.getElementById('new-password').value = settings.newPassword || '';
+    // document.getElementById('repeat-password').value = settings.repeatPassword || '';
     document.getElementById('bio').value = settings.bio || '';
     document.getElementById('birthday').value = settings.birthday || '';
     document.getElementById('country').value = settings.country || '';
@@ -40,16 +65,16 @@ function loadSettings() {
     document.getElementById('feature-updates').checked = settings.featureUpdates !== false;
 }
 
+
+
 function saveSettings() {
     const settings = {
         profilePic: document.getElementById('profile-pic').src,
-        username: document.getElementById('username').value,
         name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
         company: document.getElementById('company').value,
-        currentPassword: document.getElementById('current-password').value,
-        newPassword: document.getElementById('new-password').value,
-        repeatPassword: document.getElementById('repeat-password').value,
+        // currentPassword: document.getElementById('current-password').value,
+        // newPassword: document.getElementById('new-password').value,
+        // repeatPassword: document.getElementById('repeat-password').value,
         bio: document.getElementById('bio').value,
         birthday: document.getElementById('birthday').value,
         country: document.getElementById('country').value,
@@ -88,3 +113,39 @@ function resetPhoto() {
 function resendConfirmation() {
     alert('Confirmation email resent!');
 }
+
+let newPassword = document.getElementById('new-password');
+let confirmPassword = document.getElementById('repeat-password');
+let openclose = document.getElementById('openclose');
+let openclose1 = document.getElementById('openclose1');
+let openclose2 = document.getElementById('openclose2');
+
+openclose.addEventListener('click', function () {
+  if (document.getElementById('current-password').type == 'password') {
+    document.getElementById('current-password').type = 'text';
+    openclose.src = 'eye-openn.svg';
+  } else {
+    document.getElementById('current-password').type = 'password';
+    openclose.src = 'eye-close.png';
+  }
+});
+
+openclose1.addEventListener('click', function () {
+  if (newPassword.type == 'password') {
+    newPassword.type = 'text';
+    openclose1.src = 'eye-openn.svg';
+  } else {
+    newPassword.type = 'password';
+    openclose1.src = 'eye-close.png';
+  }
+});
+
+openclose2.addEventListener('click', function () {
+  if (confirmPassword.type == 'password') {
+    confirmPassword.type = 'text';
+    openclose2.src = 'eye-openn.svg';
+  } else {
+    confirmPassword.type = 'password';
+    openclose2.src = 'eye-close.png';
+  }
+});

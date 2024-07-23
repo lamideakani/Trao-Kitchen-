@@ -92,19 +92,11 @@ header {
     left: 50%;
     z-index: 10;
     width: 100%;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: auto;
     max-width: 720px;
     background:url(images/restaurant_1.jpeg);
     border: 2px solid #c57c15;
-    transform: translate(-50%, -70%);
-   
-
- 
-}
-.show-popup .form-popup {
-    opacity: 1;
-    pointer-events: auto;
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease, opacity 0.1s;
 }
@@ -150,15 +142,10 @@ header {
     background: url("images/adrien-olichon-ZgREXhl8ER0-unsplash.jpg");
     background-position: center;
     background-size: cover;
-    /* -webkit-backdrop-filter: blur(10px); */
-   
 }
-
-
 .bottom-link{
     color:#fff;
 }
-
 .signup .form-details {
     padding: 0 20px;
     background: url("images/jelezniac-bianca-FTHK04C2FLg-unsplash.jpg");
@@ -189,6 +176,7 @@ form .input-field {
     padding: 0 15px;
     border: 1px solid #fff;
     border-radius: 3px;
+    color: #fff;
 }
 .input-field input:focus {
     border: 1px solid #c57c15;

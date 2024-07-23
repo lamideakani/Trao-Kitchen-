@@ -1,179 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart Page</title>
-
-<!-- custom css -->
-<link rel="stylesheet" href="cart.css">
-
-<!-- font awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="menucart.css">
 </head>
-
 <body>
-<!-- wallet -->
-
-<div class="wallet" id="wallet">
-    <div class="wallet-icon" id="wallet-icon">&#128179;</div>
-    <div class="wallet-balance">
-        Wallet Balance: <span id="wallet-balance">0</span> NGN
-    </div>
-    <div class="wallet-payment-form" id="wallet-payment-form">
-        <div class="wallet-form-group">
-            <label for="amount">Amount</label>
-            <input type="number" id="amount" placeholder="Enter amount">
-        </div>
-        <div class="wallet-form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email">
-        </div>
-        <div class="wallet-form-group">
-            <button id="wallet-pay-button" class="cart-btn">Pay Now</button>
-        </div>
-    </div>
-</div>
-
-<!-- cart -->
-<div class="cart-page-container">
-    <button class="cart-prev-btn cart-btn" onclick="showPreviousDiv()">
-        <i class="fas fa-arrow-left"></i>
-    </button>
-    <div class="progress-tab">
-        <div class="progress">
-            <div class="circle active" id="step1">1</div>
-            <div class="line" id="line1"></div>
-            <div class="circle" id="step2">2</div>
-            <div class="line" id="line2"></div>
-            <div class="circle" id="step3">3</div>
-        </div>
-        <div class="labels">
-            <div>Shopping Cart</div>
-            <div>Checkout</div>
-            <div>Order Complete</div>
-        </div>
-    </div>
-
-    <div id="div1" class="content-div">
-        <div class="cart-item">
-            <img src="/assets/087598850d3e01d11c2a5bbe7f9090a5.jpg" alt="Product Image" class="product-img">
-            <div class="product-details">
-                <p class="product-name">Hamburger</p>
-                <p>$<span id="price">100</span></p>
-                <div class="quantity">
-                    <button class="inc-dec-btn" onclick="updateQuantity(-1)">-</button>
-                    <span id="quantity">1</span>
-                    <button class="inc-dec-btn" onclick="updateQuantity(1)">+</button>
-                </div>
-                <button class="cart-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <header>
+        <a href="menucart.html" class="back-to-menu">Back to Menu</a>
+        <h1>Cart</h1>
+        <div class="progress-tab">
+            <div class="progress">
+                <div class="circle active" id="step1">1</div>
+                <div class="line" id="line1"></div>
+                <div class="circle" id="step2">2</div>
+                <div class="line" id="line2"></div>
+                <div class="circle" id="step3">3</div>
             </div>
+            <div class="labels">
+                <div>Shopping Cart</div>
+                <div>Checkout</div>
+                <div>Order Complete</div>
+            </div>
+        </div>
+    </header>
+    <main class="container-cart" id="cart-page">
+        <section id="cart-items-container">
+            <!-- Cart items will be dynamically inserted here -->
+        </section>
+        <div id="cart-summary">
+            <p>Total Quantity: <span id="total-quantity">0</span></p>
+            <p>Total Amount: #<span id="total-amount">0.00</span></p>
+            <p>Discount Amount: #<span id="discount-amount">0.00</span></p>
+            <p>Final Amount: #<span id="final-amount">0.00</span></p>
+            <button id="clear-cart-btn" class="clear-check" onclick="clearCart()">Clear All</button>
+            <button id="checkout-btn" class="clear-check" onclick="showBillingSection()">Checkout</button>
         </div>
         <div class="coupon">
             <label for="coupon" class="coupon-label">Apply Coupon:</label>
             <input type="text" id="coupon" class="coupon-bar">
-            <button class="cart-btn" onclick="applyCoupon()">Apply</button>
+            <button class="cart-btn" id="apply-coupon-btn">Apply</button>
         </div>
-        <div class="summary">
-            <p>Subtotal: $<span id="subtotal">100</span></p>
-            <p>Discount: $<span id="discount">0</span></p>
-            <p>Total: $<span id="total">100</span></p>
-            <button class="cart-btn" onclick="proceedToBilling()">Checkout</button>
-        </div>
-    </div>
+    </main>
 
-    <div id="div2" class="content-div" style="display: none;">
-        <h2 style="font-size: 40px;">Billing Details</h2>
-<div class="form-container-center">
-    <div class="form-container">
-        <form id="billing-form">
-            <div class="form-group">
-                <div class="form-field">
-                    <label for="first-name">First Name *</label>
-                    <input type="text" id="first-name" required>
-                </div>
-                <div class="form-field">
-                    <label for="last-name">Last Name *</label>
-                    <input type="text" id="last-name" required>
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="form-field">
-                    <label for="company-name">Company Name</label>
-                    <input type="text" id="company-name">
-                </div>
-                <div class="form-field">
-                    <label for="country">Country/Region *</label>
-                    <select id="country" required>
-                        <option value="Ghana" selected>Ghana</option>
-                        <option value="Nigeria">Nigeria</option>
-                    </select>
-                </div>
-            </div>
-    
-            <label>Street Address *</label>
-            <div class="form-group">
-                <div class="form-field">
-                    <input type="text" id="street-address1" required placeholder="House and street name">
-                </div>
-                <div class="form-field">
-                    <input type="text" id="street-address2" placeholder="Apartment, suite, unit, etc.">
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="form-field">
-                    <label for="town-city">Town/City *</label>
-                    <input type="text" id="town-city" required>
-                </div>
-                <div class="form-field">
-                    <label for="state">State</label>
-                    <input type="text" id="state">
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="form-field">
-                    <label for="phone">Phone *</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-field">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" required>
-                </div>
-            </div>
-    
-            <label for="payment-method">Payment Method *</label>
-            <select id="payment-method" required>
-                <option value="cod">Payment on Delivery</option>
+    <div id="proceedToBilling" style="display:none;">
+        <h2>Billing Details</h2>
+        <div class="form-container-center">
+            <div class="form-container">
+                <form id="billing-form">
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="first-name">First Name *</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="last-name">Last Name *</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="company-name">Company Name</label>
+                            <input type="text" id="company-name">
+                        </div>
+                        <div class="form-field">
+                            <label for="country">Country/Region *</label>
+                            <select id="country" required>
+                                <option value="Ghana" selected>Ghana</option>
+                                <option value="Nigeria">Nigeria</option>
+                            </select>
+                        </div>
+                    </div>
+            
+                    <label>Street Address *</label>
+                    <div class="form-group">
+                        <div class="form-field">
+                            <input type="text" id="street-address1" required placeholder="House and street name">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" id="street-address2" placeholder="Apartment, suite, unit, etc.">
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="town-city">Town/City *</label>
+                            <input type="text" id="town-city" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="state">State</label>
+                            <input type="text" id="state">
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+            <!-- <br> -->
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="wallet">Wallet</option>
                 <option value="online">Online Payment</option>
+                <option value="delivery">Payment on Delivery</option>
             </select>
             
             <label for="order-notes">Order Notes</label>
             <textarea id="order-notes"></textarea>
-    
-    </div>
-</div>
-            <hr>
-            <div class="order-summary">
-                <h3>Your Order</h3>
-                <p>Product Name (x<span id="order-quantity">1</span>)</p>
-                <p>Subtotal: $<span id="order-subtotal">100</span></p>
-                <p>Discount: $<span id="order-discount">0</span></p>
-                <p>Total: $<span id="order-total">100</span></p>
-                
-                <label for="terms">
-                    <input type="checkbox" id="terms" required>
-                    I agree to the ‎ <a href="">Terms and Conditions</a>
-                </label>
-                
-                <button type="submit" class="cart-btn">Complete Order</button>
-            </div>
+            <!-- <br> -->
+            <button type="button" id="confirm-payment-btn" onclick="confirmPayment()" >Confirm Payment</button>
         </form>
+        </div>
+    </div>
     </div>
 
-    <div id="div3" class="content-div" style="display: none;">
+    <div id="orderSummary" style="display:none;">
         <h2>Order Summary</h2>
         <div class="order-details">
             <p><strong>First Name:</strong> <span id="summary-first-name"></span></p>
@@ -193,23 +142,25 @@
     </div>
 
 <!-- Online Payment -->
-    <div id = "div4" class="content div" style="display: none;">
-        <div class="online-payment-form">
-            <div class="online-form-group">
-                <label for="amount">Amount</label>
-                <input type="number" id="online-payment-amount" placeholder="Enter amount" readonly>
-            </div>
-            <div class="online-form-group">
-                <label for="email">Email</label>
-                <input type="email" id="online-payment-email" placeholder="Enter your email">
-            </div>
-            <div class="online-form-group">
-                <button id="online-payment-pay-button" class="cart-btn">Pay Now</button>
-            </div>
+<div id = "onlinePayment" style="display: none;">
+    <div class="online-payment-form">
+        <div class="online-form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="online-payment-amount" placeholder="Enter amount">
+        </div>
+        <div class="online-form-group">
+            <label for="email">Email</label>
+            <input type="email" id="online-payment-email" placeholder="Enter your email">
+        </div>
+        <div class="online-form-group">
+            <button id="online-payment-pay-button" class="cart-btn">Pay Now</button>
         </div>
     </div>
 </div>
-<script src="cart.js"></script>
-<script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+    <script src="cart.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
 </body>
 </html>

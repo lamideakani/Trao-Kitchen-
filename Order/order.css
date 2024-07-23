@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+}
+
+.Order-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+.back-btn{
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #C57C15;
+    color: aliceblue;
+   border: none;
+}
+.back-btn a{
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #C57C15;
+    color: white;
+}
+.total {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.cart-animation {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.cart-animation h1 {
+    text-align: center;
+}

@@ -507,3 +507,36 @@ function showSlider(type) {
 
 // Start the initial animation
 resetTimeAnimation();
+
+
+
+window.onload = function() {
+  const settings = JSON.parse(localStorage.getItem('userSettings'));
+  if (settings) {
+      document.getElementById('profile-pic').src = settings.profilePic || '';
+  }
+
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+  if (loggedInUsername) {
+    const userData = JSON.parse(localStorage.getItem(loggedInUsername));
+    if (userData) {
+        let username = userData.username || '';
+        username = username.length > 8 ? username.substring(0, 8) : username;
+        document.getElementById('username').textContent = username;
+    }
+}
+};
+
+
+function logout() {
+  // Remove the profile-related class from the body
+  document.body.classList.remove('show-profile');
+  
+  // Save the state to local storage
+  localStorage.setItem('isLoggedIn', 'false');
+
+  window.location.reload();
+}
+
+

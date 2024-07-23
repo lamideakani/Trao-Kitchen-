@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+    color: aliceblue;
+}
+.back-btn{
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #C57C15;
+    color: aliceblue;
+    border: none;
+    margin:1rem 2rem;
+}
+.back-btn a{
+    text-decoration: none;
+    color: aliceblue;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #C57C15;
+    color: white;
+}
+.total {
+    text-align: right;
+    margin-bottom: 20px;
+}

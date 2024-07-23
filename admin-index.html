@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Rating and Scorecard</title>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+
+  <div class="app">
+    <!-- Star Rating Form -->
+    <div class="container">
+      <div class="post">
+        <div class="text">Thanks for rating us!</div>
+        <div class="edit">EDIT</div>
+      </div>
+      <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5" value="5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4" value="4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3" value="3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2" value="2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1" value="1">
+        <label for="rate-1" class="fas fa-star"></label>
+        <form id="ratingForm">
+          <header></header>
+          <div class="textarea">
+            <textarea cols="30" placeholder="Describe your experience.." required></textarea>
+          </div>
+          <div class="btn">
+            <button type="submit">Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <!-- Scorecard -->
+    <div class="rating">
+      <div class="ratingAverage">
+        <h1>4.5</h1>
+        <div class="star-outer">
+          <div class="star-inner"></div>
+        </div>
+        <p>290,291</p>
+      </div>
+      <div class="ratingProgress">
+        <!-- Progress bars will be dynamically generated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- JavaScript -->
+  <script src="admin-script.js"></script>
+</body>
+</html>
