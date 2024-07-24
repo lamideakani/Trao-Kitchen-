@@ -59,3 +59,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelector('.star-inner').style.width = (ratingAverage / 5) * 100 + "%";
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const profileDetails = document.getElementById("profileDetails");
+  const profileContainer = document.getElementById("logged-in");
+
+  profileDetails.addEventListener("click", function(event) {
+    profileContainer.style.display = profileContainer.style.display === "none" ? "block" : "none";
+  });
+
+  // Hide profile container when clicking outside
+  document.addEventListener("click", function(event) {
+    if (!profileDetails.contains(event.target) && !profileContainer.contains(event.target)) {
+      profileContainer.style.display = "none";
+    }
+  });
+});
+
+
+window.onload = function() {
+  const settings = JSON.parse(localStorage.getItem('adminSettings'));
+  if (settings) {
+      document.getElementById('profile-pic').src = settings.profilePic || '';
+      document.getElementById('profile-pic2').src = settings.profilePic || '';
+  }
+
+  const loggedInUsername = localStorage.getItem('adminloggedInUsername');
+
+  if (loggedInUsername) {
+    const userData = JSON.parse(localStorage.getItem(loggedInUsername));
+    
+    if (userData) {
+        let username = userData.username || '';
+        username = username.length > 8 ? username.substring(0, 8) : username;
+        document.getElementById('username').textContent = username;
+        document.getElementById('username2').textContent = username;
+    }
+}
+};
+
+
+function logout() {
+  // Save the state to local storage
+  localStorage.setItem('adminIsLoggedIn', 'false');
+  window.location.href = 'index.html';
+}
