@@ -510,6 +510,8 @@ z-index: 1;
 
 /* nav btn end */
 
+
+
 /* slider */
 
 .dslide .slider-btn{ display: none;}
@@ -1165,6 +1167,45 @@ transform: translateX(180deg);
   position: relative;
   margin: 20px;
   border-radius: 30px;
+}
+
+.discount-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* justify-content: left; */
+  position: relative;
+}
+.discount-wrapper{
+  background-color: white;
+  width: 17rem;
+  height: 15rem;
+  z-index: 1000;
+  position: absolute;
+  left: 220%;
+  top: -40%;
+  border-radius: 40%;
+  overflow: hidden;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-shadow: inset 2px 0 45px #C57C15;
+}
+.offer-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 3rem;
+  padding: 10px;
+}
+
+.offer-description {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: var(--primary-color);
+  text-align: center;
 }
 
 .carousel .list .item{

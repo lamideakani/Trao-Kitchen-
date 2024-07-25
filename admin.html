@@ -84,6 +84,8 @@
         </li>
       </ul>
     </div>
+
+
     <section class="home-section">
       <nav>
         <div class="sidebar-button">
@@ -94,11 +96,44 @@
           <input type="text" placeholder="Search...">
           <i class='bx bx-search'></i>
         </div>
-        <div class="profile-details">
-          <img src="images/profile.jpg" alt="">
-          <span class="admin_name">Sunny Richie</span>
+
+        <div class="profile-details" id="profileDetails">
+          <img id="profile-pic2" src="assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt="Profile Picture">
+          <span id="username2" class="admin_name"> Admin </span>
           <i class='bx bx-chevron-down'></i>
+          
+          <div class="profile-container" id="logged-in">
+            <div class="admin-sub-menu-wrap" id="usersubMenu">
+                <div class="admin-sub-menu">
+                    <div class="admin-info">
+                        <img id="profile-pic" src="/assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt="Profile Picture">
+                        <h3>Hello, <span id="username">Admin</span></h3>
+                    </div>
+                <hr>
+        
+                <a href="/admin-profile-setting.html" class="admin-sub-menu-link">
+                  <img src="assets/profile.png">
+                  <p>Edit Profile</p>
+                  <span>></span>
+                </a>
+        
+                <a href="#" class="admin-sub-menu-link">
+                  <img src="assets/help.png">
+                  <p>Transaction History</p>
+                  <span>></span>
+                </a>
+        
+                <a href="#" class="admin-sub-menu-link" id="logout" onclick="logout()">
+                  <img src="assets/logout.png">
+                  <p>Logout</p>
+                  <span>></span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+        
+
       </nav>
       <div class="home-content">
         <div class="overview-boxes">

@@ -102,10 +102,6 @@ TOP BAR SECTION
 
       <nav class="navbar active" data-navbar>
 
-        <button class="close-btn" aria-label="close menu" data-nav-toggler>
-          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-        </button>
-
         <a href="./index.html" class="logo">
           <img src="./images/Logo 6.png" height="50" alt="TRAO - Home">
         </a>
@@ -154,17 +150,7 @@ TOP BAR SECTION
               <span class="span">Contact</span>
             </a>
           </li>
-
-          
-          <!-- Cart panel
-<div id="cart-panel" class="cart-panel">
-  <h2>Your Cart</h2>
-  <ul id="cart-items" class="cart-items">
-  </ul>
-  <p id="cart-total" class="cart-total">Total: N0.00</p>
-</div> -->
-
-        </ul>
+         </ul>
 
 
 
@@ -650,12 +636,13 @@ TOP BAR SECTION
             <div class="item" style="background-image: url(assets/couple-sitting-table-having-meal-talking-laughing-valentine-s-day.jpg);">
                 <div class="content">
 
-                  <div class="offer-container">
-                    <div class="offer-overlay">
-                        <h1 class="offer-title">Date Night Deal</h1>
-                        <p class="offer-description">25% Off Your Meal</p>
+                  <!-- discount -->
+                   <div class="discount-container">
+                    <div class="discount-wrapper">
+                      <h1 class="offer-title">Date Night Deal</h1>
+                      <p class="offer-description">25% Off Your Meal</p>
                     </div>
-                </div>
+                   </div>
 
                     <div class="title">DINNER</div>
                     <div class="name">FOR TWO</div>
@@ -668,6 +655,15 @@ TOP BAR SECTION
 
             <div class="item" style="background-image: url(assets/friends-taking-selfie-party.jpg);;">
                 <div class="content">
+                  
+                  <!-- discount -->
+                  <div class="discount-container">
+                    <div class="discount-wrapper">
+                      <h1 class="offer-title">Birthday Bash:</h1>
+                      <p class="offer-description">Complimentary Dessert with Dinner</p> 
+                    </div>
+                  </div>
+
                     <div class="title">BIRTHDAY</div>
                     <div class="name">BASH</div>
                     <div class="des">Celebrate your special day with a spectacular birthday bash filled with laughter, joy, and unforgettable moments. Gather your friends and family for an extraordinary party that will leave everyone with cherished memories. Let's make your birthday celebration truly magical!</div>
@@ -678,6 +674,15 @@ TOP BAR SECTION
             </div>
             <div class="item" style="background-image: url(assets/youngiduu.jpg);">
                 <div class="content">
+                  
+                  <!-- discount -->
+                  <div class="discount-container">
+                    <div class="discount-wrapper">
+                      <h1 class="offer-title">Workers' Night Out:</h1>
+                      <p class="offer-description"> 20% Off Dinner</p>
+                    </div>
+                  </div>
+
                     <div class="title">WORKERS</div>
                     <div class="name">TREAT</div>
                     <div class="des">Reward your hardworking team with a well-deserved treat. Enjoy a delightful gathering where camaraderie and relaxation meet. Celebrate achievements, strengthen bonds, and create unforgettable memories with a special outing designed just for your team.</div>
@@ -688,6 +693,15 @@ TOP BAR SECTION
             </div>
             <div class="item" style="background-image: url(assets/family-enjoys-grilling-meat-outdoors-bonding-together-generated-by-ai.jpg);">
                 <div class="content">
+                  
+                  <!-- discount -->
+                  <div class="discount-container">
+                    <div class="discount-wrapper">
+                      <h1 class="offer-title">Asun Feast: <br> Perfect Night Out</h1>
+                      <p class="offer-description">LIMITED SPACE</p>
+                    </div>
+                  </div>
+
                     <div class="title">ASUN</div>
                     <div class="name">NIGHT</div>
                     <div class="des">Join us for an unforgettable Asun Night, where sizzling, spicy goat meat takes center stage. Enjoy a night filled with vibrant flavors, lively music, and great company. Perfect for food lovers and social butterflies alike, this is an evening you won't want to miss!</div>
@@ -1064,14 +1078,6 @@ TOP BAR SECTION
   <script src="./script.js"></script>
   <script src="/user-setting.js"></script>
   <script>
-    // Check if the user is logged in
-    // const isLoggedIn = localStorage.getItem('isLoggedIn');
-    // if (isLoggedIn === 'true') {
-    //   document.getElementById('not-logged-in').style.display = 'none';
-    //   document.getElementById('logged-in').style.display = 'flex';
-    // }
-
-    // Check if the user is logged in
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   if (isLoggedIn === 'true') {
     document.body.classList.add('show-profile');

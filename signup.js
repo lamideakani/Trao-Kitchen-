@@ -50,24 +50,36 @@ function showToast(message, color) {
 function handleSignup(e) {
     e.preventDefault();
     clearErrorMessages();
-    const email = e.target.querySelector('#signup-email').value;
-    const password = e.target.querySelector('#signup-password').value;
-    const policy = e.target.querySelector('input[type="checkbox"]').checked;
+
+    const form = e.target;
+    const username = form.querySelector('#signup-username').value;
+    const email = form.querySelector('#signup-email').value;
+    const password = form.querySelector('#signup-password').value;
+    const policy = form.querySelector('#policy').checked;
 
     let isValid = true;
 
+    // Validate terms and conditions
     if (!policy) {
-        showErrorMessage(e.target.querySelector('input[type="checkbox"]'), "You must agree to the Terms & Conditions.");
+        showErrorMessage(form.querySelector('#policy'), "You must agree to the Terms & Conditions.");
         isValid = false;
     }
 
+    // Validate email
     if (!validateEmail(email)) {
-        showErrorMessage(e.target.querySelector('#signup-email'), "Please enter a valid email address.");
+        showErrorMessage(form.querySelector('#signup-email'), "Please enter a valid email address.");
         isValid = false;
     }
 
+    // Validate password
     if (!validatePassword(password)) {
-        showErrorMessage(e.target.querySelector('#signup-password'), "Password must be at least 6 characters long and contain at least one number.");
+        showErrorMessage(form.querySelector('#signup-password'), "Password must be at least 6 characters long and contain at least one number.");
+        isValid = false;
+    }
+
+    // Validate username
+    if (!username.trim()) {
+        showErrorMessage(form.querySelector('#signup-username'), "Username cannot be empty.");
         isValid = false;
     }
 
@@ -78,13 +90,21 @@ function handleSignup(e) {
         if (userExists) {
             showToast("User already exists. Please login.", "red");
         } else {
-            users.push({ email, password });
+            // Save the user's details using their username as the key
+            const newUser = { username: username.trim(), email, password };
+            users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem(newUser.username, JSON.stringify(newUser)); // Save user details separately
             showToast("Signup successful. Please login.", "green");
+            localStorage.setItem('adminloggedInUsername', newUser.username); // Save logged in username
             formPopup.classList.remove("show-signup");
         }
     }
 }
+
+// Attach the event listener to the form
+document.getElementById('signup-form').addEventListener('submit', handleSignup);
+
 
 function handleLogin(e) {
     e.preventDefault();
@@ -111,6 +131,12 @@ function handleLogin(e) {
         if (user) {
             showToast("Login successful.", "green");
             document.body.classList.remove("show-popup");
+            //flag
+            localStorage.setItem('adminIsLoggedIn', 'true');
+            // proceed with login
+            setTimeout(() =>{
+                window.location.assign('admin.html');
+            }, 1500);
         } else {
             showToast("Invalid email or password.", "red");
         }

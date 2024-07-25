@@ -1,18 +1,48 @@
 /**
  * NAVBAR MINI Screen
  */
+// Helper function to add event listeners to multiple elements
+const addEventOnElements = function (elements, eventType, callback) {
+  elements.forEach(element => {
+    element.addEventListener(eventType, callback);
+  });
+};
 
 const navbar = document.querySelector(".navbar");
-const navTogglers = document.querySelectorAll(".close-btn");
+const navTogglers = document.querySelectorAll("[data-nav-toggler]");
 const overlay = document.querySelector(".overlay");
+const navToggleBtn = document.querySelector(".nav-toggle-btn");
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
   document.body.classList.toggle("nav-active");
+  navToggleBtn.classList.toggle("active");
 }
 
-// addEventOnElements(navTogglers, "click", toggleNavbar);
+// Use the helper function to add click event listeners to nav togglers
+addEventOnElements(navTogglers, "click", toggleNavbar);
+
+// Hide navbar when clicking outside
+document.addEventListener("click", function (event) {
+  if (!navbar.contains(event.target) && !navToggleBtn.contains(event.target) && !overlay.contains(event.target)) {
+    navbar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("nav-active");
+    navToggleBtn.classList.remove("active");
+  }
+});
+
+// Hide navbar on scroll
+window.addEventListener("scroll", function () {
+  navbar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("nav-active");
+  navToggleBtn.classList.remove("active");
+});
+
+
+
 
 
 // header
