@@ -570,3 +570,14 @@ function logout() {
 }
 
 
+// JavaScript for initial animation chatbot
+document.addEventListener('DOMContentLoaded', () => {
+  const chatbot = document.querySelector('.whatsapp-chatbot img');
+  chatbot.style.transform = 'scale(0)';
+  setTimeout(() => {
+    chatbot.style.transform = 'scale(1)';
+    chatbot.style.transition = 'transform 0.5s ease';
+  }, 100);
+});
+
+
