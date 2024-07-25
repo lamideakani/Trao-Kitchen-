@@ -13,13 +13,35 @@
 }
 
 body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+  background-color: black;
+}
+.container-fluid{
     min-height: 100vh;
-    background-color: var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+.back-btn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #C57C15;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 6px 3px;
+}
+.back-btn a{
+    text-decoration: none;
+    color: aliceblue;
 }
 .card{
     width: 60%;
