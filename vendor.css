@@ -51,7 +51,12 @@ h1, h2 {
     border: none;
 }
 .back-btn a{
+    color: white;
     text-decoration: none;
+}
+.back-btn a:hover{
+    background-color: #C57C15;
+    color: black;
 }
 
 .Vendor-form-container button:hover {
@@ -86,7 +91,7 @@ li div {
 
 li button {
     margin-left: 10px;
-    background-color: #dc3545;
+    background-color: #c82333;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -94,13 +99,15 @@ li button {
 }
 
 li button:hover {
-    background-color: #c82333;
+    font-weight: 600;
+    background-color: black;
 }
 
 .edit-button {
-    background-color: #007bff;
+    font-weight: 600;
+    background-color: #c82333;
 }
 
 .edit-button:hover {
-    background-color: #0069d9;
+    background-color:black;
 }

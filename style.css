@@ -2623,7 +2623,11 @@ background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width:  100%;
+  /* border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+   */
+   border-radius: 1rem;
   box-shadow: 8px 4px 8px #C57C15;
  }
 
@@ -2726,6 +2730,7 @@ button:hover {
 
 #v-pills-tabContent{
 color: #C57C15;
+
 }
 .headings {
   background-color: #C57C15;
@@ -2862,6 +2867,7 @@ Asection {
   transform: scale(1.1);
 }
 .tab-pane{
+  border-radius: 1rem;
   box-shadow: 2px 4px 10px #c57c15;
   color: #ff7200;
 }
