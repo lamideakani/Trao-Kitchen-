@@ -50,6 +50,28 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+/* WhatsApp Chatbot Button Styles */
+.whatsapp-chatbot {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-chatbot img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.whatsapp-chatbot img:hover {
+  transform: scale(1.1);
+}
+
+
+
 /* 
 TOP BAR SECTION
 */
@@ -2628,7 +2650,11 @@ background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width:  100%;
+  /* border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+   */
+   border-radius: 1rem;
   box-shadow: 8px 4px 8px #C57C15;
  }
 
@@ -2731,6 +2757,7 @@ button:hover {
 
 #v-pills-tabContent{
 color: #C57C15;
+
 }
 .headings {
   background-color: #C57C15;
@@ -2867,6 +2894,7 @@ Asection {
   transform: scale(1.1);
 }
 .tab-pane{
+  border-radius: 1rem;
   box-shadow: 2px 4px 10px #c57c15;
   color: #ff7200;
 }
