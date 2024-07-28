@@ -131,6 +131,9 @@ function updateWalletBalance() {
 }
 
 function showBillingSection() {
+  const totalAmount = getTotalCartAmount();
+  document.getElementById('online-payment-amount').value = totalAmount.toFixed(2); // Update the amount field
+
   document.getElementById('cart-page').style.display = 'none';
   document.getElementById('proceedToBilling').style.display = 'block';
   currentDiv = 2;
@@ -144,8 +147,11 @@ function confirmPayment() {
   if (paymentMethod === 'wallet') {
       payWithWallet(finalAmount);
   } else if (paymentMethod === 'online') {
+    const totalAmount = getTotalCartAmount();
+    document.getElementById('online-payment-amount').value = totalAmount.toFixed(2); // Ensure the amount field is updated
+
     document.getElementById('proceedToBilling').style.display = 'none';
-        document.getElementById('onlinePayment').style.display = 'block';
+    document.getElementById('onlinePayment').style.display = 'block';
   } else if (paymentMethod === 'delivery') {
       alert('Order placed successfully. Pay on delivery.');
       clearCart();
@@ -187,10 +193,20 @@ function showOrderSummary() {
     updateProgressBar();
 }
 
+// Calculate total cart amount
+function getTotalCartAmount() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const discount = parseFloat(localStorage.getItem('discount')) || 0;
+  const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
+  const discountAmount = totalAmount * discount;
+  const finalAmount = totalAmount - discountAmount;
+  return finalAmount;
+}
+
 // paystack integration
 document.getElementById('online-payment-pay-button').addEventListener('click', function() {
-  var amount = document.getElementById('online-payment-amount').value * 100;
   var email = document.getElementById('online-payment-email').value;
+  var amount = getTotalCartAmount() * 100; // Convert to kobo
 
   var handler = PaystackPop.setup({
       key: 'pk_test_07f16d730fc627dfd475c62727017562d9eb0c78',
