@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Rating and Comments</title>
+  <link rel="stylesheet" href="rating.css">
+</head>
+<body>
+  <div class="container">
+    <div class="rating-animation">
+    <h1 class="rating-heading">Customers Reviews and Ratings</h1>
+  </div>
+    <div class="star-rating-container">
+
+    <h1>Rate Us</h1>
+    <div class="star-widget">
+      <input type="radio" name="rate" id="rate-5" value="5">
+      <label for="rate-1">&#9733;</label>
+      <input type="radio" name="rate" id="rate-4" value="4">
+      <label for="rate-2">&#9733;</label>
+      <input type="radio" name="rate" id="rate-3" value="3">
+      <label for="rate-3">&#9733;</label>
+      <input type="radio" name="rate" id="rate-2" value="2">
+      <label for="rate-4">&#9733;</label>
+      <input type="radio" name="rate" id="rate-1" value="1">
+      <label for="rate-5">&#9733;</label>
+      <form id="ratingForm">
+        <header>Thank you for your feedback!</header>
+        <div class="textarea">
+          <textarea cols="30" rows="5" placeholder="Describe your experience.."></textarea>
+        </div>
+        <div class="btn">
+          <button type="submit">Post</button>
+        </div>
+      </form>
+      <div class="edit"></div>
+    </div>
+  </div>
+<div class="customers-reviews">
+
+
+    <h2>Customer Reviews</h2>
+    <ul class="comments-list">
+      <!-- Comments will be injected here by JavaScript -->
+    </ul>
+  </div>
+<div class="order-more">
+ <a href="menucart.html"> <button class="order-more-btn">Order More</button></a>
+</div>
+  </div>
+    <!-- <div class="rating card-rating">
+      <div class="ratingAverage">
+        <h1>0.0</h1>
+        <div class="star-outer">
+          <div class="star-inner"></div>
+        </div>
+        <p>0 Ratings</p>
+      </div>
+      <div class="ratingProgress">
+        <!-- Rating progress will be injected here by JavaScript -->
+      </div>
+    </div> -->
+  
+  <script src="rating.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@ body {
     height: 100vh;
     width: 100%;
     background: url("images/jason-leung-poI7DelFiVA-unsplash.jpg") center/cover no-repeat;
+    /* background: url("images/jason-leung-poI7DelFiVA-unsplash.jpg") center/cover no-repeat; */
 }
 header {
     position: fixed;
@@ -94,6 +95,9 @@ header {
     width: 100%;
     opacity: 1;
     pointer-events: auto;
+    overflow: hidden;
+    border-top-right-radius: 128px;
+    border-bottom-left-radius: 128px;
     max-width: 720px;
     background:url(images/restaurant_1.jpeg);
     border: 2px solid #c57c15;
@@ -146,6 +150,9 @@ header {
 .bottom-link{
     color:#fff;
 }
+.agreed{
+    color:#c57c15
+}
 .signup .form-details {
     padding: 0 20px;
     background: url("images/jelezniac-bianca-FTHK04C2FLg-unsplash.jpg");
@@ -160,6 +167,7 @@ header {
     text-align: center;
     margin-bottom: 29px;
     color:#fff;
+   text-shadow: 0 0 25px #111; 
 }
 form .input-field {
     position: relative;

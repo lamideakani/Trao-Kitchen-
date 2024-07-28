@@ -115,7 +115,7 @@ body.signup .container::before{
   content: '';
 position: absolute;
 inset: 5px;
-background: url(/assets/tim-mossholder-FH3nWjvia-U-unsplash.jpg);
+/* background: url(/assets/tim-mossholder-FH3nWjvia-U-unsplash.jpg); */
 /* background: url(/images/footer-form-bg.png); */
 background-attachment: fixed;
 background-size: contain;
@@ -126,7 +126,7 @@ filter:blur(10px);
   content: '';
 position: absolute;
 inset: 5px;
-background: url(/assets/tim-mossholder-FH3nWjvia-U-unsplash.jpg);
+/* background: url(/assets/tim-mossholder-FH3nWjvia-U-unsplash.jpg); */
 /* background: url(/images/footer-form-bg.png); */
 background-attachment: fixed;
 background-size: contain;
@@ -237,7 +237,7 @@ form#signupform b{
   color:#f4242f;
   color:#eee; */
   color:#ffeb3b;
-  ;
+  
   text-decoration: underline;
 }
 
