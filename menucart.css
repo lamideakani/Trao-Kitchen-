@@ -59,7 +59,7 @@ CART
   background-color: var(--tertiary-color);
   position: absolute;
   left: 75%;
-  color: var(--primary-color);
+  color:#111;
   width: max-content;
   padding: 1rem;
   height: 40px;
@@ -74,6 +74,7 @@ CART
 .cart-icon:hover{
 background-color: var(--secondary-color);
 transition: 250ms ease;
+color: #fff;
 }
 
 .cart-count{
@@ -84,6 +85,13 @@ font-weight: bolder;
 .cart-icon i {
   font-size: 18px;
   z-index: 10001;
+  color: #111;
+  transition: 250ms ease;
+}
+
+.cart-icon i:hover {
+ 
+  color: #fff;
 }
 
 

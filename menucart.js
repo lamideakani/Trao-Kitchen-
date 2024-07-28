@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const container = document.querySelector('.cart-animation');
 
 
-const careers =["Welcome to our culinary world","We're thrilled to share our culinary creations with you",'browse our  menu and discover your new favorite dish','Cheers!!!'];
+const careers =["Welcome to our culinary world","We're thrilled to share our culinary creations with you",'browse our  menu and discover your favorite dish','Cheers!!!'];
 
 let careerIndex = 0;
 
