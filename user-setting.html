@@ -64,23 +64,30 @@
 
             <div id="account-change-password" class="tab-pane">
                 <div class="card-body">
-                    <div class="form-group group-1" >
-                        <label class="form-label">Current Password</label>
-                        <input type="password" class="form-control" id="current-password">
-                        <img id="openclose" src="eye-close.png" alt="">
+                  <form id="changePasswordForm">
+                    <div class="form-group group-1">
+                      <label class="form-label">Current Password</label>
+                      <input type="password" class="form-control" id="current-password">
+                      <img id="openclose" src="eye-close.png" alt="">
+                      <span class="error" id="currentPasswordError"></span>
                     </div>
                     <div class="form-group group-1">
-                        <label class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="new-password">
-                        <img id="openclose1" src="eye-close.png" alt="">
+                      <label class="form-label">New Password</label>
+                      <input type="password" class="form-control" id="new-password">
+                      <img id="openclose1" src="eye-close.png" alt="">
+                      <span class="error" id="newPasswordError"></span>
                     </div>
                     <div class="form-group group-1">
-                        <label class="form-label">Repeat New Password</label>
-                        <input type="password" class="form-control" id="repeat-password">
-                        <img id="openclose2" src="eye-close.png" alt="">
+                      <label class="form-label">Repeat New Password</label>
+                      <input type="password" class="form-control" id="repeat-password">
+                      <img id="openclose2" src="eye-close.png" alt="">
+                      <span class="error" id="repeatNewPasswordError"></span>
                     </div>
+                    <button type="submit" class="user-btn">Change Password</button>
+                  </form>
                 </div>
-            </div>
+              </div>
+
             <div id="account-info" class="tab-pane">
                 <div class="card-body">
                     <div class="form-group">

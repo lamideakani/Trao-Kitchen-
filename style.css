@@ -3123,7 +3123,7 @@ Asection {
 .navbar-link {
     font-weight: var(--weight-6);
     /* letter-spacing:10px; */
-}
+}z
 
 .navbar-link::after { display: block; }
 

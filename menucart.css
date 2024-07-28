@@ -34,6 +34,7 @@
 
 body{
   background-color: #111;
+  color: var(--tertiary-color);
 }
 .body {
   font-family: Arial, sans-serif;
@@ -83,6 +84,13 @@ font-weight: bolder;
 }
 
 .cart-icon i {
+  color: var(--primary-color);
+  font-size: 18px;
+  z-index: 10001;
+  transition: 250ms;
+}
+.cart-icon i:hover {
+  color: var(--tertiary-color);
   font-size: 18px;
   z-index: 10001;
   color: #111;
@@ -93,7 +101,6 @@ font-weight: bolder;
  
   color: #fff;
 }
-
 
 
 
@@ -476,11 +483,7 @@ margin-top: 2rem;
   background-color: var(--tertiary-color);
 }
 
-.active {
-  background-color: var(--secondary-color);
-  color: var(--tertiary-color);
-  border: 2px solid var(--tertiary-color);
-}
+
 
 .labels {
   display: flex;

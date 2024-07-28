@@ -13,8 +13,14 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- Box-icons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -31,192 +37,203 @@ TOP BAR SECTION
 -->
 
 <div class="topbarsec">
-    <div class="container">
+  <div class="container">
 
-      <div class="topbar-item">
-        <div class="icon">
-          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">
-          Soun Ajagugbade Street, Bodija Estate, Oyo, NG
-        </span>
+    <div class="topbar-item">
+      <div class="icon">
+        <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
       </div>
 
-      <div class="divider"></div>
-
-      <div class="topbar-item item-2">
-        <div class="icon">
-          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">Daily: 8:00am to 10:00pm</span>
-      </div>
-
-      <a href="tel:+2341234567890" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">+234 123 456 7890</span>
-      </a>
-
-      <div class="divider"></div>
-
-      <a href="mailto:trao@kitchens.com" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">trao@kitchens.com</span>
-      </a>
-
+      <span class="span">
+        TRAO Layout, New Bodija, Ibadan, Oyo State, NG
+      </span>
     </div>
+
+    <div class="divider"></div>
+
+    <div class="topbar-item item-2">
+      <div class="icon">
+        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+      </div>
+
+      <span class="span">Daily: 9:00am to 11:00pm</span>
+    </div>
+
+    <a href="tel:+2341234567890" class="topbar-item link">
+      <div class="icon">
+        <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+      </div>
+
+      <span class="span">+234 123 456 7890</span>
+    </a>
+
+    <div class="divider"></div>
+
+    <a href="mailto:trao@kitchens.com" class="topbar-item link">
+      <div class="icon">
+        <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+      </div>
+
+      <span class="span">trao@kitchens.com</span>
+    </a>
+
   </div>
+</div>
 
 
 <!-- 
-  NAVBAR SECTION 
- -->
+NAVBAR SECTION 
+-->
 
-  <header class="header" data-header>
-    <div class="container">
+<header class="header" data-header>
+  <div class="container">
 
-      <a href="#" class="logo">
-        <img src="/Logo1new.png" height="90" alt="TRAO - Home">
+    <a href="./index.html" class="logo">
+      <img src="/Logo1new.png" height="90" alt="TRAO - Home">
+    </a>
+
+    <nav class="navbar active" data-navbar>
+
+      <a href="./index.html" class="logo">
+        <img src="./images/Logo 6.png" height="50" alt="TRAO - Home">
       </a>
 
-      <nav class="navbar active" data-navbar>
+      <ul class="navbar-list">
 
-        <button class="close-btn" aria-label="close menu" data-nav-toggler>
-          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <div class="search-container">
 
-        <a href="#" class="logo">
-          <img src="./images/Logo 6.png" height="50" alt="TRAO - Home">
-        </a>
-
-        <ul class="navbar-list">
-
-          <div class="search-container">
-
-            <div class="search-wrapper">
+          <div class="search-wrapper">
             <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
             <i class="fas fa-search search-icon"></i>
-            </div>
-
-            <ul id="resultsContainer" class="results-container"></ul>
-            
           </div>
 
-          <li class="navbar-item">
-            <a href="/index.html" class="navbar-link hover-underline active">
-              <div class="divider"></div>
+          <ul id="resultsContainer" class="results-container"></ul>
 
-              <span class="span">Home</span>
-            </a>
-          </li>
+        </div>
 
-          <li class="navbar-item">
-            <a href="/menucart.html" class="navbar-link hover-underline">
-              <div class="divider"></div>
+        <li class="navbar-item">
+          <a href="/index.html" class="navbar-link hover-underline ">
+            <div class="divider"></div>
 
-              <span class="span">Menu</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#about" class="navbar-link hover-underline">
-              <div class="divider"></div>
-
-              <span class="span">About</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
-              <div class="divider"></div>
-
-              <span class="span">Contact</span>
-            </a>
-          </li>
-          
-
-
-
-        </ul>
-
-
-
-        <div class="text-center">
-          <p class="headline-1 navbar-title">Visit Us</p>
-
-          <address class="body-4">
-            Soun Ajagugbade St, Bodija Estate, <br>
-            Oyo state, NG
-          </address>
-
-          <p class="body-4 navbar-text">Opens: 8:00am - 10:00pm</p>
-
-          <a href="mailto:trao@kitchens.com" class="body-4 sidebar-link">trao@kitchens.com</a>
-
-          <div class="divider"></div>
-
-          <p class="contact-label">Booking Request</p>
-
-          <a href="tel:+2341234567890" class="body-1 contact-number hover-underline">
-            +234-123-456-7890
+            <span class="span">Home</span>
           </a>
-        </div>
+        </li>
 
-      </nav>
+        <li class="navbar-item">
+          <a href="/menucart.html" class="navbar-link hover-underline active">
+            <div class="divider"></div>
+
+            <span class="span">Menu</span>
+          </a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#about" class="navbar-link hover-underline">
+            <div class="divider"></div>
+
+            <span class="span">About</span>
+          </a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#contact" class="navbar-link hover-underline">
+            <div class="divider"></div>
+
+            <span class="span">Contact</span>
+          </a>
+        </li>
+       </ul>
 
 
-      <!-- Floating cart icon -->
-          <div class="cart-icon">
-           <a href="cart.html"> <i class="fas fa-shopping-cart"> Cart • <span id="cart-count" class="cart-count"> 0</span></i></a>
-          </div>
 
+      <div class="text-center">
+        <p class="headline-1 navbar-title">Visit Us</p>
 
-      
+        <address class="body-4">
+          Soun Ajagugbade St, Bodija Estate, <br>
+          Oyo state, NG
+        </address>
 
-      <div class="dropdown">
-        <i class="fa-solid fa-user-tie lg-su-avatar"></i>
-        <!-- <div class="dropdown-content"> -->
-<!-- logged in -->
-          <div class="profile-container">
-            <h1 class="pf-ct">Hello, User</h1>
-            <button class="update-profile">Update Profile</button>
-            <button class="transaction-history">Transaction History</button>
-            <button class="logout">Logout</button>
-        </div>
+        <p class="body-4 navbar-text">Opens: 8:00am - 10:00pm</p>
 
-<!-- not logged in -->
-        <div class="profile-container2">
-          <h1 class="pf-ct2">Sign Up/ Sign In</h1>
-          <a href="/Trao-Kitchen-/clientlogin.html"><button class="login">CUSTOMER</button></a>
-          <a href="/Trao-Kitchen-/signup.html"><button class="login">ADMIN</button></a>
-    
-    
-        </div>
-        <!-- </div> -->
-        
+        <a href="mailto:trao@kitchens.com" class="body-4 sidebar-link">trao@kitchens.com</a>
+
+        <div class="divider"></div>
+
+        <p class="contact-label">Booking Request</p>
+
+        <a href="tel:+2341234567890" class="body-1 contact-number hover-underline">
+          +234-123-456-7890
+        </a>
       </div>
+
+    </nav>
+
+  <!-- Floating cart icon -->
+  <div class="cart-icon">
+    <a class="cartanchor" href="/cart.html"><i class="fas fa-shopping-cart"> Cart • <span id="cart-count" class="cart-count"> 0</span></i></a>
+  </div>
+
+
+    <div class="dropdown">
+      <i class="fa-solid fa-user-tie lg-su-avatar"></i>
+      <!-- <div class="dropdown-content"> -->
       
+        <!-- logged in -->
+      <div class="profile-container" id="logged-in" style="display: none;">
+        <div class="user-sub-menu-wrap" id="usersubMenu">
+          <div class="user-sub-menu">
+              
+            <div class="user-info">
+              <img id="profile-pic" src="/assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt="Profile Picture">
+              <h3>Hello, ‎</h3><h3 id="username" style="text-transform:lowercase;">User</h3>
+          </div>
+              <hr>
 
+              <a href="/user-setting.html" class="user-sub-menu-link">
+                  <img src="assets/profile.png">
+                  <p>Edit Profile</p>
+                  <span>></span>
+              </a>
 
+              <a href="#" class="user-sub-menu-link">
+                  <img src="assets/help.png">
+                  <p>Transaction History</p>
+                  <span>></span>
+              </a>
 
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
-      </button>
+              <a href="#" class="user-sub-menu-link" id="logout" onclick="logout()">
+                  <img src="assets/logout.png">
+                  <p>Logout</p>
+                  <span>></span>
+              </a>
+          </div>
+      </div>
+      </div>
 
-      <!-- <div class="overlay" data-nav-toggler data-overlay></div> -->
+      <!-- not logged in -->
+      <div class="profile-container2" id="not-logged-in">
+        <h1 class="pf-ct2">Sign Up/ Sign In</h1>
+        <a href="./clientlogin.html"><button class="login">CUSTOMER</button></a>
+        <a href="/signup.html"><button class="login">ADMIN</button></a>
+      </div>
+      <!-- </div> -->
 
     </div>
-    
-  </header>
+
+
+
+
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      <span class="line line-3"></span>
+    </button>
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+
+  </div>
+</header>
 
 
 
@@ -305,11 +322,11 @@ TOP BAR SECTION
         </div>
         <div class="cole">
           <h3>Useful Links <div class="underline"><span></span></div></h3>
-          <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="menucart.html">Menu</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#testimonial-container">Testimonials</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="index.html#testimonial-container">Testimonials</a></li>
         </div>
         <div class="cole">
           <h3>Get Help<div class="underline"><span></span></div></h3>
@@ -352,43 +369,33 @@ TOP BAR SECTION
   
   
     <script src="/script.js"></script>
+
+  <script src="/user-setting.js"></script>
+  <script>
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn === 'true') {
+    document.body.classList.add('show-profile');
+  }
+  </script>
+
+<!-- chatbot -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/66a246dabecc2fed692afb2e/1i3ku9hse';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+  <!-- icon -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
-    <link rel="stylesheet" href="styles.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-
-    <!-- font awesome -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    
-</head>
-<body>
-    </body>
-</html> -->

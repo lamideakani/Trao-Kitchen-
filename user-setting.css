@@ -272,3 +272,8 @@ h4 {
 .switcher-label {
     font-size: 14px;
 }
+
+.error {
+    color: red;
+    display: none;
+  }
