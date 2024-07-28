@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${item.img}" alt="${item.name}">
           <h3>${item.name}</h3>
           <p>${item.description}</p>
-          <p class="price"># ${item.price.toFixed(2)}</p>
+          <p class="price"><i class="fa-solid fa-naira-sign" style="color: #ffffff;"></i> ${item.price.toFixed(2)}</p>
           <div class="star-outer">
               <div class="star-inner"></div>
               </div>

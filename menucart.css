@@ -137,7 +137,7 @@ font-weight: bolder;
   font-weight: bold;
 }
 .cart-animation{
-  margin: .7rem 0 .5rem 0;
+  margin: 2rem 0 .5rem 0;
   text-align: center;
   background-color:transparent;
   border: 5px solid #fff8;
@@ -676,7 +676,20 @@ margin-top: 2rem;
   box-sizing: border-box;
 }
 
-
+.scroll-btn{
+  background-color: #C57C15; 
+  padding: 15px; 
+  border-radius: 10px;
+  position: fixed;
+  bottom: 150px;
+  right: 35px;
+  z-index: 1000;
+  transition: 250ms ease;
+}
+.scroll-btn:hover{
+  background-color: white;
+  color: black;
+}
 
 
 

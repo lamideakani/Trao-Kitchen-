@@ -91,7 +91,7 @@ function applyCoupon() {
   const validCoupons = {
       'DISCOUNT10': 0.10,
       'DISCOUNT12': 0.12,
-      'DISCOUNT8': 0.08
+      'DISCOUNT8': 0.08,
   };
 
   const discount = validCoupons[couponInput] || 0;

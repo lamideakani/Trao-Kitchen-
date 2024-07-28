@@ -70,6 +70,21 @@ body::-webkit-scrollbar{
   transform: scale(1.1);
 }
 
+/* scroll btn */
+.scroll-btn{
+  background-color: #C57C15; 
+  padding: 15px; 
+  border-radius: 10px;
+  position: fixed;
+  bottom: 150px;
+  right: 35px;
+  z-index: 1000;
+  transition: 250ms ease;
+}
+.scroll-btn:hover{
+  background-color: white;
+  color: black;
+}
 
 
 /* 
