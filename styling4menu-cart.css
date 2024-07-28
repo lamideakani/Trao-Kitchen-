@@ -50,6 +50,27 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+/* WhatsApp Chatbot Button Styles */
+.whatsapp-chatbot {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-chatbot img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.whatsapp-chatbot img:hover {
+  transform: scale(1.1);
+}
+
+
 /* 
 TOP BAR SECTION
 */
@@ -255,9 +276,8 @@ NAVBAR SECTION
   pointer-events: all;
 }
 
-
 /* 
-SEARCH BAR
+SEARCHBAR
 */
 
 .search-container {
@@ -267,8 +287,8 @@ SEARCH BAR
 }
 
 .search-wrapper {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .search-input {
@@ -292,51 +312,47 @@ align-items: center;
   transform: translateY(-50%);
   color: var(--secondary-color);
 }
-.search-input .search_results{
-position: absolute;
-width: 100%;
-height:200px;
-border:1px solid #fff;
-margin-top: 10px;
-border-radius: 10px;
-background-color: #00ff00;
-}
-.search-input .search_results .search_card{
-width: 100%;
-height:45px;
-border:1px solid var(--secondary-color);
-z-index: 20000;
-}
-#resultsContainer {
-list-style-type: none;
-padding: 10px;
-position: absolute;
-top: 50px;
-background-color: var(--tertiary-color);
-color: var(--primary-color);
-border-radius: 15px;
 
+.hidden {
+  display: none;
 }
+
+#resultsContainer {
+  list-style-type: none;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  border-radius: 15px;
+  width: 100%;
+  z-index: 1000;
+}
+
 #resultsContainer li {
-display: flex;
-align-items: center;
-margin-bottom: 10px;
-border: 1px solid var(--secondary-color);
-padding: 10px;
-border-radius: 25px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid var(--secondary-color);
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
 }
+
 #resultsContainer img {
-width: 50px;
-height: 50px;
-object-fit: cover;
-margin-right: 10px;
-border-radius: 5px;
-border: solid 1px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: solid 1px var(--secondary-color);
 }
+
 #resultsContainer .description {
-font-size: 0.9em;
-color: var(--primary-color);
+  font-size: 0.9em;
+  color: var(--primary-color);
 }
+
 
 
 

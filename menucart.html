@@ -32,6 +32,12 @@
    
 </head>
 <body class="body">
+  <!-- WhatsApp Chatbot Button -->
+<div class="whatsapp-chatbot">
+  <a href="https://wa.me/1234567890" target="_blank">
+    <img src="assets/whatsapp.png" alt="WhatsApp Chatbot">
+  </a>
+</div>
 <!-- 
 TOP BAR SECTION  
 -->
@@ -100,16 +106,15 @@ NAVBAR SECTION
 
       <ul class="navbar-list">
 
-        <div class="search-container">
+        <!-- search bar -->
 
-          <div class="search-wrapper">
-            <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
-            <i class="fas fa-search search-icon"></i>
-          </div>
-
-          <ul id="resultsContainer" class="results-container"></ul>
-
-        </div>
+<div class="search-container">
+  <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+      <i class="fas fa-search search-icon"></i>
+      <ul id="resultsContainer" class="hidden"></ul>
+  </div>
+</div>
 
         <li class="navbar-item">
           <a href="/index.html" class="navbar-link hover-underline ">
@@ -247,7 +252,7 @@ NAVBAR SECTION
 
 </div>
   
-<main class="cart-main">
+<main class="cart-main" id="all-dishes">
     <nav class="cart-nav">
         <ul>
             <li><a href="#Main-items">Main Dishes</a></li>

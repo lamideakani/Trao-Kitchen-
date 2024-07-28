@@ -181,21 +181,27 @@ function filterProducts(searchTerm) {
 
 function displayProducts(products) {
   resultsContainer.innerHTML = '';
-  products.forEach(product => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <img src="${product.img}" alt="${product.name}">
-      <div>
-        <strong>${product.name}</strong>
-        <p class="description">${product.description}</p>
-      </div>
-    `;
-    li.addEventListener('click', () => {
-      // Redirect to a specific location
-      window.location.href = `your-redirect-url?id=${product.id}`;
+  if (products.length > 0) {
+    products.forEach(product => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <div>
+          <strong>${product.name}</strong>
+          <p class="description">${product.description}</p>
+        </div>
+      `;
+      li.addEventListener('click', () => {
+        
+        // Redirect to a specific location
+        window.location.href = `menucart.html?id=${product.Id}#all-dishes`;
+      });
+      resultsContainer.appendChild(li);
     });
-    resultsContainer.appendChild(li);
-  });
+    resultsContainer.classList.remove('hidden');
+  } else {
+    resultsContainer.classList.add('hidden');
+  }
 }
 
 searchInput.addEventListener('input', function() {
@@ -203,7 +209,7 @@ searchInput.addEventListener('input', function() {
   if (searchTerm.length > 0) {
     filterProducts(searchTerm);
   } else {
-    resultsContainer.innerHTML = '';
+    resultsContainer.classList.add('hidden');
   }
 });
 
@@ -211,7 +217,7 @@ searchInput.addEventListener('input', function() {
 document.addEventListener('click', function(event) {
   const isClickInside = searchInput.contains(event.target) || resultsContainer.contains(event.target);
   if (!isClickInside) {
-    resultsContainer.innerHTML = '';
+    resultsContainer.classList.add('hidden');
   }
 });
 
