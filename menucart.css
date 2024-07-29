@@ -448,8 +448,9 @@ margin-top: 2rem;
 .back-to-menu{
   border: 1px solid #C57C15;
   background: transparent;
-  color:#fff;
-  padding: 5px 19px;
+  padding: 6px 29px;
+  z-index: 1000;
+  margin: 16px 15px;
 }
 
 .progress-tab {

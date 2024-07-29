@@ -1,39 +1,42 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background-image: url(assets/shape-4.png);
 }
 
 .wallet-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background: #fff;
+    background: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
 }
 
 .wallet-header h1 {
     margin-bottom: 10px;
-    color: #333;
+    color: #C57C15;
 }
 
 .wallet-header p {
     font-size: 1.5em;
     margin-bottom: 20px;
+    color: white;
 }
 
 .wallet-header button {
-    background: #007bff;
+    background: #C57C15;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 250ms ease;
 }
 
 .wallet-header button:hover {
-    background: #0056b3;
+    background: white;
+    color: #C57C15;
 }
 
 .transaction-history {
@@ -42,7 +45,7 @@ body {
 
 .transaction-history h2 {
     margin-bottom: 10px;
-    color: #333;
+    color: white;
 }
 
 #transaction-list {
@@ -56,6 +59,10 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+#transaction-list li:hover {
+    background: #C57C15;
+    color: white;
 }
 
 .modal {
@@ -76,14 +83,14 @@ body {
     background-color: #fefefe;
     margin: 5% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 10px;
+    border: 3px solid #C57C15;
+    width: 70%;
+    border-radius: 20px;
     text-align: center;
 }
 
 .close {
-    color: #aaa;
+    color: #C57C15;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -91,13 +98,13 @@ body {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
 #paystack-btn {
-    background: #28a745;
+    background: #C57C15;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -107,5 +114,18 @@ body {
 }
 
 #paystack-btn:hover {
-    background: #218838;
+    background: black;
+    color: #C57C15;
 }
+
+.back-to-menu{
+    border: 1px solid #C57C15;
+    background: black;
+    padding: 6px 29px;
+    z-index: 1000;
+    margin: 16px 15px;
+    transition: 250ms ease;
+  }
+.back-to-menu:hover{
+    background-color: #C57C15;
+  }

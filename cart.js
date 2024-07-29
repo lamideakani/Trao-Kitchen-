@@ -194,14 +194,14 @@ function payWithWallet(amount) {
       // Update local storage
       localStorage.setItem('walletBalance', walletBalance);
       localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
-
-      // Update UI
-      updateWalletBalance();
-      updateTransactionHistory();
       
       // Clear the cart and show order summary
       clearCart();
       showOrderSummary();
+
+      // Update UI
+      updateWalletBalance();
+      updateTransactionHistory();
       
       // Display payment success alert
       alert('Payment successful.');
