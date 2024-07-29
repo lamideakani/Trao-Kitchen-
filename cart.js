@@ -145,19 +145,61 @@ function confirmPayment() {
   const finalAmount = parseFloat(document.getElementById('final-amount').textContent);
 
   if (paymentMethod === 'wallet') {
-      payWithWallet(finalAmount);
-  } else if (paymentMethod === 'online') {
-    const totalAmount = getTotalCartAmount();
-    document.getElementById('online-payment-amount').value = totalAmount.toFixed(2); // Ensure the amount field is updated
+      // Ensure the wallet balance is updated from local storage before checking
+      const walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
 
-    document.getElementById('proceedToBilling').style.display = 'none';
-    document.getElementById('onlinePayment').style.display = 'block';
+      if (walletBalance >= finalAmount) {
+          payWithWallet(finalAmount);
+  
+      } else {
+          alert('Insufficient wallet balance.');
+      }
+
+  } else if (paymentMethod === 'online') {
+      const totalAmount = getTotalCartAmount();
+      document.getElementById('online-payment-amount').value = totalAmount.toFixed(2);
+      document.getElementById('proceedToBilling').style.display = 'none';
+      document.getElementById('onlinePayment').style.display = 'block';
+      
   } else if (paymentMethod === 'delivery') {
       alert('Order placed successfully. Pay on delivery.');
       clearCart();
       showOrderSummary();
   }
 }
+
+function payWithWallet(amount) {
+  let walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
+  if (walletBalance >= amount) {
+      walletBalance -= amount; // Deduct the amount from wallet
+      const transaction = {
+          type: 'Debit',
+          amount: amount,
+          date: new Date().toLocaleString()
+      };
+      let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+      transactionHistory.push(transaction);
+
+      // Update local storage
+      localStorage.setItem('walletBalance', walletBalance);
+      localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+
+      // Update UI
+      updateWalletBalance();
+      updateTransactionHistory();
+      
+      // Clear the cart and show order summary
+      clearCart();
+      showOrderSummary();
+      
+      // Display payment success alert
+      alert('Payment successful.');
+  } else {
+      alert('Insufficient wallet balance.');
+  }
+}
+
+
 
 // order summary
 function showOrderSummary() {

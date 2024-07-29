@@ -27,6 +27,7 @@ document.getElementById('forgotPasswordForm2').addEventListener('submit', functi
         storedUserData.password = newpassword;
         localStorage.setItem(username, JSON.stringify(storedUserData));
         alert("Password has been successfully reset.");
+        window.location.href = 'clientlogin.html';
     } else {
         alert("Passwords do not match.");
     }

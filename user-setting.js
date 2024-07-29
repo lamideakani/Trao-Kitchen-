@@ -231,7 +231,3 @@ function togglePasswordVisibility(passwordField, toggleIcon) {
     toggleIcon.src = 'eye-close.png';
   }
 }
-console.log('Logged-in Username:', loggedInUsername);
-console.log('Stored User:', storedUser);
-console.log('Current Password:', currentPasswordInput.value.trim());
-console.log('Stored Password:', storedUser ? storedUser.password : 'No stored user');
