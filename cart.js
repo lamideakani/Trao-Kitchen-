@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('checkout-btn').addEventListener('click', showBillingSection);
   document.getElementById('confirm-payment-btn').addEventListener('click', confirmPayment);
   document.getElementById('apply-coupon-btn').addEventListener('click', applyCoupon);
+  updateProgressBar(); // Initialize progress bar
 });
 
 function updateCart() {
@@ -47,6 +48,7 @@ function updateCart() {
   });
 
   updateCartSummary();
+  updateProgressBar(); // Update progress bar after cart update
 }
 
 function updateCartQuantity(event) {
@@ -84,6 +86,7 @@ function clearCart() {
   saveCartToLocalStorage([]);
   updateCart();
   updateCartSummary(); // Ensure summary reflects cleared cart
+  updateProgressBar(); // Update progress bar after clearing cart
 }
 
 function applyCoupon() {
@@ -131,6 +134,14 @@ function updateWalletBalance() {
 }
 
 function showBillingSection() {
+  const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')) || false;
+
+  if (!isLoggedIn) {
+    alert('Please log in to proceed to checkout.');
+    window.location.href = 'login.html'; // Redirect to login page
+    return;
+  }
+
   const totalAmount = getTotalCartAmount();
   document.getElementById('online-payment-amount').value = totalAmount.toFixed(2); // Update the amount field
 
@@ -152,6 +163,8 @@ function confirmPayment() {
 
     document.getElementById('proceedToBilling').style.display = 'none';
     document.getElementById('onlinePayment').style.display = 'block';
+    currentDiv = 3; // Change to the third step for online payment
+    updateProgressBar();
   } else if (paymentMethod === 'delivery') {
       alert('Order placed successfully. Pay on delivery.');
       clearCart();
@@ -189,8 +202,8 @@ function showOrderSummary() {
 
   document.getElementById('proceedToBilling').style.display = 'none';
   document.getElementById('orderSummary').style.display = 'block';
-    currentDiv = 3;
-    updateProgressBar();
+  currentDiv = 3;
+  updateProgressBar();
 }
 
 // Calculate total cart amount
@@ -228,12 +241,12 @@ document.getElementById('online-payment-pay-button').addEventListener('click', f
   handler.openIframe();
 });
 
-
 // progress bar
 function updateProgressBar() {
   document.getElementById('step1').classList.remove('active');
   document.getElementById('step2').classList.remove('active');
   document.getElementById('step3').classList.remove('active');
+  
   if (currentDiv === 1) {
       document.getElementById('step1').classList.add('active');
   } else if (currentDiv === 2) {

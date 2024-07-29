@@ -1591,7 +1591,8 @@ animation: pulse2 2s infinite;
 
 
 
-/*How it work section */
+/*Why Choose Us*/
+
 .work-wrapper{
   margin-top: 10rem;
   margin-bottom: 5rem;
@@ -1607,6 +1608,10 @@ animation: pulse2 2s infinite;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.header-wrapper h2{
+  font-size: 75px;
+  
 }
 
 .card-wrapper{
