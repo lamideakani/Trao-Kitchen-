@@ -12,8 +12,10 @@ document.getElementById('forgotPasswordForm1').addEventListener('submit', functi
         document.getElementById('div2').style.display = 'block';
     } else {
         alert("Username and email do not match.");
+       
     }
 });
+
 
 document.getElementById('forgotPasswordForm2').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -27,8 +29,11 @@ document.getElementById('forgotPasswordForm2').addEventListener('submit', functi
         storedUserData.password = newpassword;
         localStorage.setItem(username, JSON.stringify(storedUserData));
         alert("Password has been successfully reset.");
+        showToast("Password has been successfully reset.", "green")
         window.location.href = 'clientlogin.html';
     } else {
         alert("Passwords do not match.");
+        showToast("Password do not match", "red")
     }
 });
+

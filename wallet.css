@@ -64,6 +64,19 @@ body {
     background: #C57C15;
     color: white;
 }
+#amount{
+  padding:8px;
+  outline: none;
+  border: 1px solid #C57C15;
+  margin-right: 4px;
+}
+#amount::placeholder{
+  color: #C57C15;
+  font-size: 16px;
+}
+.add-money{
+  color: #C57C15;
+}
 
 .modal {
     display: none;

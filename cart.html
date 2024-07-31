@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
 
-    <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  integrity="sha512-..." crossorigin="anonymous" />
-<script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="menucart.css">
 </head>
@@ -37,9 +36,9 @@
         </section>
         <div id="cart-summary">
             <p>Total Quantity: <span id="total-quantity">0</span></p>
-            <p>Total Amount: #<span id="total-amount">0.00</span></p>
-            <p>Discount Amount: #<span id="discount-amount">0.00</span></p>
-            <p>Final Amount: #<span id="final-amount">0.00</span></p>
+            <p>Total Amount: <i class="fa-solid fa-naira-sign" style="color: #ffffff;"></i> <span id="total-amount"> 0.00</span></p>
+            <p>Discount Amount: <i class="fa-solid fa-naira-sign" style="color: #ffffff;"></i> <span id="discount-amount"> 0.00</span></p>
+            <p>Final Amount: <i class="fa-solid fa-naira-sign" style="color: #ffffff;"></i> <span id="final-amount"> 0.00</span></p>
             <button id="clear-cart-btn" class="clear-check" onclick="clearCart()">Clear All</button>
             <button id="checkout-btn" class="clear-check" onclick="showBillingSection()">Checkout</button>
         </div>
@@ -58,11 +57,11 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="first-name">First Name *</label>
-                            <input type="text" id="first-name" required>
+                            <input type="text" id="first-name" class="required-field" required>
                         </div>
                         <div class="form-field">
                             <label for="last-name">Last Name *</label>
-                            <input type="text" id="last-name" required>
+                            <input type="text" id="last-name" class="required-field" required>
                         </div>
                     </div>
             
@@ -73,7 +72,7 @@
                         </div>
                         <div class="form-field">
                             <label for="country">Country/Region *</label>
-                            <select id="country" required>
+                            <select id="country" class="required-field" required>
                                 <option value="Ghana" selected>Ghana</option>
                                 <option value="Nigeria">Nigeria</option>
                             </select>
@@ -83,7 +82,7 @@
                     <label>Street Address *</label>
                     <div class="form-group">
                         <div class="form-field">
-                            <input type="text" id="street-address1" required placeholder="House and street name">
+                            <input type="text" id="street-address1" class="required-field" required placeholder="House and street name">
                         </div>
                         <div class="form-field">
                             <input type="text" id="street-address2" placeholder="Apartment, suite, unit, etc.">
@@ -93,7 +92,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="town-city">Town/City *</label>
-                            <input type="text" id="town-city" required>
+                            <input type="text" id="town-city" class="required-field" required>
                         </div>
                         <div class="form-field">
                             <label for="state">State</label>
@@ -104,30 +103,30 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" id="phone" class="required-field" required>
                         </div>
                         <div class="form-field">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" class="required-field" required>
                         </div>
                     </div>
-            <!-- <br> -->
-            <label for="payment-method">Payment Method:</label>
-            <select id="payment-method" name="payment-method" required>
-                <option value="wallet">Wallet</option>
-                <option value="online">Online Payment</option>
-                <option value="delivery">Payment on Delivery</option>
-            </select>
             
-            <label for="order-notes">Order Notes</label>
-            <textarea id="order-notes"></textarea>
-            <!-- <br> -->
-             <div confirm-btn-box>
-            <button type="button" id="confirm-payment-btn" onclick="confirmPayment()">Confirm Payment</button>
+                    <label for="payment-method">Payment Method:</label>
+                    <select id="payment-method" name="payment-method" class="required-field" required>
+                        <option value="wallet">Wallet</option>
+                        <option value="online">Online Payment</option>
+                        <option value="delivery">Payment on Delivery</option>
+                    </select>
+            
+                    <label for="order-notes">Order Notes</label>
+                    <textarea id="order-notes"></textarea>
+            
+                    <div class="confirm-btn-box">
+                        <button type="button" id="confirm-payment-btn" onclick="confirmPayment()">Confirm Payment</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        </form>
-        </div>
-    </div>
     </div>
 
     <div id="orderSummary" style="display:none;">
@@ -149,27 +148,25 @@
         </div>
     </div>
 
-<!-- Online Payment -->
-<div id = "onlinePayment" style="display: none;">
-    <div class="online-payment-form">
-        <div class="online-form-group">
-            <label for="amount">Amount</label>
-            <input type="number" id="online-payment-amount" placeholder="Enter amount" readonly>
-        </div>
-        <div class="online-form-group">
-            <label for="email">Email</label>
-            <input type="email" id="online-payment-email" placeholder="Enter your email">
-        </div>
-        <div class="online-form-group">
-            <button id="online-payment-pay-button" class="cart-btn">Pay Now</button>
+    <!-- Online Payment -->
+    <div id="onlinePayment" style="display:none;">
+        <div class="online-payment-form">
+            <div class="online-form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="online-payment-amount" placeholder="Enter amount" readonly>
+            </div>
+            <div class="online-form-group">
+                <label for="email">Email</label>
+                <input type="email" id="online-payment-email" placeholder="Enter your email">
+            </div>
+            <div class="online-form-group">
+                <button id="online-payment-pay-button" class="cart-btn">Pay Now</button>
+            </div>
         </div>
     </div>
-</div>
-
 
     <script src="cart.js"></script>
     <script src="wallet.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
-
 </body>
 </html>
