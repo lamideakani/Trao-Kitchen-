@@ -138,7 +138,7 @@ function showBillingSection() {
 
   if (!isLoggedIn) {
     alert('Please log in to proceed to checkout.');
-    window.location.href = 'login.html'; // Redirect to login page
+    window.location.href = 'clientlogin.html'; // Redirect to login page
     return;
   }
 
@@ -195,6 +195,9 @@ function payWithWallet(amount) {
       localStorage.setItem('walletBalance', walletBalance);
       localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
       
+      // Display payment success alert
+      alert(`${amount} has been deducted from your wallet. Your wallet balance is now ${walletBalance.toFixed(2)}`);
+
       // Clear the cart and show order summary
       clearCart();
       showOrderSummary();
@@ -202,11 +205,12 @@ function payWithWallet(amount) {
       // Update UI
       updateWalletBalance();
       updateTransactionHistory();
-      
-      // Display payment success alert
-      alert('Payment successful.');
+
+
   } else {
-      alert('Insufficient wallet balance.');
+      alert('Insufficient wallet balance, add to balance');
+      window.location.href = 'wallet.html'; // Redirect to wallet page
+      return;
   }
 }
 

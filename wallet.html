@@ -12,15 +12,17 @@
     <link rel="stylesheet" href="wallet.css">
 </head>
 <body>
+    <div id="toast" class="toast"></div>
+
     <a href="index.html" class="back-to-menu"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
 
-    <div class="wallet-container">
+    <div class="wallet-container" id="wallet-container">
         <div class="wallet-header">
             <h1>My Wallet</h1>
-            <p>Balance: ₦<span id="wallet-balance">0.00</span></p>
+            <p id="balance">Balance: ₦<span id="wallet-balance">0.00</span></p>
             <button id="add-money-btn">Add Money</button>
         </div>
-        <div class="transaction-history">
+        <div class="transaction-history" id="thistory">
             <h2>Transaction History</h2>
             <ul id="transaction-list"></ul>
         </div>

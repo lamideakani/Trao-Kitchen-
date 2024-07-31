@@ -211,3 +211,22 @@ if(careerIndex=== careers.length){
 setTimeout(updateText,150);
 }
 updateText();
+
+
+window.onload = function() {
+  const settings = JSON.parse(localStorage.getItem('userSettings'));
+  if (settings) {
+      document.getElementById('profile-pic').src = settings.profilePic || '';
+  }
+
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+  if (loggedInUsername) {
+    const userData = JSON.parse(localStorage.getItem(loggedInUsername));
+    if (userData) {
+        let username = userData.username || '';
+        username = username.length > 8 ? username.substring(0, 8) : username;
+        document.getElementById('username').textContent = username;
+    }
+}
+};

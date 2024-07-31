@@ -51,7 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if user is logged in
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         if (!isLoggedIn) {
+            document.getElementById('balance').style.display = 'none';
+            document.getElementById('thistory').style.display = 'none';
             alert('Please log in to add money to your wallet.');
+            window.location.href = 'clientlogin.html'; // Redirect to login page
             return;
         }
 

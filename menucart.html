@@ -376,12 +376,19 @@ NAVBAR SECTION
     <script src="/script.js"></script>
 
   <script src="/user-setting.js"></script>
+  
   <script>
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
-  if (isLoggedIn === 'true') {
-    document.body.classList.add('show-profile');
-  }
+    document.addEventListener('DOMContentLoaded', function () {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      
+      if (isLoggedIn === 'true') {
+        // document.getElementById('logged-in').style.display = 'flex';
+        document.body.classList.add('show-profile');
+        document.getElementById('not-logged-in').style.display = 'none';
+      }
+    });
   </script>
+  
 
 <!-- chatbot -->
 <!--Start of Tawk.to Script-->
