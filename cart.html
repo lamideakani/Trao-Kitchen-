@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+
+    <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-..." crossorigin="anonymous" />
+<script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="menucart.css">
 </head>
 <body>
     <header>
-        <a href="menucart.html" class="back-to-menu">Back to Menu</a>
+        <a href="menucart.html" class="back-to-menu"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
         <h1>Cart</h1>
         <div class="progress-tab">
             <div class="progress">
@@ -40,7 +46,7 @@
         <div class="coupon">
             <label for="coupon" class="coupon-label">Apply Coupon:</label>
             <input type="text" id="coupon" class="coupon-bar">
-            <button class="cart-btn" id="apply-coupon-btn">Apply</button>
+            <button onclick="applyCoupon()" class="cart-btn" id="apply-coupon-btn">Apply</button>
         </div>
     </main>
 
@@ -116,7 +122,9 @@
             <label for="order-notes">Order Notes</label>
             <textarea id="order-notes"></textarea>
             <!-- <br> -->
+             <div confirm-btn-box>
             <button type="button" id="confirm-payment-btn" onclick="confirmPayment()">Confirm Payment</button>
+        </div>
         </form>
         </div>
     </div>
@@ -137,7 +145,7 @@
             <p><strong>Payment Method:</strong> <span id="summary-payment-method"></span></p>
             <p><strong>Order Notes:</strong> <span id="summary-order-notes"></span></p>
             <p><strong>Order Status:</strong> Pending</p>
-            <a href="/menucart.html"><button class="cart-btn">Order More</button></a>
+            <a href="/rating.html"><button class="cart-btn">Rate Our Services</button></a>
         </div>
     </div>
 
@@ -160,6 +168,7 @@
 
 
     <script src="cart.js"></script>
+    <script src="wallet.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
 
 </body>

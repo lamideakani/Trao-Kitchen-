@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-..." crossorigin="anonymous" />
+<script src="https://kit.fontawesome.com/4aa8b6485d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="wallet.css">
+</head>
+<body>
+    <div id="toast" class="toast"></div>
+
+    <a href="index.html" class="back-to-menu"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+
+    <div class="wallet-container" id="wallet-container">
+        <div class="wallet-header">
+            <h1>My Wallet</h1>
+            <p id="balance">Balance: ₦<span id="wallet-balance">0.00</span></p>
+            <button id="add-money-btn">Add Money</button>
+        </div>
+        <div class="transaction-history" id="thistory">
+            <h2>Transaction History</h2>
+            <ul id="transaction-list"></ul>
+        </div>
+    </div>
+
+    <div id="add-money-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Money</h2>
+            <input type="number" id="amount" placeholder="Enter amount" />
+            <button id="paystack-btn">Pay with Paystack</button>
+        </div>
+    </div>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="wallet.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(assets/shape-4.png);
+}
+
+.wallet-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.wallet-header h1 {
+    margin-bottom: 10px;
+    color: #C57C15;
+}
+
+.wallet-header p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.wallet-header button {
+    background: #C57C15;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 250ms ease;
+}
+
+.wallet-header button:hover {
+    background: white;
+    color: #C57C15;
+}
+
+.transaction-history {
+    margin-top: 30px;
+}
+
+.transaction-history h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+#transaction-list {
+    list-style: none;
+    padding: 0;
+}
+
+#transaction-list li {
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#transaction-list li:hover {
+    background: #C57C15;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 3px solid #C57C15;
+    width: 70%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.close {
+    color: #C57C15;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#paystack-btn {
+    background: #C57C15;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#paystack-btn:hover {
+    background: black;
+    color: #C57C15;
+}
+
+.back-to-menu{
+    border: 1px solid #C57C15;
+    background: black;
+    padding: 6px 29px;
+    z-index: 1000;
+    margin: 16px 15px;
+    transition: 250ms ease;
+  }
+.back-to-menu:hover{
+    background-color: #C57C15;
+  }
+
+
+  /* toastify */
+.toast {
+    visibility: hidden;
+    max-width: 50%;
+    height: 50px;
+    margin-left: -125px;
+    margin: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  .toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  .toast.success {
+    background-color: green;
+  }
+  
+  .toast.fail {
+    background-color: red;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  
+  @media (max-width: 768px) {
+    .menu-item {
+        width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .menu-item {
+        width: 100%;
+    }
+  }
+  

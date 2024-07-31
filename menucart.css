@@ -137,7 +137,7 @@ font-weight: bolder;
   font-weight: bold;
 }
 .cart-animation{
-  margin: .7rem 0 .5rem 0;
+  margin: 2rem 0 .5rem 0;
   text-align: center;
   background-color:transparent;
   border: 5px solid #fff8;
@@ -448,8 +448,9 @@ margin-top: 2rem;
 .back-to-menu{
   border: 1px solid #C57C15;
   background: transparent;
-  color:#fff;
-  padding: 5px 19px;
+  padding: 6px 29px;
+  z-index: 1000;
+  margin: 16px 15px;
 }
 
 .progress-tab {
@@ -500,6 +501,7 @@ margin-top: 2rem;
 
 .coupon {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .coupon-label{
@@ -525,6 +527,26 @@ margin-top: 2rem;
   border: 1px solid #C57C15;
   outline-color: #C57C15;
  
+}
+.confirm-btn-box{
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+#confirm-payment-btn{
+  padding:10px;
+  background-color:transparent;
+  border:2px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 17px;
+
+  text-align: right;
+  transition: .5s ease;
+}
+#confirm-payment-btn:hover{
+  background-color: #111;
+  border: none;
 }
 
 .cart-summary {
@@ -676,8 +698,73 @@ margin-top: 2rem;
   box-sizing: border-box;
 }
 
+.scroll-btn{
+  background-color: #C57C15; 
+  padding: 15px; 
+  border-radius: 10px;
+  position: fixed;
+  bottom: 150px;
+  right: 35px;
+  z-index: 1000;
+  transition: 250ms ease;
+}
+.scroll-btn:hover{
+  background-color: white;
+  color: black;
+}
 
+/* toastify */
+.toast {
+  visibility: hidden;
+  max-width: 50%;
+  height: 50px;
+  margin-left: -125px;
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  font-size: 17px;
+}
 
+.toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.toast.success {
+  background-color: green;
+}
+
+.toast.fail {
+  background-color: red;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
 
 
 @media (max-width: 768px) {

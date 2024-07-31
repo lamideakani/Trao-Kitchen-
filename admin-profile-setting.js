@@ -121,38 +121,136 @@ function resendConfirmation() {
     alert('Confirmation email resent!');
 }
 
-let newPassword = document.getElementById('new-password');
-let confirmPassword = document.getElementById('repeat-password');
-let openclose = document.getElementById('openclose');
-let openclose1 = document.getElementById('openclose1');
-let openclose2 = document.getElementById('openclose2');
+// let newPassword = document.getElementById('new-password');
+// let confirmPassword = document.getElementById('repeat-password');
+// let openclose = document.getElementById('openclose');
+// let openclose1 = document.getElementById('openclose1');
+// let openclose2 = document.getElementById('openclose2');
 
-openclose.addEventListener('click', function () {
-  if (document.getElementById('current-password').type == 'password') {
-    document.getElementById('current-password').type = 'text';
-    openclose.src = 'eye-openn.svg';
+// openclose.addEventListener('click', function () {
+//   if (document.getElementById('current-password').type == 'password') {
+//     document.getElementById('current-password').type = 'text';
+//     openclose.src = 'eye-openn.svg';
+//   } else {
+//     document.getElementById('current-password').type = 'password';
+//     openclose.src = 'eye-close.png';
+//   }
+// });
+
+// openclose1.addEventListener('click', function () {
+//   if (newPassword.type == 'password') {
+//     newPassword.type = 'text';
+//     openclose1.src = 'eye-openn.svg';
+//   } else {
+//     newPassword.type = 'password';
+//     openclose1.src = 'eye-close.png';
+//   }
+// });
+
+// openclose2.addEventListener('click', function () {
+//   if (confirmPassword.type == 'password') {
+//     confirmPassword.type = 'text';
+//     openclose2.src = 'eye-openn.svg';
+//   } else {
+//     confirmPassword.type = 'password';
+//     openclose2.src = 'eye-close.png';
+//   }
+// });
+
+document.getElementById('changePasswordForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const currentPasswordInput = document.getElementById('current-password');
+  const newPasswordInput = document.getElementById('new-password');
+  const repeatNewPasswordInput = document.getElementById('repeat-password');
+
+  const currentPasswordError = document.getElementById('currentPasswordError');
+  const newPasswordError = document.getElementById('newPasswordError');
+  const repeatNewPasswordError = document.getElementById('repeatNewPasswordError');
+
+  const loggedInUsername = localStorage.getItem('adminloggedInUsername');
+  const storedUser = JSON.parse(localStorage.getItem(loggedInUsername));
+
+  let isValid = true;
+
+  if (!storedUser) {
+    showToast("No user found. Please log in again.", "red");
+    return;
+  }
+
+  if (currentPasswordInput.value.trim() === "") {
+    currentPasswordError.textContent = "Current password is required";
+    currentPasswordError.style.display = 'block';
+    isValid = false;
+  } else if (storedUser.password !== currentPasswordInput.value.trim()) {
+    currentPasswordError.textContent = "Current password is incorrect";
+    currentPasswordError.style.display = 'block';
+    isValid = false;
   } else {
-    document.getElementById('current-password').type = 'password';
-    openclose.src = 'eye-close.png';
+    currentPasswordError.style.display = 'none';
+  }
+
+  if (newPasswordInput.value.trim() === "") {
+    newPasswordError.textContent = "New password is required";
+    newPasswordError.style.display = 'block';
+    isValid = false;
+  } else {
+    newPasswordError.style.display = 'none';
+  }
+
+  if (repeatNewPasswordInput.value.trim() === "") {
+    repeatNewPasswordError.textContent = "Please repeat the new password";
+    repeatNewPasswordError.style.display = 'block';
+    isValid = false;
+  } else if (newPasswordInput.value.trim() !== repeatNewPasswordInput.value.trim()) {
+    repeatNewPasswordError.textContent = "Passwords do not match";
+    repeatNewPasswordError.style.display = 'block';
+    isValid = false;
+  } else {
+    repeatNewPasswordError.style.display = 'none';
+  }
+
+  if (isValid) {
+    storedUser.password = newPasswordInput.value.trim();
+    localStorage.setItem(loggedInUsername, JSON.stringify(storedUser));
+    showToast("Password changed successfully", "green");
+    // Optionally, redirect to another page
   }
 });
 
-openclose1.addEventListener('click', function () {
-  if (newPassword.type == 'password') {
-    newPassword.type = 'text';
-    openclose1.src = 'eye-openn.svg';
-  } else {
-    newPassword.type = 'password';
-    openclose1.src = 'eye-close.png';
-  }
+document.getElementById('openclose').addEventListener('click', function() {
+  const passwordField = document.getElementById('current-password');
+  togglePasswordVisibility(passwordField, this);
 });
 
-openclose2.addEventListener('click', function () {
-  if (confirmPassword.type == 'password') {
-    confirmPassword.type = 'text';
-    openclose2.src = 'eye-openn.svg';
-  } else {
-    confirmPassword.type = 'password';
-    openclose2.src = 'eye-close.png';
-  }
+document.getElementById('openclose1').addEventListener('click', function() {
+  const passwordField = document.getElementById('new-password');
+  togglePasswordVisibility(passwordField, this);
 });
+
+document.getElementById('openclose2').addEventListener('click', function() {
+  const passwordField = document.getElementById('repeat-password');
+  togglePasswordVisibility(passwordField, this);
+});
+
+function togglePasswordVisibility(passwordField, toggleIcon) {
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+    toggleIcon.src = 'eye-open.png';
+  } else {
+    passwordField.type = 'password';
+    toggleIcon.src = 'eye-close.png';
+  }
+}
+
+function showToast(message, color) {
+  const toastContainer = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.style.backgroundColor = color; // Use color based on message type
+  toast.textContent = message;
+  toastContainer.appendChild(toast);
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}

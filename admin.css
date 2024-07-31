@@ -11,6 +11,7 @@
   height: fit-content;
   width: 240px;
   background: #0A2558;
+  padding-bottom: 30px;
   transition: all 0.5s ease;
 }
 .sidebar.active{

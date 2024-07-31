@@ -115,23 +115,17 @@ TOP BAR SECTION
         </a>
 
         <ul class="navbar-list">
+<!-- search bar -->
 
-          <div class="search-container">
+<div class="search-container">
+  <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+      <i class="fas fa-search search-icon"></i>
+      <ul id="resultsContainer" class="hidden"></ul>
+  </div>
+</div>
 
-            <div class="search-wrapper">
-              <input type="text" id="searchInput" placeholder="Search products...." class="search-input">
-              <i class="fas fa-search search-icon"></i>
-             
-            
-              </div>
-              <div class="search_results">
-                <a href="#" class="search_card"></a>
 
-            </div>
-
-            <ul id="resultsContainer" class="results-container"></ul>
-
-          </div>
 
           <li class="navbar-item">
             <a href="/index.html" class="navbar-link hover-underline active">
@@ -212,9 +206,9 @@ TOP BAR SECTION
                     <span>></span>
                 </a>
 
-                <a href="#" class="user-sub-menu-link">
+                <a href="/wallet.html" class="user-sub-menu-link">
                     <img src="assets/help.png">
-                    <p>Transaction History</p>
+                    <p>Wallet & Transaction History</p>
                     <span>></span>
                 </a>
 
@@ -851,7 +845,7 @@ TOP BAR SECTION
   <!-- How it works -->
   <section class="work-wrapper">
     <div class="header-wrapper">
-      <h2>How it <span style="text-decoration:underline; color:#C57C15;">Works</span></h2>
+      <h2>Why Choose<span style="color:#C57C15;"> Us?</span></h2>
       <p>We understand the importance of good service, Our friendly team is to ensure you have a pleasant dinning
         experience from start to finish.</p>
     </div>
@@ -1020,6 +1014,8 @@ TOP BAR SECTION
 
 
   <!-- footer-section -->
+  <a href="#" class="scroll-btn"><i class="fa-solid fa-arrow-up"></i></a>
+
   <div class="sec">
     <section class="footer-new">
       <footer>

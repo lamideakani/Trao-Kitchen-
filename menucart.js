@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${item.img}" alt="${item.name}">
           <h3>${item.name}</h3>
           <p>${item.description}</p>
-          <p class="price"># ${item.price.toFixed(2)}</p>
+          <p class="price"><i class="fa-solid fa-naira-sign" style="color: #ffffff;"></i> ${item.price.toFixed(2)}</p>
           <div class="star-outer">
               <div class="star-inner"></div>
               </div>
@@ -228,3 +228,22 @@ function updateText() {
   setTimeout(updateText, 150);
 }
 updateText();
+
+
+window.onload = function() {
+  const settings = JSON.parse(localStorage.getItem('userSettings'));
+  if (settings) {
+      document.getElementById('profile-pic').src = settings.profilePic || '';
+  }
+
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+  if (loggedInUsername) {
+    const userData = JSON.parse(localStorage.getItem(loggedInUsername));
+    if (userData) {
+        let username = userData.username || '';
+        username = username.length > 8 ? username.substring(0, 8) : username;
+        document.getElementById('username').textContent = username;
+    }
+}
+};
