@@ -192,10 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
 });
 
-// function saveTolocalstorage ()  {
-//   localStorage.setItem('myComplexData', JSON.stringify(menuItem1));
-//     console.log(myComplexData)
-// };
 
 const container = document.querySelector('.cart-animation');
 
