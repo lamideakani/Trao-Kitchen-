@@ -194,7 +194,10 @@ function displayProducts(products) {
       li.addEventListener('click', () => {
         
         // Redirect to a specific location
-        window.location.href = `menucart.html?id=${product.Id}#all-dishes`;
+        // window.location.href = `menucart.html?product_id=${product.id}`;
+
+        window.location.href = `menucart.html?id=${product.id}#all-dishes`;
+       
       });
       resultsContainer.appendChild(li);
     });
@@ -212,6 +215,7 @@ searchInput.addEventListener('input', function() {
     resultsContainer.classList.add('hidden');
   }
 });
+
 
 // Close search results when clicking outside the search box
 document.addEventListener('click', function(event) {

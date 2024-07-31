@@ -778,3 +778,27 @@ margin-top: 2rem;
       width: 100%;
   }
 }
+
+
+@media (max-width: 700px){
+  .sec{
+    margin-top: 5rem;
+  }
+  .footer-new {
+    padding: 50px 0 30px;
+  }
+
+  .block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cole {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .cole:nth-child(2), .cole:nth-child(3) {
+    flex-basis: 100%;
+  }
+}
