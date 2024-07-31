@@ -36,25 +36,28 @@ h1, h2 {
 
 .Vendor-form-container button {
     padding: 10px 20px;
-    background-color:#C57C15;
+    background-color: #C57C15;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     flex: 1 1 100%;
 }
-.back-btn{
+
+.back-btn {
     font-size: 20px;
     font-weight: 600;
     background-color: #C57C15;
     color: aliceblue;
     border: none;
 }
-.back-btn a{
+
+.back-btn a {
     color: white;
     text-decoration: none;
 }
-.back-btn a:hover{
+
+.back-btn a:hover {
     background-color: #C57C15;
     color: black;
 }
@@ -109,5 +112,5 @@ li button:hover {
 }
 
 .edit-button:hover {
-    background-color:black;
+    background-color: black;
 }

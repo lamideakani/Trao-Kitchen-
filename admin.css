@@ -85,6 +85,9 @@
   width: calc(100% - 60px);
   left: 60px;
 }
+.orderSection{
+  display: none;
+}
 .home-section nav{
   display: flex;
   justify-content: space-between;

@@ -78,7 +78,9 @@ h3{
 }
 
 .img img{
-    width: 100%;
+   
+    width:  100px;
+  
     border-radius: 100px;
     box-shadow: 0 0 22px #3336;
 }

@@ -140,7 +140,7 @@
           <div class="box">
             <div class="right-side">
               <div class="box-topic">Total Order</div>
-              <div class="number">14</div>
+              <div class="number"><span id="totalOrdersQuantity"></span></div>
               <div class="indicator">
                 <i class='bx bx-up-arrow-alt'></i>
                 <span class="text">Up from yesterday</span>
@@ -292,8 +292,33 @@
     
       </div>
     </section>
+
+<section class="orderSection">
+
+  <button class="back-btn text-capitalize"><a href="./admin.html">home</a></button>
+
+  <table id="orderHistoryTable">
+      <thead>
+          <tr>
+              <th>Order ID</th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Order rows will be populated here -->
+      </tbody>
+  </table>
+
+  <div class="total">
+      <strong>Total Orders: </strong><span id="totalOrdersQuantity"></span>
+  </div>
+
+</section>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script src="admin.js"></script>
+   
 
   </body>
 </html>
