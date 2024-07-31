@@ -1,0 +1,103 @@
+/* Base Styles for the Page */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+.cm-header {
+    background: #C57C15; /* Teal color for header */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.cm-order-table {
+    width: 80%;
+    margin: 6rem auto 2rem auto; /* Centered with margin for spacing */
+    border-collapse: collapse;
+    background: #ffffff; /* White background for the table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cm-order-table th,
+.cm-order-table td {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+}
+
+.cm-order-table th {
+    background: #C57C15; /* Teal color for header cells */
+    color: #ffffff; /* White text */
+    font-size: 1.1rem;
+}
+
+.cm-order-table td {
+    background: #ffffff; /* White background for cells */
+    color: #333333; /* Dark text color */
+    font-size: 1rem;
+}
+
+.cm-order-table tr:nth-child(even) {
+    background: #f9f9f9; /* Light gray for even rows */
+}
+
+.cm-order-table tr:hover {
+    background: #e0f2f1; /* Light teal on hover */
+}
+
+.status-cell {
+    text-align: center;
+}
+
+.status-cell span {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.status-pending {
+    background: #ff9800; /* Orange */
+}
+
+.status-processing {
+    background: #03a9f4; /* Light blue */
+}
+
+.status-approved {
+    background: #4caf50; /* Green */
+}
+
+.status-cancelled {
+    background: #f44336; /* Red */
+}
+
+.status-delivered {
+    background: #9e9e9e; /* Gray */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cm-order-table {
+        width: 95%;
+        margin: 5rem auto 1rem auto;
+    }
+
+    .cm-header {
+        padding: 0.75rem;
+    }
+
+    .cm-order-table th,
+    .cm-order-table td {
+        padding: 0.5rem 1rem;
+    }
+}

@@ -177,6 +177,9 @@ function confirmPayment() {
       document.getElementById('onlinePayment').style.display = 'block';
 
   } else if (paymentMethod === 'delivery') {
+      // Save order details first
+      saveOrderDetails();
+
       alert('Order placed successfully. Pay on delivery.');
       clearCart();
       showOrderSummary();
@@ -225,6 +228,9 @@ function payWithWallet(amount) {
       // Display payment success alert
       alert(`N ${amount} has been deducted from your wallet. Your wallet balance is now N ${walletBalance.toFixed(2)}`);
 
+      // Save order details first
+      saveOrderDetails();
+
       // Clear the cart and show order summary
       clearCart();
       showOrderSummary();
@@ -254,7 +260,73 @@ function showOrderSummary() {
   const email = document.getElementById('email').value;
   const orderNotes = document.getElementById('order-notes').value;
 
+<<<<<<< Updated upstream
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
+=======
+  document.getElementById('proceedToBilling').style.display = 'none';
+  document.getElementById('orderSummary').style.display = 'block';
+  currentDiv = 3;
+  updateProgressBar();
+  
+  saveOrderDetails(); // Save order details to local storage
+}
+
+function saveOrderDetails() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const companyName = document.getElementById('company-name').value;
+  const country = document.getElementById('country').value;
+  const streetAddress1 = document.getElementById('street-address1').value;
+  const streetAddress2 = document.getElementById('street-address2').value;
+  const townCity = document.getElementById('town-city').value;
+  const state = document.getElementById('state').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const orderNotes = document.getElementById('order-notes').value;
+  const paymentMethod = document.getElementById('payment-method').selectedOptions[0].text;
+  const finalAmount = getTotalCartAmount();
+  const orderId = generateOrderId();
+
+  const orderDetails = {
+    id: orderId,
+    items: cart.map(item => ({
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity
+    })),
+    customer: {
+      firstName,
+      lastName,
+      companyName,
+      country,
+      streetAddress1,
+      streetAddress2,
+      townCity,
+      state,
+      phone,
+      email
+    },
+    orderNotes,
+    paymentMethod,
+    finalAmount,
+    date: new Date().toLocaleString()
+  };
+
+  let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+  orderHistory.push(orderDetails);
+  localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+}
+
+function generateOrderId() {
+  return `ORD${Date.now()}`;
+}
+
+
+// Calculate total cart amount
+function getTotalCartAmount() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+>>>>>>> Stashed changes
   const discount = parseFloat(localStorage.getItem('discount')) || 0;
   const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
   const discountAmount = totalAmount * discount;
@@ -299,6 +371,7 @@ function validateOnlinePaymentForm() {
   payWithPaystack();
 }
 
+<<<<<<< Updated upstream
 function payWithPaystack() {
   const handler = PaystackPop.setup({
       key: 'pk_test_1234567890abcdef1234567890abcdef12345678',
@@ -308,6 +381,21 @@ function payWithPaystack() {
       ref: `TRAO-${Math.random().toString(36).substr(2, 9)}`,
       callback: function(response) {
           alert(`Payment successful! Transaction reference: ${response.reference}`);
+=======
+  var handler = PaystackPop.setup({
+      key: 'pk_test_07f16d730fc627dfd475c62727017562d9eb0c78',
+      email: email,
+      amount: amount,
+      currency: "NGN",
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), 
+      callback: function(response){
+          alert('Payment successful. Transaction ref is ' + response.reference);
+          document.getElementById('onlinePayment').style.display = 'none';
+          document.getElementById('orderSummary').style.display = 'block';
+          // Save order details first
+          saveOrderDetails();
+          showOrderSummary();
+>>>>>>> Stashed changes
           clearCart();
           showOrderSummary();
       },

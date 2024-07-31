@@ -45,7 +45,7 @@ body{
 }
 .card{
     width: 60%;
-    background-color: var(--secondary);
+    background-color: white;
     box-shadow: 0.2rem .4rem #0004;
     margin-top: 40px;
     border-radius: 10px;
@@ -62,7 +62,7 @@ h1 span{
 
 .card2{
     width: 60%;
-    background-color: var(--secondary);
+    background-color: white;
     box-shadow: 0.2rem .4rem #0004;
     margin-top: 40px;
     border-radius: 10px;
@@ -70,7 +70,7 @@ h1 span{
 
 .card3{
     width: 60%;
-    background-color: var(--secondary);
+    background-color: white;
     box-shadow: 0.2rem .4rem #0004;
     margin-top: 40px;
     margin-bottom: 20px;

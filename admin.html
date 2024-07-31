@@ -2,13 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Responsive Admin Dashboard | CodingLab</title>
+    <title> Admin Dashboard</title>
     <link rel="stylesheet" href="admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    
     <div class="sidebar">
       <div class="logo-details">
        <a href="./index.html"> <img src="/images/Logo1new.png" alt=""></a>
@@ -16,87 +17,69 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="#" class="active">
+          <a href="#" data-target="div1" class="active">
             <i class='bx bx-grid-alt'></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="./vendor.html">
+          <a href="#" data-target="div2">
             <i class='bx bx-box'></i>
             <span class="links_name">Product</span>
           </a>
         </li>
         <li>
-          <a href="Order/order.html">
+          <a href="#" data-target="div3">
             <i class='bx bx-list-ul'></i>
             <span class="links_name">Order list</span>
           </a>
         </li>
         <li>
-          <a href="/data visualisation.html">
+          <a href="#" data-target="div4">
             <i class='bx bx-pie-chart-alt-2'></i>
             <span class="links_name">Analytics</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" data-target="div5">
             <i class='bx bx-coin-stack'></i>
             <span class="links_name">Stock</span>
           </a>
         </li>
         <li>
-          <a href="./TotalOrder.html">
-            <i class='bx bx-book-alt'></i>
-            <span class="links_name">Total order</span>
-          </a>
-        </li>
-        <li>
-          <a href="/teamSection.html">
+          <a href="#" data-target="div6">
             <i class='bx bx-user'></i>
             <span class="links_name">Team</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" data-target="div7">
             <i class='bx bx-message'></i>
             <span class="links_name">Messages</span>
           </a>
         </li>
         <li>
-          <a href="/ratingcard.html">
+          <a href="#" data-target="div8">
             <i class='bx bx-heart'></i>
             <span class="links_name">Rating Scorecard</span>
           </a>
         </li>
-        
         <li>
-          <a href="#">
+          <a href="#" onclick="logout()" data-target="div9">
             <i class='bx bx-cog'></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li>
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
+            <span class="links_name">Logout</span>
           </a>
         </li>
       </ul>
     </div>
 
-
     <section class="home-section">
       <nav>
         <div class="sidebar-button">
           <i class='bx bx-menu sidebarBtn'></i>
-          <span class="dashboard">Dashboard</span>
+          <span class="dashboard" id="page-name">Dashboard</span>
         </div>
-        <div class="search-box">
-          <input type="text" placeholder="Search...">
-          <i class='bx bx-search'></i>
-        </div>
-
+        
         <div class="profile-details" id="profileDetails">
           <img id="profile-pic2" src="assets/vecteezy_default-profile-picture-avatar-user-avatar-icon-person_21548095.jpg" alt="Profile Picture">
           <span id="username2" class="admin_name"> Admin </span>
@@ -135,7 +118,9 @@
         
 
       </nav>
-      <div class="home-content">
+
+
+      <div class="home-content" id="div1">
         <div class="overview-boxes">
           <div class="box">
             <div class="right-side">
@@ -287,10 +272,215 @@
               </li>
             </ul>
           </div>
-        </div>
-        <!-- Scorecard Section -->
-    
+        </div>    
       </div>
+
+
+      <!-- Product -->
+      <div id="div2" style="display: none;">
+        <div class="Vendor-container">
+        <div class="Vendor-form-container">
+            <input type="text" id="food-name" placeholder="Food Name">
+            <input type="text" id="food-price" placeholder="Food Price">
+            <input type="file" id="food-image">
+            <button onclick="addFood()">Add Food</button>
+        </div>
+        <div class="food-list-container">
+            <h2>Food List</h2>
+            <ul id="food-list"></ul>
+        </div>
+        <!-- Hidden file input for editing images -->
+        <input type="file" id="edit-food-image" style="display: none;" onchange="handleEditImageChange(event)">
+      </div>
+      </div>
+
+
+      <!-- Order list -->
+<div id="div3" style="display: none;"> 
+  <h1 class="vm-header">Vendor Management Interface</h1>
+<table class="vm-order-table" id="vendor-order-list">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<div id="undo-message" class="vm-undo-message" style="display: none;">
+    <span>Order removed. <button id="undo-btn" class="vm-btn vm-btn-undo">Undo</button></span>
+    <button id="close-undo-btn" class="vm-btn vm-btn-close">X</button>
+</div>
+
+</div>
+
+
+      <!-- Analytics -->
+<div id="div4" style="display: none;"> 
+  <div class="container-fluid">
+   
+    <div class="card">
+        <h1 class="text">TRAO <span>MONTHLY </span>SALES AND PROFIT</h1>
+        <canvas id="bar-graph"></canvas>
+    </div>
+
+    <div class="card2">
+        <h1 class="text">TRAO <span>WEEKLY </span>SALES AND PROFIT</h1>
+        <canvas id="doughnut-graph"></canvas>
+    </div>
+ 
+    <div class="card3">
+        <h1 class="text">TRAO <span>DAILY </span>SALES AND PROFIT</h1>
+        <canvas id="pie-graph"></canvas>
+    </div>
+</div>
+</div>
+
+
+      <!-- Stock -->
+<div id="div5"> </div>
+
+
+      <!-- Team -->
+<div id="div6" style="display: none;"> 
+  <div class="main">
+        
+    <h2>THE CREATIVE FORCES</h2>
+    <h3>Our talented hardworking team of chefs and personels with years of experience that bring passion and creativity to every dish!</h3>
+    <div class="profileCard">
+        <div class="img">
+            <img src="assets/IMG_29181.jpg">
+        </div>
+        <div class="caption">
+            <h1>Tope Bello</h1>
+            <p>Senior Chef</p>
+            <h5>Oversea food menu, preparation, presentation, portioning and plating design.</h5>
+            <div class="socialLinks">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-skype"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="profileCard">
+        <div class="img">
+            <img src="assets/4cde7c6c6d362dd7261fff7a9de2de4b.jpg">
+        </div>
+        <div class="caption">
+            <h1>Mr Ilerioluwa</h1>
+            <p>Admin</p>
+            <h5>Organising records, overseeing budgets and maintenance of inventory.</h5>
+            <div class="socialLinks">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-skype"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="profileCard">
+        <div class="img">
+            <img src="assets/4cde7c6c6d362dd7261fff7a9de2de4b.jpg">
+        </div>
+        <div class="caption">
+            <h1>Mr Richard</h1>
+            <p>Engineering</p>
+            <h5>Managing digital communications, providing essential support to all depts.</h5>
+            <div class="socialLinks">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-skype"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="profileCard">
+        <div class="img">
+            <img src="assets/4cde7c6c6d362dd7261fff7a9de2de4b.jpg">
+        </div>
+        <div class="caption">
+            <h1>Mr Olamide</h1>
+            <p>Technical</p>
+            <h5>Overseas company ICT structures, maintenance of company technical Gadgets</h5>
+            <div class="socialLinks">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-skype"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+      <!-- Messages -->
+<div id="div7"> </div>
+
+
+      <!-- Rating Scorecard -->
+<div id="div8" style="display: none;"> 
+  <div class="customers-reviews">
+
+
+    <h2>Customer Reviews and Ratings</h2>
+    <ul class="comments-list">
+      <!-- Comments will be injected here by JavaScript -->
+    </ul>
+
+    <div class="customers-reviews scorerating">
+
+
+      <h2>Customer Reviews Scorecard</h2>
+      <ul class="comments-list">
+        <!-- Comments will be injected here by JavaScript -->
+      </ul>
+    </div>
+      <div class="rating card-rating">
+        <div class="ratingAverage">
+          <h1>0.0</h1>
+          <div class="star-outer">
+            <div class="star-inner"></div>
+          </div>
+          <p>0 Ratings</p>
+        </div>
+        <div class="ratingProgress">
+          <!-- Rating progress will be injected here by JavaScript -->
+        </div>
+      </div>
+  </div>
+</div>
+
+      <!-- Logout -->
+  <div id="div9" style="display: none;"> 
+    <div class="bayi">
+      <h1 class="bye">BYE BYE</h1>
+    </div>
+  </div>
+
     </section>
 
 <section class="orderSection">
@@ -317,8 +507,14 @@
 
 </section>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script src="admin.js"></script>
+<<<<<<< Updated upstream
    
+=======
+   <script src="cart.js"></script>
+>>>>>>> Stashed changes
 
   </body>
 </html>
