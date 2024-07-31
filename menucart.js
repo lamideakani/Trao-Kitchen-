@@ -99,7 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ]
 
  
-  localStorage.setItem('menuItems', JSON.stringify(menuItems))
+  // localStorage.setItem('menuItems', JSON.stringify(menuItems));
+
+
   
   const filterInput = document.getElementById('filterInput');
   const sortSelect = document.getElementById('sortSelect');
@@ -139,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function saveTolocalstorage ()  {
-    localStorage.setItem('myComplexData', JSON.stringify(menuItem1));
-      console.log(myComplexData)
-  };
+  // function saveTolocalstorage ()  {
+  //   localStorage.setItem('myComplexData', JSON.stringify(menuItem1));
+  //     console.log(myComplexData)
+  // };
 
   function sortItems(items) {
     const sortValue = sortSelect.value;

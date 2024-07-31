@@ -1,6 +1,11 @@
+// const menuItems = JSON.parse(localStorage.getItem('menuItems'));
+// console.log(menuItems)
+
+
 document.addEventListener('DOMContentLoaded', () => {
   loadFoods();
 });
+
 
 function loadFoods() {
   const foodList = document.getElementById('food-list');
