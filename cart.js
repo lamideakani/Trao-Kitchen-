@@ -260,9 +260,6 @@ function showOrderSummary() {
   const email = document.getElementById('email').value;
   const orderNotes = document.getElementById('order-notes').value;
 
-<<<<<<< Updated upstream
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-=======
   document.getElementById('proceedToBilling').style.display = 'none';
   document.getElementById('orderSummary').style.display = 'block';
   currentDiv = 3;
@@ -326,7 +323,6 @@ function generateOrderId() {
 // Calculate total cart amount
 function getTotalCartAmount() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
->>>>>>> Stashed changes
   const discount = parseFloat(localStorage.getItem('discount')) || 0;
   const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
   const discountAmount = totalAmount * discount;
@@ -371,17 +367,6 @@ function validateOnlinePaymentForm() {
   payWithPaystack();
 }
 
-<<<<<<< Updated upstream
-function payWithPaystack() {
-  const handler = PaystackPop.setup({
-      key: 'pk_test_1234567890abcdef1234567890abcdef12345678',
-      email: document.getElementById('online-payment-email').value,
-      amount: parseFloat(document.getElementById('online-payment-amount').value) * 100, // Amount in kobo
-      currency: 'NGN',
-      ref: `TRAO-${Math.random().toString(36).substr(2, 9)}`,
-      callback: function(response) {
-          alert(`Payment successful! Transaction reference: ${response.reference}`);
-=======
   var handler = PaystackPop.setup({
       key: 'pk_test_07f16d730fc627dfd475c62727017562d9eb0c78',
       email: email,
@@ -395,7 +380,6 @@ function payWithPaystack() {
           // Save order details first
           saveOrderDetails();
           showOrderSummary();
->>>>>>> Stashed changes
           clearCart();
           showOrderSummary();
       },
@@ -404,7 +388,7 @@ function payWithPaystack() {
       }
   });
   handler.openIframe();
-}
+
 
 // Progress bar logic
 let currentDiv = 1;
