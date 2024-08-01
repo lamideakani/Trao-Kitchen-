@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   // function saveTolocalstorage ()  {
   //   localStorage.setItem('myComplexData', JSON.stringify(menuItem1));
   //     console.log(myComplexData)
