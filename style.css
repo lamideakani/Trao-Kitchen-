@@ -1700,7 +1700,7 @@ transform: translateX(180deg);
         text-align: center;
         padding: 20px 15px;
         display: flex;
-        flex-direction: grid;
+        flex-direction: column;
       }
       
       .reservation-container {
@@ -1841,7 +1841,7 @@ transform: translateX(180deg);
       .right {
         max-width: 100%;
         width: 100%;
-        /* background: url(images/form-pattern (1).png); */
+        background: url(images/form-pattern (1).png);
         height: auto;
         border: 2px dashed #fff;
         padding: 20px 15px;
