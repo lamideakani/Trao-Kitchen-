@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  padding: 1em;
+}
+
+form {
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin: 0.5em 0 0.2em;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #C57C15;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #C57C15;
+}
+
+#products-container {
+  margin-top: 2em;
+  display: grid;
+  gap: 1em;
+}
+
+/* Default grid layout for smaller screens */
+#products-container {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* 2 columns for medium screens */
+@media (min-width: 600px) {
+  #products-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 columns for large screens */
+@media (min-width: 900px) {
+  #products-container {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4 columns for extra-large screens */
+@media (min-width: 1200px) {
+  #products-container {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1em;
+  background-color: #f9f9f9;
+  text-align: center;
+  position: relative;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.product-card button {
+  background-color: #f44336;
+  color: white;
+  margin-top: 0.5em;
+}
+
+.product-card button:hover {
+  background-color: #e53935;
+}
