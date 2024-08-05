@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Page</title>
+    <title>Products Details</title>
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,14 +148,6 @@ NAVBAR SECTION
             <span class="span">Contact</span>
           </a>
         </li>
-
-        <li class="navbar-item">
-          <a href="news.html" class="navbar-link hover-underline">
-            <div class="divider"></div>
-
-            <span class="span span-news">News Update</span>
-          </a>
-        </li>
        </ul>
 
 
@@ -205,22 +197,16 @@ NAVBAR SECTION
               <hr>
 
               <a href="/user-setting.html" class="user-sub-menu-link">
-                <img src="assets/profile.png">
-                <p>Edit Profile</p>
-                <span>></span>
-            </a>
+                  <img src="assets/profile.png">
+                  <p>Edit Profile</p>
+                  <span>></span>
+              </a>
 
-            <a href="/wallet.html" class="user-sub-menu-link">
-                <img src="assets/payment-icon-5646.png">
-                <p>Wallet & Payment History</p>
-                <span>></span>
-            </a>
-
-            <a href="/customer-order-history.html" class="user-sub-menu-link">
-              <img src="assets/noun-order-2448918.png">
-              <p>Order & Transaction History</p>
-              <span>></span>
-          </a>
+              <a href="#" class="user-sub-menu-link">
+                  <img src="assets/help.png">
+                  <p>Transaction History</p>
+                  <span>></span>
+              </a>
 
               <a href="#" class="user-sub-menu-link" id="logout" onclick="logout()">
                   <img src="assets/logout.png">
@@ -267,69 +253,16 @@ NAVBAR SECTION
 
 </div>
   
-<main class="cart-main" id="all-dishes">
-    <nav class="cart-nav">
-        <ul>
-            <li><a href="#Main-items">Main Dishes</a></li>
-            <li><a href="#Local-items">Local Dishes</a></li>
-            <li><a href="#Grills-items">Grills and Pepper Soups</a></li>
-            <li><a href="#Soups-items">Soups</a></li>
-            <li><a href="#Snacks-items">Snacks</a></li>
-            <li><a href="#Drinks-items">Drinks</a></li>
-        </ul>
-    </nav>
-    <div class="controls">
-         <input type="text" id="filterInput" placeholder="Search menu...">
-        <select id="sortSelect">
-            <option value="name-asc">Name: A-Z</option>
-            <option value="name-desc">Name: Z-A</option>
-        </select> 
 
-
-    </div>
-    <section id="Main-items" class="category-section">
-        <h2>Main Dishes</h2>
-        <div class="menu-items" data-category="main">
-            <!-- JavaScript will insert local dishes here -->
-        </div>
-    </section>
-    <section id="Local-items" class="category-section">
-        <h2>Local Dishes</h2>
-        <div class="menu-items" data-category="local">
-            <!-- JavaScript will insert international dishes here -->
-        </div>
-    </section>
-    <section id="Grills-items" class="category-section">
-        <h2>Grills and Pepper Soups</h2>
-        <div class="menu-items" data-category="grills">
-            <!-- JavaScript will insert snacks here -->
-        </div>
-    </section>
-    <section id="Soups-items" class="category-section">
-        <h2>Soups</h2>
-        <div class="menu-items" data-category="soups">
-            <!-- JavaScript will insert drinks here -->
-        </div>
-    </section>
-    <section id="Snacks-items" class="category-section">
-        <h2>Snacks</h2>
-        <div class="menu-items" data-category="snacks">
-            <!-- JavaScript will insert drinks here -->
-        </div>
-    </section>
-    <section id="Drinks-items" class="category-section">
-        <h2>Drinks</h2>
-        <div class="menu-items" data-category="drinks">
-            <!-- JavaScript will insert drinks here -->
-        </div>
-    </section>
-</main>
-
-  
-      
-
-
-
+<body>
+  <header>
+      <h1 class="product-details-head">Product Details</h1>
+  </header>
+  <main id="product-details" class="product-details">
+      <!-- Product details will be dynamically inserted here -->
+  </main>
+  <script src="products-details.js"></script> <!-- Link to your JavaScript file -->
+</body>
 
 
   <div class="sec">
