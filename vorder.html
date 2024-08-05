@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Management Interface</title>
+    <link rel="stylesheet" href="vorder.css">
+</head>
+<body>
+    <h1 class="vm-header">Vendor Management Interface</h1>
+    <table class="vm-order-table" id="vendor-order-list">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div id="undo-message" class="vm-undo-message" style="display: none;">
+        <span>Order removed. <button id="undo-btn" class="vm-btn vm-btn-undo">Undo</button></span>
+        <button id="close-undo-btn" class="vm-btn vm-btn-close">X</button>
+    </div>
+    <script src="vorder.js"></script>
+</body>
+</html>

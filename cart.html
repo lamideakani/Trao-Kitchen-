@@ -49,85 +49,86 @@
         </div>
     </main>
 
-    <div id="proceedToBilling" style="display:none;">
+<div id="proceedToBilling" style="display:none;">
         <h2>Billing Details</h2>
-        <div class="form-container-center">
-            <div class="form-container">
-                <form id="billing-form">
-                    <div class="form-group">
-                        <div class="form-field">
-                            <label for="first-name">First Name *</label>
-                            <input type="text" id="first-name" class="required-field" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="last-name">Last Name *</label>
-                            <input type="text" id="last-name" class="required-field" required>
-                        </div>
-                    </div>
-            
-                    <div class="form-group">
-                        <div class="form-field">
-                            <label for="company-name">Company Name</label>
-                            <input type="text" id="company-name">
-                        </div>
-                        <div class="form-field">
-                            <label for="country">Country/Region *</label>
-                            <select id="country" class="required-field" required>
-                                <option value="Ghana" selected>Ghana</option>
-                                <option value="Nigeria">Nigeria</option>
-                            </select>
-                        </div>
-                    </div>
-            
-                    <label>Street Address *</label>
-                    <div class="form-group">
-                        <div class="form-field">
-                            <input type="text" id="street-address1" class="required-field" required placeholder="House and street name">
-                        </div>
-                        <div class="form-field">
-                            <input type="text" id="street-address2" placeholder="Apartment, suite, unit, etc.">
-                        </div>
-                    </div>
-            
-                    <div class="form-group">
-                        <div class="form-field">
-                            <label for="town-city">Town/City *</label>
-                            <input type="text" id="town-city" class="required-field" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="state">State</label>
-                            <input type="text" id="state">
-                        </div>
-                    </div>
-            
-                    <div class="form-group">
-                        <div class="form-field">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" class="required-field" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" class="required-field" required>
-                        </div>
-                    </div>
-            
-                    <label for="payment-method">Payment Method:</label>
-                    <select id="payment-method" name="payment-method" class="required-field" required>
-                        <option value="wallet">Wallet</option>
-                        <option value="online">Online Payment</option>
-                        <option value="delivery">Payment on Delivery</option>
-                    </select>
-            
-                    <label for="order-notes">Order Notes</label>
-                    <textarea id="order-notes"></textarea>
-            
-                    <div class="confirm-btn-box">
-                        <button type="button" id="confirm-payment-btn" onclick="confirmPayment()">Confirm Payment</button>
-                    </div>
-                </form>
+<div class="form-container-center">
+    <div class="form-container">
+        <form id="billing-form">
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" class="required-field" required>
+                </div>
+                <div class="form-field">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" class="required-field" required>
+                </div>
             </div>
-        </div>
+    
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" id="company-name">
+                </div>
+                <div class="form-field">
+                    <label for="country">Country/Region *</label>
+                    <select id="country" class="required-field" required>
+                        <option value="Ghana" selected>Ghana</option>
+                        <option value="Nigeria">Nigeria</option>
+                    </select>
+                </div>
+            </div>
+    
+            <label>Street Address *</label>
+            <div class="form-group">
+                <div class="form-field">
+                    <input type="text" id="street-address1" class="required-field" required placeholder="House and street name">
+                </div>
+                <div class="form-field">
+                    <input type="text" id="street-address2" placeholder="Apartment, suite, unit, etc.">
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="town-city">Town/City *</label>
+                    <input type="text" id="town-city" class="required-field" required>
+                </div>
+                <div class="form-field">
+                    <label for="state">State</label>
+                    <input type="text" id="state">
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" class="required-field" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" class="required-field" required>
+                </div>
+            </div>
+    
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" class="required-field" required>
+                <option value="wallet">Wallet</option>
+                <option value="online">Online Payment</option>
+                <option value="delivery">Payment on Delivery</option>
+            </select>
+    
+            <label for="order-notes">Order Notes</label>
+            <textarea id="order-notes"></textarea>
+    
+            <div class="confirm-btn-box">
+                <button type="submit" id="confirm-payment-btn">Confirm Payment</button>
+            </div>
+        </form>
     </div>
+</div>
+</div>
+
 
     <div id="orderSummary" style="display:none;">
         <h2>Order Summary</h2>

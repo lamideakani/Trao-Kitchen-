@@ -1,57 +1,30 @@
-document.addEventListener('DOMContentLoaded', populateCustomerOrderHistory);
+document.addEventListener("DOMContentLoaded", () => {
+    updateCustomerOrderHistory();
+});
 
-function populateCustomerOrderHistory() {
-    const customerOrderHistory = document.getElementById('customer-order-history').getElementsByTagName('tbody')[0];
-    customerOrderHistory.innerHTML = ''; // Clear the existing rows
+function updateCustomerOrderHistory() {
+    const orderHistoryTableBody = document.getElementById('customer-order-history').querySelector('tbody');
+    orderHistoryTableBody.innerHTML = '';
 
-    // Retrieve order history from local storage
-    let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-    orderHistory.forEach(order => {
-        // Create a new row
-        const row = document.createElement('tr');
+    orders.forEach(order => {
+        const customerDetails = order.customerDetails || {};
+        const orderProducts = order.cart.map(item => `${item.name} (x${item.quantity})`).join(', '); // Combine product names and quantities
 
-        // Order ID
-        const orderIdCell = document.createElement('td');
-        orderIdCell.textContent = order.id;
-        row.appendChild(orderIdCell);
+        const orderRow = document.createElement('tr');
 
-        // Product Name
-        const itemNameCell = document.createElement('td');
-        itemNameCell.innerHTML = order.items.map(item => `
-            <div>
-                <strong>${item.name}</strong>
-            </div>
-        `).join('');
-        row.appendChild(itemNameCell);
+        // Format the date using toLocaleDateString()
+        const orderDate = new Date(order.orderDate).toLocaleDateString(); 
 
-        // Price
-        const itemsPriceCell = document.createElement('td');
-        itemsPriceCell.innerHTML = order.items.map(item => `
-            <div>
-                #${item.price.toFixed(2)}
-            </div>
-        `).join('');
-        row.appendChild(itemsPriceCell);
+        orderRow.innerHTML = `
+            <td>${order.orderId}</td>
+            <td>${orderProducts}</td>
+            <td>${order.totalAmount.toFixed(2)}</td>
+            <td>${orderDate}</td> <!-- Displaying the formatted date -->
+            <td>${order.status}</td>
+        `;
 
-        // Quantity
-        const itemsQuantityCell = document.createElement('td');
-        itemsQuantityCell.innerHTML = order.items.map(item => `
-            <div>
-                ${item.quantity}
-            </div>
-        `).join('');
-        row.appendChild(itemsQuantityCell);
-
-        // Status
-        const statusCell = document.createElement('td');
-        const statusSpan = document.createElement('span');
-        // Default status to "Pending" if not specified
-        statusSpan.textContent = order.status || 'Pending';
-        statusCell.appendChild(statusSpan);
-        row.appendChild(statusCell);
-
-        // Append the row to the table body
-        customerOrderHistory.appendChild(row);
+        orderHistoryTableBody.appendChild(orderRow);
     });
 }

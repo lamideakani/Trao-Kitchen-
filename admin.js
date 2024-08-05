@@ -246,125 +246,128 @@ function handleEditImageChange(event) {
   }
 }
 
-// order list
-document.addEventListener('DOMContentLoaded', populateVendorOrderList);
+//order lists
+document.addEventListener("DOMContentLoaded", () => {
+  updateVendorOrderList();
+  document.getElementById('undo-btn').addEventListener('click', undoDelete);
+  document.getElementById('close-undo-btn').addEventListener('click', closeUndoMessage);
+});
 
-function populateVendorOrderList() {
-    const vendorOrderList = document.getElementById('vendor-order-list').getElementsByTagName('tbody')[0];
-    vendorOrderList.innerHTML = ''; // Clear the existing rows
+function updateVendorOrderList() {
+  const orderList = document.getElementById('vendor-order-list').querySelector('tbody');
+  orderList.innerHTML = '';
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-    // Retrieve order history from local storage
-    let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+  orders.forEach(order => {
+      const customerDetails = order.customerDetails || {};
 
-    orderHistory.forEach(order => {
-        // Create a new row
-        const row = document.createElement('tr');
+      const orderRow = document.createElement('tr');
 
-        // Order ID
-        const orderIdCell = document.createElement('td');
-        orderIdCell.textContent = order.id;
-        row.appendChild(orderIdCell);
+      orderRow.innerHTML = `
+          <td>${order.orderId || ''}</td>
+          <td>${customerDetails.firstName || ''} ${customerDetails.lastName || ''}</td>
+          <td>${order.cart ? order.cart.map(item => `${item.name} (x${item.quantity})`).join(', ') : ''}</td>
+          <td>
+              <select class="status-select" data-id="${order.orderId}">
+                  <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                  <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Processing</option>
+                  <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                  <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>Completed</option>
+                  <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+              </select>
+          </td>
+          <td>
+              <button class="delete-btn" data-id="${order.orderId}">Delete</button>
+          </td>
+      `;
 
-        // Customer
-        const customerCell = document.createElement('td');
-        customerCell.textContent = `${order.customer.firstName} ${order.customer.lastName}`;
-        row.appendChild(customerCell);
+      orderList.appendChild(orderRow);
+  });
 
-        // Items
-        const itemsCell = document.createElement('td');
-        itemsCell.innerHTML = order.items.map(item => `
-            <div>
-                <strong>${item.name}</strong> - #${item.price.toFixed(2)} x ${item.quantity}
-            </div>
-        `).join('');
-        row.appendChild(itemsCell);
+  // Add event listeners for status select elements
+  document.querySelectorAll('.status-select').forEach(select => {
+      select.addEventListener('change', updateOrderStatus);
+  });
 
-        // Status
-        const statusCell = document.createElement('td');
-        const statusSelect = document.createElement('select');
-        const statuses = ['Pending', 'Processing', 'Approved', 'Cancelled', 'Delivered'];
-        statuses.forEach(status => {
-            const option = document.createElement('option');
-            option.value = status;
-            option.textContent = status;
-            if (status === order.status) {
-                option.selected = true;
-            }
-            statusSelect.appendChild(option);
-        });
-        statusSelect.addEventListener('change', (event) => updateOrderStatus(order.id, event.target.value));
-        statusCell.appendChild(statusSelect);
-        row.appendChild(statusCell);
-
-        // Actions
-        const actionsCell = document.createElement('td');
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.classList.add('delete-btn');
-        deleteButton.dataset.id = order.id;
-        deleteButton.addEventListener('click', deleteOrder);
-        actionsCell.appendChild(deleteButton);
-        row.appendChild(actionsCell);
-
-        // Append the row to the table body
-        vendorOrderList.appendChild(row);
-    });
+  // Add event listeners for delete buttons
+  document.querySelectorAll('.delete-btn').forEach(button => {
+      button.addEventListener('click', deleteOrder);
+  });
 }
 
-function updateOrderStatus(orderId, newStatus) {
-    let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
-    orderHistory = orderHistory.map(order => {
-        if (order.id === orderId) {
-            return { ...order, status: newStatus };
-        }
-        return order;
-    });
-    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
-    populateVendorOrderList(); // Refresh the list
-    updateCustomerOrderHistory(); // Ensure the customer side is also updated
+function updateOrderStatus(event) {
+  const orderId = event.target.getAttribute('data-id');
+  const newStatus = event.target.value;
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+  // Find the order and update its status
+  const order = orders.find(order => order.orderId === orderId);
+  if (order) {
+      order.status = newStatus; // Update the status in the order object
+      localStorage.setItem('orders', JSON.stringify(orders)); // Save the updated orders back to local storage
+      console.log(`Updated order ${orderId} status to ${newStatus}`); // Log the update
+  } else {
+      console.error('Order not found for status update');
+  }
 }
 
 function deleteOrder(event) {
-    const orderId = event.target.dataset.id;
-    let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
-    orderHistory = orderHistory.filter(order => order.id !== orderId);
-    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
-    populateVendorOrderList(); // Refresh the list
-    showUndoMessage(orderId); // Show undo message
+  const orderId = event.target.getAttribute('data-id');
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+  console.log('Current orders before deletion:', orders);
+  console.log('Attempting to delete order ID:', orderId);
+
+  // Find the index of the order to delete
+  const orderIndex = orders.findIndex(order => order.orderId === orderId);
+
+  if (orderIndex !== -1) {
+      // Remove the order from the array
+      const deletedOrder = orders.splice(orderIndex, 1)[0];
+
+      // Update the local storage
+      localStorage.setItem('orders', JSON.stringify(orders));
+
+      console.log(`Deleted order: ${deletedOrder.orderId}`);
+
+      // Refresh the order list
+      updateVendorOrderList();
+
+      // Show undo option
+      showUndoOption(deletedOrder);
+  } else {
+      console.error('Order not found');
+  }
 }
 
-function showUndoMessage(orderId) {
-    const undoMessage = document.getElementById('undo-message');
-    undoMessage.style.display = 'flex';
+function showUndoOption(deletedOrder) {
+  const undoMessage = document.getElementById('undo-message');
+  undoMessage.style.display = 'block';
 
-    document.getElementById('undo-btn').addEventListener('click', () => undoDelete(orderId));
-    document.getElementById('close-undo-btn').addEventListener('click', () => {
-        undoMessage.style.display = 'none';
-    });
+  const undoBtn = document.getElementById('undo-btn');
+  const closeUndoBtn = document.getElementById('close-undo-btn');
 
-    setTimeout(() => {
-        undoMessage.style.display = 'none';
-    }, 10000); // Hide after 10 seconds
+  undoBtn.onclick = function() {
+      // Restore the deleted order
+      const orders = JSON.parse(localStorage.getItem('orders')) || [];
+      orders.push(deletedOrder);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      updateVendorOrderList(); // Refresh order list
+
+      // Hide undo option
+      undoMessage.style.display = 'none';
+  };
+
+  closeUndoBtn.onclick = function() {
+      undoMessage.style.display = 'none'; // Close undo message
+  };
+
+  // Hide the undo option after 10 seconds
+  setTimeout(() => {
+      undoMessage.style.display = 'none';
+  }, 10000);
 }
 
-function undoDelete(orderId) {
-    let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
-    // Restore the deleted order
-    // This should be adjusted based on the actual way orders are managed
-    // For now, this is a placeholder to demonstrate the undo functionality
-    const lastDeletedOrder = { /* Restore logic should be here */ };
-    orderHistory.push(lastDeletedOrder);
-    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
-    populateVendorOrderList(); // Refresh the list
-}
-
-function updateCustomerOrderHistory() {
-    // Refresh the customer's order history
-    // This approach involves dynamically reloading the customer side script
-    const customerOrderScript = document.createElement('script');
-    customerOrderScript.src = 'customer-order-history.js';
-    document.body.appendChild(customerOrderScript);
-}
 
 
 

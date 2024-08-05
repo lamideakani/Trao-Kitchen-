@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.vm-header {
+    text-align: center;
+}
+
+.vm-order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.vm-order-table th, .vm-order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.vm-order-table th {
+    background-color: #f2f2f2;
+}
+
+.vm-undo-message {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+.vm-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.vm-btn-undo {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.vm-btn-close {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}

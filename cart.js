@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('checkout-btn').addEventListener('click', showBillingSection);
   document.getElementById('confirm-payment-btn').addEventListener('click', confirmPayment);
   document.getElementById('apply-coupon-btn').addEventListener('click', applyCoupon);
-  document.getElementById('online-payment-pay-button').addEventListener('click', validateOnlinePaymentForm);
   updateProgressBar(); // Initialize progress bar
 });
 
@@ -21,13 +20,13 @@ function updateCart() {
   cart.forEach(item => {
       const cartItemDiv = document.createElement("div");
       cartItemDiv.classList.add("cart-item");
-
+      
       cartItemDiv.innerHTML = `
           <img src="${item.img}" alt="${item.name}" class="cart-item-img">
           <div class="cart-item-details">
               <h3 class="products-name">${item.name}</h3>
               <p>${item.description}</p>
-              <p>N ${item.price.toFixed(2)}</p>
+              <p># ${item.price.toFixed(2)}</p>
               <div class="quantity-controls">
                   <button class="quantity-btn" data-id="${item.id}" data-action="decrement">-</button>
                   <span>${item.quantity}</span>
@@ -47,7 +46,6 @@ function updateCart() {
   document.querySelectorAll('.delete-btn').forEach(button => {
       button.addEventListener('click', deleteCartItem);
   });
-
   updateCartSummary();
   updateProgressBar(); // Update progress bar after cart update
 }
@@ -86,6 +84,7 @@ function deleteCartItem(event) {
 function clearCart() {
   saveCartToLocalStorage([]);
   updateCart();
+  localStorage.removeItem('discount'); // Clear discount when clearing the cart
   updateCartSummary(); // Ensure summary reflects cleared cart
   updateProgressBar(); // Update progress bar after clearing cart
 }
@@ -113,7 +112,6 @@ function applyCoupon() {
 function updateCartSummary() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const discount = parseFloat(localStorage.getItem('discount')) || 0;
-
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
   const discountAmount = totalAmount * discount;
@@ -138,9 +136,9 @@ function showBillingSection() {
   const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')) || false;
 
   if (!isLoggedIn) {
-      alert('Please log in to proceed to checkout.');
-      window.location.href = 'clientlogin.html'; // Redirect to login page
-      return;
+    alert('Please log in to proceed to checkout.');
+    window.location.href = 'clientlogin.html'; // Redirect to login page
+    return;
   }
 
   const totalAmount = getTotalCartAmount();
@@ -152,62 +150,89 @@ function showBillingSection() {
   updateProgressBar();
 }
 
+document.getElementById('billing-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the form from submitting the default way
+  confirmPayment();
+});
+
 function confirmPayment() {
-  if (!validateBillingForm()) {
-      return; // Stop if the form is not valid
+  const form = document.getElementById('billing-form');
+  if (!form.checkValidity()) {
+      // Some required fields are missing
+      form.reportValidity();
+      return;
   }
 
   const paymentMethod = document.getElementById('payment-method').value;
   const finalAmount = parseFloat(document.getElementById('final-amount').textContent);
 
-  if (paymentMethod === 'wallet') {
-      // Ensure the wallet balance is updated from local storage before checking
-      const walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
 
-      if (walletBalance >= finalAmount) {
-          payWithWallet(finalAmount);
-      } else {
-          alert('Insufficient wallet balance.');
-      }
+  if (paymentMethod === 'wallet') {
+    const walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
+
+    if (walletBalance >= finalAmount) {
+        payWithWallet(finalAmount);
+    } else {
+        alert('Insufficient wallet balance.');
+    }
 
   } else if (paymentMethod === 'online') {
-      const totalAmount = getTotalCartAmount();
-      document.getElementById('online-payment-amount').value = totalAmount.toFixed(2);
-      document.getElementById('proceedToBilling').style.display = 'none';
-      document.getElementById('onlinePayment').style.display = 'block';
+    const totalAmount = getTotalCartAmount();
+    document.getElementById('online-payment-amount').value = totalAmount.toFixed(2);
+    document.getElementById('proceedToBilling').style.display = 'none';
+    document.getElementById('onlinePayment').style.display = 'block';
 
   } else if (paymentMethod === 'delivery') {
-      // Save order details first
-      saveOrderDetails();
-
-      alert('Order placed successfully. Pay on delivery.');
-      clearCart();
-      showOrderSummary();
+        alert('Order placed successfully. Pay on delivery.');
+        saveOrderDetails();
+        clearCart();
+        showOrderSummary();
   }
 }
 
-function validateBillingForm() {
-  const requiredFields = [
-      'first-name', 'last-name', 'street-address1', 'town-city', 'state', 'phone', 'email'
-  ];
-  
-  let isValid = true;
-  requiredFields.forEach(fieldId => {
-      const field = document.getElementById(fieldId);
-      if (!field.value.trim()) {
-          field.classList.add('invalid');
-          isValid = false;
-      } else {
-          field.classList.remove('invalid');
-      }
-  });
+function saveOrderDetails() {
+  const orderId = generateOrderId();
+  const orderDetails = {
+      orderId: orderId,
+      cart: JSON.parse(localStorage.getItem('cart')) || [],
+      discount: parseFloat(localStorage.getItem('discount')) || 0,
+      totalQuantity: parseInt(document.getElementById('total-quantity').textContent),
+      totalAmount: parseFloat(document.getElementById('total-amount').textContent),
+      discountAmount: parseFloat(document.getElementById('discount-amount').textContent),
+      finalAmount: parseFloat(document.getElementById('final-amount').textContent),
+      customerDetails: {
+          firstName: document.getElementById('first-name').value,
+          lastName: document.getElementById('last-name').value,
+          companyName: document.getElementById('company-name').value,
+          country: document.getElementById('country').value,
+          streetAddress1: document.getElementById('street-address1').value,
+          streetAddress2: document.getElementById('street-address2').value,
+          townCity: document.getElementById('town-city').value,
+          state: document.getElementById('state').value,
+          phone: document.getElementById('phone').value,
+          email: document.getElementById('email').value,
+          orderNotes: document.getElementById('order-notes').value,
+          paymentMethod: document.getElementById('payment-method').selectedOptions[0].text
+      },
+      status: 'pending',
+      orderDate: new Date().toISOString() // Store the current date and time
 
-  if (!isValid) {
-      alert('Please fill in all required fields.');
-  }
+  };
 
-  return isValid;
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  orders.push(orderDetails);
+  localStorage.setItem('orders', JSON.stringify(orders));
+  localStorage.removeItem('cart'); // Clear cart after saving order
+  localStorage.removeItem('discount'); // Clear discount when clearing the cart
 }
+
+// Generate unique order ID
+function generateOrderId() {
+  const timestamp = Date.now();
+  const randomNum = Math.floor(Math.random() * 1000);
+  return `ORD-${timestamp}-${randomNum}`;
+}
+
 
 function payWithWallet(amount) {
   let walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
@@ -227,8 +252,7 @@ function payWithWallet(amount) {
       
       // Display payment success alert
       alert(`N ${amount} has been deducted from your wallet. Your wallet balance is now N ${walletBalance.toFixed(2)}`);
-
-      // Save order details first
+  
       saveOrderDetails();
 
       // Clear the cart and show order summary
@@ -238,15 +262,16 @@ function payWithWallet(amount) {
       // Update UI
       updateWalletBalance();
       updateTransactionHistory();
+      
 
   } else {
-      alert('Insufficient wallet balance, add to balance');
-      window.location.href = 'wallet.html'; // Redirect to wallet page
-      return;
-  }
+    alert('Insufficient wallet balance, add to balance');
+    window.location.href = 'wallet.html'; // Redirect to wallet page
+    return;
+}
 }
 
-// Order summary
+// order summary
 function showOrderSummary() {
   const firstName = document.getElementById('first-name').value;
   const lastName = document.getElementById('last-name').value;
@@ -259,66 +284,27 @@ function showOrderSummary() {
   const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
   const orderNotes = document.getElementById('order-notes').value;
+  const paymentMethod = document.getElementById('payment-method').selectedOptions[0].text;
+  
+  document.getElementById('summary-first-name').innerText = firstName;
+  document.getElementById('summary-last-name').innerText = lastName;
+  document.getElementById('summary-company-name').innerText = companyName;
+  document.getElementById('summary-country').innerText = country;
+  document.getElementById('summary-street-address1').innerText = streetAddress1;
+  document.getElementById('summary-street-address2').innerText = streetAddress2;
+  document.getElementById('summary-town-city').innerText = townCity;
+  document.getElementById('summary-state').innerText = state;
+  document.getElementById('summary-phone').innerText = phone;
+  document.getElementById('summary-email').innerText = email;
+  document.getElementById('summary-payment-method').innerText = paymentMethod;
+  document.getElementById('summary-order-notes').innerText = orderNotes;
 
   document.getElementById('proceedToBilling').style.display = 'none';
   document.getElementById('orderSummary').style.display = 'block';
+  saveOrderDetails();
   currentDiv = 3;
   updateProgressBar();
-  
-  saveOrderDetails(); // Save order details to local storage
 }
-
-function saveOrderDetails() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const firstName = document.getElementById('first-name').value;
-  const lastName = document.getElementById('last-name').value;
-  const companyName = document.getElementById('company-name').value;
-  const country = document.getElementById('country').value;
-  const streetAddress1 = document.getElementById('street-address1').value;
-  const streetAddress2 = document.getElementById('street-address2').value;
-  const townCity = document.getElementById('town-city').value;
-  const state = document.getElementById('state').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const orderNotes = document.getElementById('order-notes').value;
-  const paymentMethod = document.getElementById('payment-method').selectedOptions[0].text;
-  const finalAmount = getTotalCartAmount();
-  const orderId = generateOrderId();
-
-  const orderDetails = {
-    id: orderId,
-    items: cart.map(item => ({
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity
-    })),
-    customer: {
-      firstName,
-      lastName,
-      companyName,
-      country,
-      streetAddress1,
-      streetAddress2,
-      townCity,
-      state,
-      phone,
-      email
-    },
-    orderNotes,
-    paymentMethod,
-    finalAmount,
-    date: new Date().toLocaleString()
-  };
-
-  let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
-  orderHistory.push(orderDetails);
-  localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
-}
-
-function generateOrderId() {
-  return `ORD${Date.now()}`;
-}
-
 
 // Calculate total cart amount
 function getTotalCartAmount() {
@@ -327,45 +313,12 @@ function getTotalCartAmount() {
   const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
   const discountAmount = totalAmount * discount;
   const finalAmount = totalAmount - discountAmount;
-
-  const orderSummaryHTML = `
-      <h2>Order Summary</h2>
-      <h3>Customer Information</h3>
-      <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-      <p><strong>Company:</strong> ${companyName}</p>
-      <p><strong>Country:</strong> ${country}</p>
-      <p><strong>Address:</strong> ${streetAddress1}, ${streetAddress2}, ${townCity}, ${state}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Order Notes:</strong> ${orderNotes}</p>
-      <h3>Order Items</h3>
-      <ul>
-          ${cart.map(item => `
-              <li>${item.quantity} x ${item.name} - #${(item.price * item.quantity).toFixed(2)}</li>
-          `).join('')}
-      </ul>
-      <h3>Order Summary</h3>
-      <p><strong>Total Quantity:</strong> ${cart.reduce((total, item) => total + item.quantity, 0)}</p>
-      <p><strong>Total Amount:</strong> #${totalAmount.toFixed(2)}</p>
-      <p><strong>Discount:</strong> -#${discountAmount.toFixed(2)}</p>
-      <p><strong>Final Amount:</strong> #${finalAmount.toFixed(2)}</p>
-  `;
-
-  const orderSummaryContainer = document.getElementById('order-summary');
-  orderSummaryContainer.innerHTML = orderSummaryHTML;
-
-  document.getElementById('proceedToBilling').style.display = 'none';
-  document.getElementById('orderSummary').style.display = 'block';
+  return finalAmount;
 }
-
-function validateOnlinePaymentForm() {
-  const email = document.getElementById('online-payment-email').value.trim();
-  if (!email) {
-      alert('Please provide your email address for online payment.');
-      return;
-  }
-  payWithPaystack();
-}
+// paystack integration
+document.getElementById('online-payment-pay-button').addEventListener('click', function() {
+  var email = document.getElementById('online-payment-email').value;
+  var amount = getTotalCartAmount() * 100; // Convert to kobo
 
   var handler = PaystackPop.setup({
       key: 'pk_test_07f16d730fc627dfd475c62727017562d9eb0c78',
@@ -377,43 +330,28 @@ function validateOnlinePaymentForm() {
           alert('Payment successful. Transaction ref is ' + response.reference);
           document.getElementById('onlinePayment').style.display = 'none';
           document.getElementById('orderSummary').style.display = 'block';
-          // Save order details first
           saveOrderDetails();
           showOrderSummary();
           clearCart();
-          showOrderSummary();
       },
-      onClose: function() {
+      onClose: function(){
           alert('Transaction was not completed, window closed.');
       }
   });
   handler.openIframe();
+});
 
-
-// Progress bar logic
-let currentDiv = 1;
-const progressBar = document.getElementById('progress-bar');
-
+// progress bar
 function updateProgressBar() {
-  let progress = 0;
+  document.getElementById('step1').classList.remove('active');
+  document.getElementById('step2').classList.remove('active');
+  document.getElementById('step3').classList.remove('active');
+  
   if (currentDiv === 1) {
-      progress = 33;
+      document.getElementById('step1').classList.add('active');
   } else if (currentDiv === 2) {
-      progress = 66;
+      document.getElementById('step2').classList.add('active');
   } else if (currentDiv === 3) {
-      progress = 100;
+      document.getElementById('step3').classList.add('active');
   }
-  progressBar.style.width = `${progress}%`;
 }
-
-function getTotalCartAmount() {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const discount = parseFloat(localStorage.getItem('discount')) || 0;
-
-  const totalAmount = cart.reduce((total, item) => total + item.quantity * item.price, 0);
-  const discountAmount = totalAmount * discount;
-  const finalAmount = totalAmount - discountAmount;
-
-  return finalAmount;
-}
-
