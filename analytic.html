@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Sales and Profits Analytics</h1>
+    <canvas id="dailySalesChart" width="400" height="200"></canvas>
+    <canvas id="weeklySalesChart" width="400" height="200"></canvas>
+    <canvas id="monthlySalesChart" width="400" height="200"></canvas>
+    <canvas id="dailyProfitsChart" width="400" height="200"></canvas>
+    <canvas id="weeklyProfitsChart" width="400" height="200"></canvas>
+    <canvas id="monthlyProfitsChart" width="400" height="200"></canvas>
+
+    <script>
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+
+      
+
+function addToCart(product) {
+            // Your existing code for adding a product to the cart
+            // ...
+
+            // Example calculation of profit
+            let profit = product.price - product.cost;
+
+            // Record the transaction
+            recordTransaction(new Date(), product.price, profit);
+        }
+
+        function recordTransaction(date, amount, profit) {
+            transactions.push({ date, amount, profit });
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            updateCharts();
+        }
+
+        function aggregateData(timeframe) {
+            let data = JSON.parse(localStorage.getItem('transactions')) || [];
+            let result = {};
+            
+            data.forEach(transaction => {
+                let date = new Date(transaction.date);
+                let key;
+                
+                switch(timeframe) {
+                    case 'daily':
+                        key = date.toISOString().split('T')[0];
+                        break;
+                    case 'weekly':
+                        let weekStart = new Date(date.setDate(date.getDate() - date.getDay()));
+                        key = weekStart.toISOString().split('T')[0];
+                        break;
+                    case 'monthly':
+                        key = date.getFullYear() + '-' + (date.getMonth() + 1);
+                        break;
+                }
+                
+                if (!result[key]) {
+                    result[key] = { amount: 0, profit: 0 };
+                }
+                
+                result[key].amount += transaction.amount;
+                result[key].profit += transaction.profit;
+            });
+            
+            return result;
+        }
+
+        function createChart(ctx, data, label) {
+            return new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data),
+                    datasets: [{
+                        label: label,
+                        data: Object.values(data).map(item => item.amount),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCharts() {
+            let dailySales = aggregateData('daily');
+            let weeklySales = aggregateData('weekly');
+            let monthlySales = aggregateData('monthly');
+            let dailyProfits = Object.fromEntries(Object.entries(dailySales).map(([key, value]) => [key, { amount: value.profit }]));
+            let weeklyProfits = Object.fromEntries(Object.entries(weeklySales).map(([key, value]) => [key, { amount: value.profit }]));
+            let monthlyProfits = Object.fromEntries(Object.entries(monthlySales).map(([key, value]) => [key, { amount: value.profit }]));
+
+            createChart(document.getElementById('dailySalesChart').getContext('2d'), dailySales, 'Daily Sales');
+            createChart(document.getElementById('weeklySalesChart').getContext('2d'), weeklySales, 'Weekly Sales');
+            createChart(document.getElementById('monthlySalesChart').getContext('2d'), monthlySales, 'Monthly Sales');
+            createChart(document.getElementById('dailyProfitsChart').getContext('2d'), dailyProfits, 'Daily Profits');
+            createChart(document.getElementById('weeklyProfitsChart').getContext('2d'), weeklyProfits, 'Weekly Profits');
+            createChart(document.getElementById('monthlyProfitsChart').getContext('2d'), monthlyProfits, 'Monthly Profits');
+        }
+
+        // Example: recording transactions
+        recordTransaction('2024-08-01', 150, 50);
+        recordTransaction('2024-08-02', 200, 80);
+        recordTransaction('2024-08-08', 300, 120);
+
+        // Initial chart update
+        updateCharts();
+    </script>
+</body>
+</html>

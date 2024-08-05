@@ -144,7 +144,7 @@ function createProductCard(product) {
       <h3>${product.name}</h3>
       <p>${product.description}</p>
       <p>Price: $${product.price.toFixed(2)}</p>
-      <button onclick="editProduct('${product.id}')">Edit</button>
+      <button class="edit-btn" onclick="editProduct('${product.id}')">Edit</button>
       <button onclick="deleteProduct('${product.id}')">Delete</button>
   `;
   return card;

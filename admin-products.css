@@ -73,7 +73,7 @@ button:hover {
 /* 4 columns for extra-large screens */
 @media (min-width: 1200px) {
   #products-container {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -93,11 +93,14 @@ button:hover {
 }
 
 .product-card button {
-  background-color: #f44336;
+  /* background-color: #f44336; */
   color: white;
   margin-top: 0.5em;
 }
 
 .product-card button:hover {
   background-color: #e53935;
+}
+.edit-btn{
+  background-color: #111;
 }
