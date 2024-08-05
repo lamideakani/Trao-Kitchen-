@@ -51,6 +51,29 @@ font-weight:var(--weight-6);
 transition: 500ms ease;
 z-index: -1;
 }
+
+.user-change-btn{
+color: var(--tertiary-color);
+font-family: var(--paragraph-font-family);
+background-color: transparent;
+font-size: var(--font-size-3);
+font-weight: var(--weight-1);
+text-transform: uppercase;
+letter-spacing: 1px;
+max-width: max-content;
+border: 1px solid var(--tertiary-color);
+font-weight:var(--weight-6);
+padding: 12px 45px;
+}
+
+.user-change-btn:hover {
+background-color: var(--tertiary-color);
+color: var(--primary-color);
+font-weight:var(--weight-6);
+transition: 500ms ease;
+z-index: -1;
+}
+
 body {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
