@@ -447,6 +447,15 @@ nav .profile-details i{
   font-weight: 500;
   margin-bottom: 20px;
 }
+.rateHead{
+  color:#fff;
+}
+.ratingAverage{
+  color:#fff;
+}
+.ratingProgress-value{
+  color:#fff; 
+}
 .scorecard-content {
   font-size: 18px;
   margin-bottom: 20px;

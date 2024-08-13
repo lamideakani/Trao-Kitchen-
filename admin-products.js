@@ -229,7 +229,10 @@ function deleteProduct(id) {
 // function saveToLocalStorage() {
 //   localStorage.setItem('menuItems', JSON.stringify(menuItems));
 // }
-
+function saveToLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+  console.log('Data saved:', data); // This will help confirm data is being saved
+}
 
 // Function to save data to local storage
 function saveToLocalStorage() {

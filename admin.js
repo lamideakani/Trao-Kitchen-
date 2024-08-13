@@ -469,7 +469,7 @@ function updateAnalytics() {
       <div>
           <strong>Order ID:</strong> ${order.orderId} <br>
           <strong>Customer:</strong> ${order.customerDetails.firstName} ${order.customerDetails.lastName} <br>
-          <strong>Amount:</strong> $${order.finalAmount} <br>
+          <strong>Amount:</strong> ₦${order.finalAmount} <br>
           <strong>Date:</strong> ${new Date(order.orderDate).toLocaleString()} <br>
       </div>
       <hr>

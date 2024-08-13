@@ -3,7 +3,7 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
- 
+
 const savedMenuItems = JSON.parse(localStorage.getItem('menuItems'));
 const menuItems = savedMenuItems || defaultMenuItems;
 
