@@ -810,48 +810,52 @@ th {
 
 
 /* Analytics */
-      .container-fluid{
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .card{
-        width: 60%;
-        background-color: white;
-        box-shadow: 0.2rem .4rem #0004;
-        margin-top: 40px;
-        border-radius: 10px;
-    }
-    .text{
-        text-align: center;
-        font-size: 20px;
-        margin-top: 20px;
-    }
-    .text span{
-        color: red;
-        /* color: #c57c15; */
-    }
-    
-    .card2{
-        width: 60%;
-        background-color: white;
-        box-shadow: 0.2rem .4rem #0004;
-        margin-top: 40px;
-        border-radius: 10px;
-    }
-    
-    .card3{
-        width: 60%;
-        background-color: white;
-        box-shadow: 0.2rem .4rem #0004;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-    }
+#analytics-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#total-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.total-orders, .total-sales {
+    font-size: 2rem;
+    padding: 20px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.analytics-charts {
+  display: flex;
+  justify-content: space-around; /* Space out the charts */
+  margin-bottom: 2rem; /* Add some margin below the charts */
+}
+
+.chart {
+  width: 45%; /* Set width to fit two charts side by side */
+  max-width: 500px; /* Limit the max width */
+  height: 250px; /* Reduce height for smaller charts */
+  padding: 10px; /* Add padding for better spacing */
+}
+
+.scrollable-div {
+    max-height: 20rem;
+    overflow-y: auto;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+
       /* Stock */
 
       /* Team */

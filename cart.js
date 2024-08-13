@@ -216,15 +216,28 @@ function saveOrderDetails() {
       },
       status: 'pending',
       orderDate: new Date().toISOString() // Store the current date and time
-
   };
 
   const orders = JSON.parse(localStorage.getItem('orders')) || [];
   orders.push(orderDetails);
   localStorage.setItem('orders', JSON.stringify(orders));
+
+  // Update analytics data
+  const totalOrders = orders.length; // Total number of orders
+  const totalSales = orders.reduce((sum, order) => sum + order.finalAmount, 0); // Total sales amount
+
+  const analyticsData = {
+      totalOrders: totalOrders,
+      totalSales: totalSales,
+      // Add any other analytics data you want here
+  };
+
+  localStorage.setItem('analyticsData', JSON.stringify(analyticsData)); // Save analytics data to local storage
+
   localStorage.removeItem('cart'); // Clear cart after saving order
   localStorage.removeItem('discount'); // Clear discount when clearing the cart
 }
+
 
 // Generate unique order ID
 function generateOrderId() {

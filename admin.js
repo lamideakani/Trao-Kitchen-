@@ -76,6 +76,88 @@ sidebarBtn.onclick = function() {
 //   }
 // });
 
+
+// dashboard
+// Retrieve the orders from localStorage
+const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+// Calculate total orders and total sales
+let totalOrders = orders.length;
+let totalSales = orders.reduce((sum, order) => sum + order.finalAmount, 0);
+
+// Update the total orders and sales in the dashboard
+document.getElementById('totalOrdersQuantity').textContent = totalOrders;
+document.getElementById('totalSalesAmount').textContent = totalSales.toLocaleString();
+
+// Populate Recent Sales
+const recentSalesContainer = document.querySelector('.recent-sales .sales-details');
+const maxRecentOrders = Math.min(orders.length, 6); // Show up to 6 recent orders
+
+for (let i = 0; i < maxRecentOrders; i++) {
+    const order = orders[i];
+
+    const orderDateElement = document.createElement('li');
+    orderDateElement.textContent = new Date(order.orderDate).toLocaleDateString();
+
+    const customerNameElement = document.createElement('li');
+    customerNameElement.textContent = `${order.customerDetails.firstName} ${order.customerDetails.lastName}`;
+
+    const orderStatusElement = document.createElement('li');
+    orderStatusElement.textContent = order.status.charAt(0).toUpperCase() + order.status.slice(1);
+
+    const orderTotalElement = document.createElement('li');
+    orderTotalElement.textContent = `₦${order.finalAmount.toLocaleString()}`;
+
+    recentSalesContainer.querySelector('.details:nth-child(1)').appendChild(orderDateElement);
+    recentSalesContainer.querySelector('.details:nth-child(2)').appendChild(customerNameElement);
+    recentSalesContainer.querySelector('.details:nth-child(3)').appendChild(orderStatusElement);
+    recentSalesContainer.querySelector('.details:nth-child(4)').appendChild(orderTotalElement);
+}
+
+// Calculate the most ordered products
+const productCount = {};
+orders.forEach(order => {
+    order.cart.forEach(item => {
+        if (!productCount[item.name]) {
+            productCount[item.name] = { quantity: 0, price: item.price, imageUrl: item.img };
+        }
+        productCount[item.name].quantity += item.quantity;
+    });
+});
+
+// Sort products by the quantity ordered
+const topSellingItems = Object.keys(productCount).sort((a, b) => productCount[b].quantity - productCount[a].quantity);
+
+// Populate Top Selling Items
+const topSalesContainer = document.querySelector('.top-sales-details');
+topSalesContainer.innerHTML = ''; // Clear existing items
+
+topSellingItems.slice(0, 6).forEach(itemName => {
+  const item = productCount[itemName];
+  
+  if (item) {
+      
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+          <a href="#">
+            <img src="${item.img}" alt="${itemName}">
+            <span class="product">${itemName}</span>
+          </a>
+          <span class="price">₦${item.price}</span>
+      `;
+      topSalesContainer.appendChild(listItem);
+  } else {
+      console.error(`Item ${itemName} not found in productCount`);
+  }
+});
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', (event) => {
   let data = JSON.parse(localStorage.getItem('ratings')) || [];
 
@@ -169,7 +251,7 @@ function loadFoods() {
       const li = document.createElement('li');
       li.innerHTML = `
           <img src="${food.image}" alt="${food.name}">
-          <div>${food.name} - #${food.price}</div>
+          <div>${food.name} - ₦${food.price}</div>
           <button onclick="deleteFood(${index})">Delete</button>
           <button class="edit-button" onclick="editFood(${index})">Edit</button>
       `;
@@ -266,7 +348,7 @@ function updateVendorOrderList() {
       orderRow.innerHTML = `
           <td>${order.orderId || ''}</td>
           <td>${customerDetails.firstName || ''} ${customerDetails.lastName || ''}</td>
-          <td>${order.cart ? order.cart.map(item => `${item.name} (x${item.quantity})`).join(', ') : ''}</td>
+          <td>${order.cart ? order.cart.map(item => `${item.name} - ₦${item.price} (x${item.quantity})`).join(', ') : ''}</td>
           <td>
               <select class="status-select" data-id="${order.orderId}">
                   <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
@@ -372,84 +454,214 @@ function showUndoOption(deletedOrder) {
 
 
 // analytics
-const canvas = document.getElementById('bar-graph');
-const bar_graph = new Chart(canvas,{
-    type: 'bar',
+// Function to get total orders and sales from localStorage
+function updateAnalytics() {
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  const totalOrders = orders.length;
+  const totalSales = orders.reduce((acc, order) => acc + order.finalAmount, 0).toFixed(2);
+
+  // Update total orders and sales in the display
+  document.getElementById('total-orders').textContent = `Total Orders: ${totalOrders}`;
+  document.getElementById('total-sales').textContent = `Total Sales: ₦${totalSales}`;
+
+  // Populate order history
+  const orderHistoryContent = orders.map(order => `
+      <div>
+          <strong>Order ID:</strong> ${order.orderId} <br>
+          <strong>Customer:</strong> ${order.customerDetails.firstName} ${order.customerDetails.lastName} <br>
+          <strong>Amount:</strong> $${order.finalAmount} <br>
+          <strong>Date:</strong> ${new Date(order.orderDate).toLocaleString()} <br>
+      </div>
+      <hr>
+  `).join('');
+  document.getElementById('order-history-content').innerHTML = orderHistoryContent;
+
+  // Populate frequent customers
+  const customerCounts = {};
+  orders.forEach(order => {
+      const customerName = `${order.customerDetails.firstName} ${order.customerDetails.lastName}`;
+      customerCounts[customerName] = (customerCounts[customerName] || 0) + 1;
+  });
+  const frequentCustomers = Object.entries(customerCounts)
+      .sort((a, b) => b[1] - a[1]) // Sort by order count
+      .slice(0, 5)
+      .map(customer => `<div>${customer[0]} (${customer[1]})</div>`)
+      .join('');
+  document.getElementById('customer-names').innerHTML = frequentCustomers;
+
+  // Populate most ordered products
+  const productCounts = {};
+  orders.forEach(order => {
+      order.cart.forEach(product => {
+          productCounts[product.name] = (productCounts[product.name] || 0) + product.quantity;
+      });
+  });
+  const mostOrderedProducts = Object.entries(productCounts)
+      .sort((a, b) => b[1] - a[1]) // Sort by quantity
+      .slice(0, 5)
+      .map(product => `<div>${product[0]} (${product[1]})</div>`)
+      .join('');
+  document.getElementById('most-ordered-content').innerHTML = mostOrderedProducts;
+
+  // Chart data
+  const salesData = {
+      labels: orders.map(order => new Date(order.orderDate).toLocaleDateString()),
+      datasets: [{
+          label: 'Sales Over Time',
+          data: orders.map(order => order.finalAmount),
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+      }]
+  };
+
+  const ordersData = {
+      labels: orders.map(order => new Date(order.orderDate).toLocaleDateString()),
+      datasets: [{
+          label: 'Orders Over Time',
+          data: Array.from({length: orders.length}, (_, i) => i + 1), // Cumulative orders
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
+      }]
+  };
+
+  // Render Charts
+const totalSalesCtx = document.getElementById('totalSalesChart').getContext('2d');
+const totalOrdersCtx = document.getElementById('totalOrdersChart').getContext('2d');
+
+const totalSalesChart = new Chart(totalSalesCtx, {
+    type: 'bar', // Change to bar chart for better comparison
     data: {
-        labels: ['March', 'April', 'May', 'June', 'July', 'August', 'September'],
-        datasets: [
-            {
-                label: 'Sales',
-                data: [150, 180, 120, 220, 166, 170, 180],
-                backgroundColor: ['green'],
-            },
-            {
-                label: 'Profit',
-                data: [40, 58, 30, 60, 55, 57, 90],
-                backgroundColor: ['orange'],
-                
-            },
-        ]
+        labels: ['Order 1', 'Order 2', 'Order 3', 'Order 4'], // Dynamic labels based on your data
+        datasets: [{
+            label: 'Total Sales (₦)',
+            data: [500, 700, 300, 400], // Replace with actual data
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
     },
-    // Options: {
-    //     indexAxis: 'y',
-    // }  
-
-
+    options: {
+        responsive: true,
+        maintainAspectRatio: false, // Allow chart to resize
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Sales Amount (₦)',
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Orders',
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                }
+            }
+        }
+    }
 });
 
-// Doughnut Chart
-
-const canvasss = document.getElementById('doughnut-graph');
-const doughnut_graph= new Chart(canvasss,{
-    type: 'doughnut',
+const totalOrdersChart = new Chart(totalOrdersCtx, {
+    type: 'line', // Change to line chart for trend visualization
     data: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        datasets: [
-            {
-                label: 'Sales',
-                data: [150, 180, 120, 220, 166, 170, 180],
-                backgroundColor: ['purple'],
-                hoverOffset: 45,
+        labels: ['Order 1', 'Order 2', 'Order 3', 'Order 4'], // Dynamic labels based on your data
+        datasets: [{
+            label: 'Total Orders',
+            data: [2, 3, 5, 4], // Replace with actual data
+            fill: false,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false, // Allow chart to resize
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Orders',
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                }
             },
-            {
-                label: 'Profit',
-                data: [40, 58, 30, 60, 55, 57, 90],
-                backgroundColor: ['orange'],
-                hoverOffset: 45,
-                
-                
-            },
-        ]
-    }  
-
-
+            x: {
+                title: {
+                    display: true,
+                    text: 'Orders',
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                }
+            }
+        }
+    }
 });
 
-// Pie Graph
-const canvass = document.getElementById('pie-graph');
-const pie_graph= new Chart(canvass,{
-    type: 'pie',
-    data: {
-        labels: ['Monday', ],
-        datasets: [
-            {
-                label: 'Sales',
-                data: [150,],
-                backgroundColor: ['blue'],
-                hoverOffset: 45,
-            },
-            {
-                label: 'Profit',
-                data: [40,],
-                backgroundColor: ['orange'],
-                hoverOffset: 45,
-                
-            },
-        ]
-    }, 
+}
 
-});
+// Call updateAnalytics on page load
+document.addEventListener('DOMContentLoaded', updateAnalytics);
+
+
 
 
 

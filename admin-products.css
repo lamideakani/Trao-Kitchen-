@@ -4,27 +4,27 @@ body {
   padding: 0;
 }
 
-header {
+.product-list-header {
   background: #333;
   color: #fff;
   padding: 1em;
   text-align: center;
 }
 
-main {
+.product-list-main {
   padding: 1em;
 }
 
-form {
+#add-product-form {
   margin-bottom: 1em;
 }
 
-label {
+#add-product-form label {
   display: block;
   margin: 0.5em 0 0.2em;
 }
 
-input, textarea, select {
+#add-product-form input, textarea, select {
   width: 100%;
   padding: 0.5em;
   margin-bottom: 1em;
