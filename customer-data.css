@@ -1,0 +1,56 @@
+/* admin_data_list.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+td{
+  color: #fff;
+  background-color: #111;
+
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #C57C15;
+  color: #fff;
+  font-size: 18px;
+}
+.customer-name{
+  color:#C57C15;
+  text-align: center;
+  
+}
+.message-btn{
+  text-align: center;
+}
+button {
+  padding: 10px 15px;
+  background-color: #C57C15;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 17px;
+  transition: .5s ease;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background-color: transparent;
+  color:#111;
+  border: 1px solid #C57C15;
+}

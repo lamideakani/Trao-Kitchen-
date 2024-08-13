@@ -98,6 +98,7 @@ document.getElementById('signupform').addEventListener('submit', function (event
       username: signupUsername.value.trim(),
       email: signupEmail.value.trim(),
       password: signupPassword.value.trim(),
+      signupDate: new Date().toLocaleDateString() // Add signup date
     };
     localStorage.setItem(signupUsername.value.trim(), JSON.stringify(newUser));
     showToast("Registration successful", "green");

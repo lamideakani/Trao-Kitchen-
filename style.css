@@ -149,7 +149,8 @@ body::-webkit-scrollbar{
 @keyframes fadeInBackground {
   0% { background-color: #111; }
   50% { background-color: #f9f9f9; }
-  100% { background-color: #111; }
+  75% { background-color: #ddd; }
+  100% { background-color: #0E0D0C; }
 }
 
 @keyframes fadeInContent {

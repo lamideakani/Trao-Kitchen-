@@ -108,7 +108,8 @@ const defaultMenuItems = {
   ]
 }
 
-const menuItems = JSON.parse(localStorage.getItem('menuItems')) || defaultMenuItems;
+const savedMenuItems = JSON.parse(localStorage.getItem('menuItems'));
+const menuItems = savedMenuItems || defaultMenuItems;
 
 // DOM elements
 const addProductForm = document.getElementById('add-product-form');
@@ -225,9 +226,26 @@ function deleteProduct(id) {
 }
 
 // Save to local storage
+// function saveToLocalStorage() {
+//   localStorage.setItem('menuItems', JSON.stringify(menuItems));
+// }
+
+
+// Function to save data to local storage
 function saveToLocalStorage() {
-  localStorage.setItem('menuItems', JSON.stringify(defaultMenuItems));
+  try {
+    localStorage.setItem('menuItems', JSON.stringify(menuItems));
+    console.log('Data saved to local storage successfully.');
+  } catch (e) {
+    console.error('Error saving data to local storage:', e);
+  }
 }
+
+// Call the function to save data
+saveToLocalStorage();
+
+// To check if data is saved correctly
+console.log(JSON.parse(localStorage.getItem('menuItems')));
 
 // Initial render
 renderProducts();

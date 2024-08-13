@@ -1,22 +1,30 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  const menuItems = JSON.parse(localStorage.getItem('menuItems')) || {};
+ 
+const savedMenuItems = JSON.parse(localStorage.getItem('menuItems'));
+const menuItems = savedMenuItems || defaultMenuItems;
 
   const filterInput = document.getElementById('filterInput');
   const sortSelect = document.getElementById('sortSelect');
   const cartCountElement = document.getElementById('cart-count');
 
   function renderMenuItems() {
-    console.log('Rendering menu items...'); // Debug
+    console.log('Menu Items:', menuItems); // Debug
     const categories = ['main', 'local', 'grills', 'soups', 'snacks', 'drinks'];
 
     categories.forEach(category => {
       const itemsContainer = document.querySelector(`.menu-items[data-category="${category}"]`);
       if (itemsContainer) {
+        console.error(`Container not found for category: ${category}`);
         itemsContainer.innerHTML = '';
 
         const categoryItems = menuItems[category] || [];
         const filteredItems = filterItems(categoryItems, filterInput.value);
         const sortedItems = sortItems(filteredItems);
+        console.log('Filtered items for category:', category, filteredItems);
 
         sortedItems.forEach(item => {
           const itemDiv = document.createElement('div');

@@ -529,5 +529,5 @@ window.addEventListener('load', function() {
           content.style.display = 'block';
           content.style.opacity = '1';
       }, 2000); // Time for the fade out transition
-  }, 3000); //  loader display duration
+  }, 2000); //  loader display duration
 });
