@@ -8,7 +8,7 @@
 }
 .sidebar{
   position: fixed;
-  height: fit-content;
+  height: 100%;
   width: 240px;
   background: #0A2558;
   padding-bottom: 30px;
@@ -18,7 +18,7 @@
   width: 60px;
 }
 .sidebar .logo-details{
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
 }
@@ -40,7 +40,7 @@
 .sidebar .nav-links li{
   position: relative;
   list-style: none;
-  height: 50px;
+  height: 70px;
 }
 .sidebar .nav-links li a{
   height: 100%;
@@ -975,6 +975,55 @@ th {
     color: black;
 }
        /* Messages */
+.messsage-tb1 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.messsage-tb1, .messsage-tb3, td {
+  border: 1px solid #ddd;
+}
+td{
+  color: #fff;
+  background-color: #111;
+
+}
+.messsage-tb3, td {
+  padding: 8px;
+  text-align: left;
+}
+
+.messsage-tb3 {
+  background-color: #C57C15;
+  color: #fff;
+  font-size: 18px;
+}
+.customer-name{
+  color:#C57C15;
+  text-align: center;
+  
+}
+.message-btn{
+  text-align: center;
+}
+.messsage-btn {
+  padding: 10px 15px;
+  background-color: #C57C15;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 17px;
+  transition: .5s ease;
+  cursor: pointer;
+  
+}
+
+.messsage-btn:hover {
+  background-color: transparent;
+  color:#111;
+  border: 1px solid #C57C15;
+}
 
       /* Rating Scorecard */
       :root {

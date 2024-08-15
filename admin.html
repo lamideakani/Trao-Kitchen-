@@ -22,12 +22,7 @@
             <span class="links_name">Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="admin-products.html">
-            <i class='bx bx-box'></i>
-            <span class="links_name">Product</span>
-          </a>
-        </li>
+        
         <li>
           <a href="#" data-target="div3">
             <i class='bx bx-list-ul'></i>
@@ -40,12 +35,7 @@
             <span class="links_name">Analytics</span>
           </a>
         </li>
-        <li>
-          <a href="#" data-target="div5">
-            <i class='bx bx-coin-stack'></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
+        
         <li>
           <a href="#" data-target="div6">
             <i class='bx bx-user'></i>
@@ -53,7 +43,7 @@
           </a>
         </li>
         <li>
-          <a href="customer-data.html">
+          <a href="#" data-target="div7">
             <i class='bx bx-message'></i>
             <span class="links_name">Messages</span>
           </a>
@@ -100,9 +90,9 @@
                   <span>></span>
                 </a>
         
-                <a href="#" class="admin-sub-menu-link">
+                <a href="/admin-products.html" class="admin-sub-menu-link">
                   <img src="assets/help.png">
-                  <p>Transaction History</p>
+                  <p>Product Lists</p>
                   <span>></span>
                 </a>
         
@@ -163,9 +153,7 @@
                       <li class="topic">Total</li>
                   </ul>
               </div>
-              <div class="button">
-                  <a href="#">See All</a>
-              </div>
+              
           </div>
       
           <div class="top-sales box">
@@ -173,6 +161,9 @@
               <ul class="top-sales-details">
                   <!-- Dynamic Data Will Be Injected Here -->
               </ul>
+              <div class="button">
+                <a href="/admin-products.html" target="_blank">See All Products</a>
+            </div>
           </div>
       </div>
       
@@ -180,23 +171,6 @@
 
 
       <!-- Product -->
-      <div id="div2" style="display: none;">
-        <div class="Vendor-container">
-        <div class="Vendor-form-container">
-            <input type="text" id="food-name" placeholder="Food Name">
-            <input type="text" id="food-price" placeholder="Food Price">
-            <input type="file" id="food-image">
-            <button onclick="addFood()">Add Food</button>
-        </div>
-        <div class="food-list-container">
-            <h2>Food List</h2>
-            <ul id="food-list"></ul>
-        </div>
-        <!-- Hidden file input for editing images -->
-        <input type="file" id="edit-food-image" style="display: none;" onchange="handleEditImageChange(event)">
-      </div>
-      </div>
-
 
       <!-- Order list -->
 <div id="div3" style="display: none;"> 
@@ -353,7 +327,24 @@
 
 
       <!-- Messages -->
-<div id="div7"> </div>
+<div id="div7" style="display: none;"> 
+  <h1 class="customer-name">Customer Data List</h1>
+  <table id="customerTable" class="messsage-tb1">
+    <thead>
+      <tr class="messsage-tb2">
+        <th class="messsage-tb3">Customer Username</th>
+        <th class="messsage-tb">Customer Email</th>
+        <th class="messsage-tb">Signup Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Customer data will be inserted here -->
+    </tbody>
+  </table>
+  <div class="message-btn">
+    <button id="sendBulkEmail" class="messsage-btn">Send Bulk Email</button>
+  </div>
+</div>
 
 
       <!-- Rating Scorecard -->
