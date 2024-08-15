@@ -278,10 +278,21 @@ function payWithWallet(amount) {
       
 
   } else {
-    alert('Insufficient wallet balance, add to balance');
-    window.location.href = 'wallet.html'; // Redirect to wallet page
+    Toastify({
+        text: 'Insufficient wallet balance, add to balance',
+        duration: 3000, // Duration in milliseconds
+        close: true,
+        gravity: 'top', // Position: top or bottom
+        position: 'right', // Position: left or right
+        backgroundColor: 'linear-gradient(to right, #FF5F6D, #FFC371)', // Background color
+    }).showToast();
+    setTimeout(() => {
+        window.location.href = 'wallet.html'; // Redirect to wallet page after toast is shown
+    }, 3000); // Match the duration of the toast
     return;
 }
+
+
 }
 
 // order summary
@@ -348,8 +359,16 @@ document.getElementById('online-payment-pay-button').addEventListener('click', f
           clearCart();
       },
       onClose: function(){
-          alert('Transaction was not completed, window closed.');
-      }
+        Toastify({
+            text: 'Transaction was not completed, window closed.',
+            duration: 3000, // Duration in milliseconds
+            close: true,
+            gravity: 'top', // Position: top or bottom
+            position: 'right', // Position: left or right
+            backgroundColor: 'linear-gradient(to right, #FF5F6D, #FFC371)', // Background color
+        }).showToast();
+    }
+    
   });
   handler.openIframe();
 });

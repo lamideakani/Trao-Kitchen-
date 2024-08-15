@@ -32,7 +32,7 @@ body {
   border-radius: 4px;
 }
 
-button {
+.gen-btn {
   background-color: #C57C15;
   color: white;
   border: none;
@@ -41,7 +41,7 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+.gen-btn:hover {
   background-color: #C57C15;
 }
 
