@@ -55,6 +55,7 @@ document.getElementById('signupform').addEventListener('submit', function (event
   let signupEmail = document.getElementById('signupEmail');
   let signupPassword = document.getElementById('signupPassword');
   let signupConfirmPassword = document.getElementById('signupConfirmPassword');
+  
 
   if (signupUsername.value.trim() === "") {
     setError(signupUsername, "Username is required");
@@ -99,6 +100,7 @@ document.getElementById('signupform').addEventListener('submit', function (event
       email: signupEmail.value.trim(),
       password: signupPassword.value.trim(),
       signupDate: new Date().toLocaleDateString() // Add signup date
+      
     };
     localStorage.setItem(signupUsername.value.trim(), JSON.stringify(newUser));
     showToast("Registration successful", "green");

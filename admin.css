@@ -979,14 +979,19 @@ th {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  border: 1px solid #251313;
 }
 
 .messsage-tb1, .messsage-tb3, td {
   border: 1px solid #ddd;
 }
+th{
+  background-color: #C57C15;
+}
 td{
   color: #fff;
   background-color: #111;
+   border: 1px solid #ddd;
 
 }
 .messsage-tb3, td {
@@ -994,10 +999,12 @@ td{
   text-align: left;
 }
 
-.messsage-tb3 {
+.messsage-tb {
   background-color: #C57C15;
   color: #fff;
   font-size: 18px;
+  margin-left: 5px;
+  padding:10px;
 }
 .customer-name{
   color:#C57C15;
