@@ -51,6 +51,19 @@ button:hover {
   gap: 1em;
 }
 
+.back-to-admin{
+  /* margin-top: 20px; */
+  border: 1px solid #C57C15;
+  background: black;
+  padding: 10px 39px;
+  z-index: 1000;
+  margin: 16px 15px;
+  transition: 250ms ease;
+  z-index: 1000;
+}
+.back-to-admin:hover{
+  background-color: #C57C15;
+}
 /* Default grid layout for smaller screens */
 #products-container {
   grid-template-columns: repeat(1, 1fr);

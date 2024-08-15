@@ -283,7 +283,7 @@ SEARCHBAR
 .search-container {
   position: relative;
   display: inline-block;
-  margin-left: -6rem;
+  margin-left: -10rem;
 }
 
 .search-wrapper {
