@@ -166,7 +166,7 @@ body::-webkit-scrollbar{
 
 #content {
   text-align: center;
-  padding: 20px;
+  /* padding: 20px; */
   animation: fadeInContent 1s ease-in-out forwards;
   opacity: 0;
 }

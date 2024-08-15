@@ -51,6 +51,12 @@ body {
 #transaction-list {
     list-style: none;
     padding: 0;
+    max-height: 20rem;
+    overflow-y: auto;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 #transaction-list li {
