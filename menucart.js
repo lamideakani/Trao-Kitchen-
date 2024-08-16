@@ -84,8 +84,10 @@ const menuItems = savedMenuItems || defaultMenuItems;
     const existingItem = cart.find(cartItem => cartItem.id === id);
     if (existingItem) {
       existingItem.quantity += 1;
+      alert('Item Added to Cart')
     } else {
       cart.push({ ...item, quantity: 1 });
+      alert('Item Added to Cart')
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));

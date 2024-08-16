@@ -527,6 +527,7 @@ z-index: 1;
   width: 60px;
   border-radius: 50%;
   margin-right: 15px;
+  height: 60px;
 }
 .user-sub-menu hr{
   border: 0;
@@ -545,6 +546,7 @@ z-index: 1;
 }
 .user-sub-menu-link p{
   width: 100%;
+  text-align: justify;
 }
 .user-sub-menu-link img{
   width: 40px;
